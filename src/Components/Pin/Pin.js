@@ -1,9 +1,9 @@
 import React from 'react';
 import './Pin.scss';
 
-const Pin = () => {
+const Pin = ({text}) => {
   return(
-    <p>Pin</p>
+    <p>{text}</p>
   )
 }
 
