@@ -33,7 +33,7 @@ class FormsContainer extends Component {
               this.collapseFormContainer(e);
             }}
           >
-            {">"}
+            {"||"}
           </button>
         </div>
       );
@@ -54,7 +54,7 @@ class FormsContainer extends Component {
               this.collapseFormContainer(e);
             }}
           >
-            {"<"}
+            {"||"}
           </button>
         </div>
       );
