@@ -1,11 +1,12 @@
+
 .attraction-form__container {
- width: 100%;
-    height: 32vh;
-    background: blanchedalmond;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
+  height: 32vh;
+  background: blanchedalmond;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .checkbox__container {
   display: flex;
@@ -17,7 +18,6 @@
   display: flex;
   width: 50%;
   padding: 10px;
-  // justify-content: space-evenly;
 }
 .attraction__checkbox {
   margin-right: 10px;

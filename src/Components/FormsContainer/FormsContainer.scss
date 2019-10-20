@@ -3,3 +3,19 @@
   height: 80vh;
   background: red;
 }
+.not-collapsed-forms__button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 30vw;
+  height: 80vh;
+  background: blue;
+}
+.collapsed-forms__button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 1.5vw;
+  height: 80vh;
+  background: blue;
+}
