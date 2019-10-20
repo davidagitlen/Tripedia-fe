@@ -28,7 +28,7 @@ class FormsContainer extends Component {
     if (collapsed) {
       return (
         <div className="collapsed-forms__button">
-          <button
+          <button className='collapse_button'
             onClick={e => {
               this.collapseFormContainer(e);
             }}
@@ -49,7 +49,7 @@ class FormsContainer extends Component {
             <ServicesForm />
             <SubmitTripForm />
           </div>
-          <button
+          <button className='collapse_button'
             onClick={e => {
               this.collapseFormContainer(e);
             }}

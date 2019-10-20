@@ -9,7 +9,7 @@
   align-items: center;
   width: 30vw;
   height: 80vh;
-  background: blue;
+
 }
 .collapsed-forms__button {
   display: flex;
@@ -17,5 +17,10 @@
   align-items: center;
   width: 1.5vw;
   height: 80vh;
-  background: blue;
+}
+.collapse_button {
+  height: 15%;
+  border-radius: 0px 150px 150px 0px;
+  font-size: 20px;
+  font-weight: bold;
 }
