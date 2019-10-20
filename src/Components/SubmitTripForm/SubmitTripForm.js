@@ -3,7 +3,9 @@ import './SubmitTripForm.scss';
 
 const SubmitTripForm = () => {
   return(
-    <p>SubmitTripForm</p>
+    <div className='submit-trip__form'>
+      <p>SubmitTripForm</p>
+    </div>
   )
 }
 

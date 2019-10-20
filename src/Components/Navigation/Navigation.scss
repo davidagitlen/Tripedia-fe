@@ -1,0 +1,23 @@
+.navigation__contianer{
+  background: whitesmoke;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 125px;
+  padding-right: 50px;
+}
+.logo-title__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 41%;
+}
+.tripedia-logo__nav {
+  height: 19vh;
+  width: 19vh;
+  border-radius: 50%;
+}
+.tripedia-text__nav {
+  font-size: 80px;
+}

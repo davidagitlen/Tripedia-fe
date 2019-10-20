@@ -1,14 +1,13 @@
 import React from 'react';
+import Navigation from '../Navigation/Navigation';
+import FormsContainer from '../FormsContainer/FormsContainer';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Look, it's a React app!
-        </p>
-      </header>
+      <Navigation />
+      <FormsContainer />
     </div>
   );
 }

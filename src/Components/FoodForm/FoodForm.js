@@ -3,7 +3,9 @@ import './FoodForm.scss';
 
 const FoodForm = () => {
   return(
-    <p>FoodForm</p>
+    <div className='food-form__container'>
+      <p>FoodForm</p>
+    </div>
   )
 }
 
