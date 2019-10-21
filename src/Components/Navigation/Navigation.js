@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navigation.scss';
-import Logo from '../../Images/Logo1.png';
+import Logo from '../../images/Logo1.png';
 
 const Navigation = () => {
   return(

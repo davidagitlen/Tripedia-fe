@@ -3,26 +3,33 @@
   height: 80vh;
   background: red;
 }
+
 .not-collapsed-forms__button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 30vw;
   height: 80vh;
-
+  background: rgba(228, 226, 226, 0);
+  z-index: 3;
+  position: absolute;
 }
+
 .collapsed-forms__button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 1.5vw;
   height: 80vh;
+  z-index: 3;
+  position: absolute;
 }
+
 .collapse_button {
   height: 350px;
   width: 20px;
   border-radius: 0px 150px 150px 0px;
-  color:rgb(228, 226, 226);
+  color: rgb(228, 226, 226);
   border: solid rgb(228, 226, 226) 1px;
   border-left: none;
 }
