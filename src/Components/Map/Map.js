@@ -31,29 +31,32 @@ const Map = (props) => {
   ];
   const renderPolylines = (map, maps) => {
     console.log('map:', map, 'maps:', maps)
-    let geodesicPolyline = new maps.Polyline({
-      path: flightPath
-    });
-    let directionsPath = new maps.DirectionsRenderer({
-      path: flightPath
-    })
-    geodesicPolyline.setMap(map)
+   
+    // let geodesicPolyline = new maps.Polyline({
+    //   path: flightPath
+    // });
+    // geodesicPolyline.setMap(map)
     // directionsPath.setMap(map)
   }
-  // const calcRoute = () => {
-  //   var start = { lat: 39.751774, lng: -104.996809 };
-  //   var end = { lat: 39.773563, lng: -105.039513 };
-  //   var request = {
-  //     origin: start,
-  //     destination: end,
-  //     travelMode: 'DRIVING'
-  //   };
-  //   directionsService.route(request, function(result, status) {
-  //     if (status == 'OK') {
-  //       directionsRenderer.setDirections(result)
-  //     }
-  //   })
-  // }
+  const displayRoute = (map, maps) => {
+    var start = { lat: 39.751774, lng: -104.996809 };
+    var end = { lat: 39.773563, lng: -105.039513 };
+    var request = {
+      origin: start,
+      destination: end,
+      travelMode: 'DRIVING'
+    };
+    let directionsRenderer = new maps.DirectionsRenderer({
+      path: flightPath
+    });
+    let directionsService = new maps.DirectionsService();
+    directionsService.route(request, function(result, status) {
+      if (status === 'OK') {
+        directionsRenderer.setDirections(result)
+      }
+    })
+    directionsRenderer.setMap(map)
+  }
   // const polylineOptions = {
   //   path: flightPath,
   //   draggable: true,
@@ -78,7 +81,7 @@ const Map = (props) => {
         defaultCenter={center}
         defaultZoom={zoom}
         yesIWantToUseGoogleMapApiInternals
-        onGoogleApiLoaded={({map, maps}) => renderPolylines(map, maps)}
+        onGoogleApiLoaded={({map, maps}) => displayRoute(map, maps)}
       >
         <Pin 
           lat={39.751774}
