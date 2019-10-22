@@ -3,9 +3,6 @@ import './Navigation.scss';
 
 const Navigation = () => {
   return(
-
-
-    
     <nav className='navigation__contianer'>
       <div className='logo-title__nav'>
         <img className='tripedia-logo__nav' src={Logo} alt='Tripedia Logo'/>
