@@ -24,7 +24,7 @@ const Map = (props) => {
   //   routePolyline.setMap(maps);
   // }
   return(
-    <div style={{height: '100vh', width: '100%'}}>
+    <div style={{height: '80vh', width: '100%'}}>
       <GoogleMapReact 
         defaultCenter={center}
         defaultZoom={zoom}
