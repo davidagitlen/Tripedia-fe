@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./FormsContainer.scss";
 import StartForm from "../StartForm/StartForm";
 import AttractionsForm from "../AttractionsForm/AttractionsForm";
-import AccomidationsForm from "../AccommodationsForm/AccommodationsForm";
+import AccommidationsForm from "../AccommodationsForm/AccommodationsForm";
 import FoodForm from "../FoodForm/FoodForm";
 import DrinksForm from "../DrinksForm/DrinksForm";
 import ServicesForm from "../ServicesForm/ServicesForm";
@@ -10,6 +10,27 @@ import SubmitTripForm from "../SubmitTripForm/SubmitTripForm";
 
 export const FormsContainer = () => {
   const [collapsed, collapseFormContainer] = useState(false);
+
+  const [openForm, collapseForm] = useState({
+    StartForm: true,
+    AttractionsForm: false,
+    AccommidationsForm: false,
+    FoodForm: false,
+    DrinksForm: false,
+    ServicesForm: false,
+    SubmitTripForm: false
+  })
+
+  const defaultOpenForm = {
+    StartForm: false,
+    AttractionsForm: false,
+    AccommidationsForm: false,
+    FoodForm: false,
+    DrinksForm: false,
+    ServicesForm: false,
+    SubmitTripForm: false
+  };
+
 
   if (collapsed) {
     return (
@@ -28,13 +49,15 @@ export const FormsContainer = () => {
     return (
       <div className="not-collapsed-forms__button">
         <div className="forms-container__container">
-          <StartForm />
-          <AttractionsForm />
-          <AccomidationsForm />
-          <FoodForm />
-          <DrinksForm />
-          <ServicesForm />
-          <SubmitTripForm />
+          <StartForm collapseForm={collapseForm}
+                      openForm={openForm}
+                      defaultForm={defaultOpenForm}/>
+          <AttractionsForm collapseForm={collapseForm}/>
+          <AccommidationsForm collapseForm={collapseForm}/>
+          <FoodForm collapseForm={collapseForm}/>
+          <DrinksForm collapseForm={collapseForm}/>
+          <ServicesForm collapseForm={collapseForm}/>
+          <SubmitTripForm collapseForm={collapseForm}/>
         </div>
         <button
           className="collapse_button"
