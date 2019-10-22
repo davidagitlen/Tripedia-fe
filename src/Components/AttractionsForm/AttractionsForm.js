@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AttractionsForm.scss";
 
-const AttractionsForm = () => {
+const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
   const [form, toggleClicked] = useState({
     DinosaurBones: false,
     CandyFactory: false,
@@ -45,12 +45,25 @@ const AttractionsForm = () => {
       </div>
     );
   });
-  return (
-    <div className="attraction-form__container">
-      <h2>- Attractions -</h2>
-      <div className="checkbox__container">{checkBoxes}</div>
-    </div>
-  );
+  if(openForm.AttractionsForm) {
+    return (
+      <div className="attraction-form__container">
+        <h2>- Attractions -</h2>
+        <div className="checkbox__container">{checkBoxes}</div>
+      </div>
+    );
+  } else {
+    return (
+      <div
+        onClick={e =>
+          collapseForm({ ...defaultForm, AttractionsForm: !openForm.AttractionsForm })
+        }
+        className="attraction-form-closed__container"
+      >
+        <h2>- Attractions -</h2>
+      </div>
+    );
+  }
 };
 
 export default AttractionsForm;
