@@ -1,14 +1,21 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.map-form__container {
   display: flex;
   flex-direction: column;
   align-items: center;
