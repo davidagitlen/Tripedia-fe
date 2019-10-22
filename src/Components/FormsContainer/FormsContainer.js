@@ -14,17 +14,17 @@ export const FormsContainer = () => {
   const [openForm, collapseForm] = useState({
     StartForm: true,
     AttractionsForm: false,
-    AccommidationsForm: false,
+    AccommodationsForm: false,
     FoodForm: false,
     DrinksForm: false,
     ServicesForm: false,
     SubmitTripForm: false
-  })
+  });
 
   const defaultOpenForm = {
     StartForm: false,
     AttractionsForm: false,
-    AccommidationsForm: false,
+    AccommodationsForm: false,
     FoodForm: false,
     DrinksForm: false,
     ServicesForm: false,
@@ -49,15 +49,25 @@ export const FormsContainer = () => {
     return (
       <div className="not-collapsed-forms__button">
         <div className="forms-container__container">
-          <StartForm collapseForm={collapseForm}
-                      openForm={openForm}
-                      defaultForm={defaultOpenForm}/>
-          <AttractionsForm collapseForm={collapseForm}/>
-          <AccommidationsForm collapseForm={collapseForm}/>
-          <FoodForm collapseForm={collapseForm}/>
-          <DrinksForm collapseForm={collapseForm}/>
-          <ServicesForm collapseForm={collapseForm}/>
-          <SubmitTripForm collapseForm={collapseForm}/>
+          <StartForm
+            collapseForm={collapseForm}
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
+          <AttractionsForm
+            collapseForm={collapseForm}
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
+          <AccommidationsForm
+            collapseForm={collapseForm}
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
+          <FoodForm collapseForm={collapseForm} />
+          <DrinksForm collapseForm={collapseForm} />
+          <ServicesForm collapseForm={collapseForm} />
+          <SubmitTripForm collapseForm={collapseForm} />
         </div>
         <button
           className="collapse_button"
