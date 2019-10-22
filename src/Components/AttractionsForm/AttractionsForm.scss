@@ -1,0 +1,34 @@
+.attraction-form__container {
+  width: 100%;
+  height: 32vh;
+  background: blanchedalmond;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.checkbox__container {
+  display: flex;
+  flex-flow: row wrap;
+  height: 90%;
+  padding: 20px;
+}
+.individual-checkbox__container {
+  display: flex;
+  width: 50%;
+  padding: 10px;
+}
+.attraction__checkbox {
+  margin-right: 10px;
+}
+
+.attraction-form-closed__container {
+  width: 100%;
+  height: 8vh;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly
+}
+
