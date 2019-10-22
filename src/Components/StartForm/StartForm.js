@@ -1,6 +1,7 @@
 import React from 'react';
 import './StartForm.scss';
 
+
 const StartForm = ({ collapseForm, openForm, defaultForm}) => {
   
 

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./AttractionsForm.scss";
+import React, { useState } from 'react';
+import './AttractionsForm.scss';
 
 const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
   const [form, toggleClicked] = useState({
@@ -66,4 +66,4 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
   }
 };
 
-export default AttractionsForm;
+export default AttractionsForm; 

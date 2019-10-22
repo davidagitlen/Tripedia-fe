@@ -1,16 +1,10 @@
-import React, { useState } from "react";
-import "./FormsContainer.scss";
-import StartForm from "../StartForm/StartForm";
-import AttractionsForm from "../AttractionsForm/AttractionsForm";
-import AccommidationsForm from "../AccommodationsForm/AccommodationsForm";
-import FoodForm from "../FoodForm/FoodForm";
-import DrinksForm from "../DrinksForm/DrinksForm";
-import ServicesForm from "../ServicesForm/ServicesForm";
-import SubmitTripForm from "../SubmitTripForm/SubmitTripForm";
+import React, { useState } from 'react';
+import './FormsContainer.scss';
 
-export const FormsContainer = () => {
-  const [collapsed, collapseFormContainer] = useState(false);
-
+const FormsContainer = () => {
+  
+  const [collapsed, collapsedFormContainer] = useState(false);
+  
   const [openForm, collapseForm] = useState({
     StartForm: true,
     AttractionsForm: false,
