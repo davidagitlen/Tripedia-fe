@@ -50,6 +50,7 @@ const Map = (props) => {
         directionsRenderer.setDirections(result)
       }
     })
+    // console.log(result)
     // directionsLegs.setMap(map)
     directionsRenderer.setMap(map)
   }
@@ -71,7 +72,7 @@ const Map = (props) => {
     // routePolyline.setMap(maps);
   // }
   return(
-    <div style={{height: '100vh', width: '100%'}}>
+    <div style={{height: '80vh', width: '100%'}}>
       <GoogleMapReact 
         bootstrapURLKeys={{ key: 'AIzaSyDB8SS8Xy8AGlUmcAOQhqurMugTBv31xns' }}
         defaultCenter={center}

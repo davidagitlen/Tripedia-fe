@@ -18,7 +18,7 @@ const Pin = ({text, type}) => {
   const imagePath = switchImage(type);
   return(
     <>
-      <img src={imagePath} alt={type} style={{ height: '25px', width: '25px', position: 'relative', top: '-25px', left: '-10.5px' }}/>
+      <img src={imagePath} alt={type} style={{ height: '25px', width: '25px', position: 'relative', top: '-25px', left: '-10.5px'}}/>
       <p>{text}</p>
     </>
   )
