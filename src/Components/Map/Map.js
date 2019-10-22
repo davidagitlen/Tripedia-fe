@@ -74,6 +74,7 @@ const Map = (props) => {
   return(
     <div style={{height: '80vh', width: '100%'}}>
       <GoogleMapReact
+        bootstrapURLKeys={{ key: 'AIzaSyDB8SS8Xy8AGlUmcAOQhqurMugTBv31xns' }}
         defaultCenter={center}
         defaultZoom={zoom}
         yesIWantToUseGoogleMapApiInternals
@@ -85,7 +86,7 @@ const Map = (props) => {
           text={'David\'s House'}
           type='house'
         />
-        <Pin 
+        <Pin
           lat={39.751774}
           lng={-104.996809}
           text={'Turing'}
