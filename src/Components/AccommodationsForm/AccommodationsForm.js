@@ -3,7 +3,9 @@ import './AccommodationsForm.scss';
 
 const AccommodationsForm = () => {
   return (
-    <p>AccommodationsForm</p>
+    <div className='accommodations-form__container'>
+      <p>AccommodationsForm</p>
+    </div>
   )
 }
 
