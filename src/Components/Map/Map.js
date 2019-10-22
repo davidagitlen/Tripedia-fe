@@ -73,7 +73,7 @@ const Map = (props) => {
   // }
   return(
     <div style={{height: '80vh', width: '100%'}}>
-      <GoogleMapReact 
+      <GoogleMapReact
         defaultCenter={center}
         defaultZoom={zoom}
         yesIWantToUseGoogleMapApiInternals

@@ -1,4 +1,10 @@
 
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 20vh;
@@ -8,10 +14,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-body {
-  min-height: 100vh;
-  min-width: 100vw;
-  margin: 0;
 }
 
 .map-form__container {
