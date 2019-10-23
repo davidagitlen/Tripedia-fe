@@ -36,7 +36,7 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
           type='checkbox'
           value={name}
           checked={form[name]}
-          onClick={e => 
+          onChange={e => 
             toggleClicked({
               ...form, [e.target.value]: !form[e.target.value]
             })
