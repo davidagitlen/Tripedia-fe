@@ -31,12 +31,15 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
   const checkBoxes = mockProps.map(checkBox => {
     let name = checkBox.replace(/ /gi, "");
     return (
-      <div className="individual-checkbox__container">
+      <div 
+        key={name}
+        className="individual-checkbox__container"
+      >
         <input
           className="attraction__checkbox"
           type="checkbox"
           value={name}
-          data={form[name]}
+          checked={form[name]}
           onClick={e =>
             toggleClicked({ ...form, [e.target.value]: !form[e.target.value] })
           }

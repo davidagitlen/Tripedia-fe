@@ -21,21 +21,22 @@ const DrinksForm = ({ collapseForm, openForm, defaultForm}) => {
   ];
 
   const checkBoxes = mockProps.map(checkBox => {
-    let name = checkBox.replace(/[' ', '-']/gi, '');
+    let name = checkBox.replace(/-|\s/gi, '');
     return (
       <div 
-      className='individual-checkbox__container'
+        key={name}
+        className='individual-checkbox__container'
       >   
       <input 
-      className='drink__checkbox'
-      type='checkbox'
-      value={name}
-      data={form[name]}
-      onClick={e => 
-        toggleClicked({
-          ...form, [e.target.value]: !form[e.target.value]
-        })
-      }
+        className='drink__checkbox'
+        type='checkbox'
+        value={name}
+        checked={form[name]}
+        onClick={e => 
+          toggleClicked({
+            ...form, [e.target.value]: !form[e.target.value]
+          })
+        }
       />
       <label>{checkBox}</label>
       </div>
@@ -54,13 +55,13 @@ const DrinksForm = ({ collapseForm, openForm, defaultForm}) => {
   } else {
     return ( 
       <div 
+        className='drink-form-closed__container'
         onClick={e => 
           collapseForm({
             ...defaultForm,
-            DrinkForm:!openForm.DrinkForm
+            DrinkForm: !openForm.DrinkForm
         })
       }
-      className='drink-form-closed__container'
       >
         <p>DrinkForm</p>
       </div>

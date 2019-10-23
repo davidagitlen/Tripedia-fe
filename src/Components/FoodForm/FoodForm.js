@@ -28,13 +28,14 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
     let name = checkBox.replace(/ /gi, '');
     return (
       <div
+        key={name}
         className='individual-checkbox__container'
         >
         <input
           className='food__checkbox'
           type='checkbox'
           value={name}
-          data={form[name]}
+          checked={form[name]}
           onClick={e => 
             toggleClicked({
               ...form, [e.target.value]: !form[e.target.value]

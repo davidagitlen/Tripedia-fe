@@ -74,8 +74,14 @@ export const FormsContainer = () => {
             openForm={openForm}
             defaultForm={defaultOpenForm}
           />
-          <ServicesForm collapseForm={collapseForm} />
-          <SubmitTripForm collapseForm={collapseForm} />
+          <ServicesForm 
+            collapseForm={collapseForm}
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
+          <SubmitTripForm 
+            collapseForm={collapseForm} 
+          />
         </div>
         <button
           className="collapse_button"
