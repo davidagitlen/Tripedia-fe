@@ -35,10 +35,24 @@ h2 {
   @extend %form_style;
   background-color: #010202;
   color: white;
-
 }
 
 img {
   width: 100%;
   // margin-top: -150px;
+}
+
+.create_account_link {
+  text-align: center;
+  margin: 10px 0px 30px;
+  font-size: 1.5em;
+}
+
+.create_account_link:hover {
+  cursor: pointer;
+  color: #DE582A;
+}
+
+.create_account_link:active {
+  color: red;
 }

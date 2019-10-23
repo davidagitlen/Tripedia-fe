@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './LoginForm.scss';
 import banner from '../../images/banner.jpg'
+import { NavLink } from 'react-router-dom';
 
 const LoginForm = () => {
   const [emailInput, handleEmail] = useState('');
@@ -29,7 +30,9 @@ const LoginForm = () => {
         <button
           disabled={!isEnabled}
           className="login_button"
-          type="submit">Login</button>
+          type="submit">Login
+        </button>
+        <NavLink to='/create_account'><p className="create_account_link">Create An Account</p></NavLink>
       </form> 
     </main>
   )
