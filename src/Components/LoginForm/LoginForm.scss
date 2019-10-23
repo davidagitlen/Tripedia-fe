@@ -1,0 +1,43 @@
+%form_style {
+  margin: 10px;
+  width: 33%;
+  height: 40px;
+  font-size: 1.5em;
+  align-self: center;
+  text-align: center;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+h2,
+.email_input,
+.password_input,
+.login_button {
+  @extend %form_style;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 3em;
+  text-align: center;
+}
+
+.login_button:disabled {
+  background-color: #d9e6e6;
+  color: white;
+}
+
+.login_button {
+  @extend %form_style;
+  background-color: #010202;
+  color: white;
+
+}
+
+img {
+  width: 100%;
+}
