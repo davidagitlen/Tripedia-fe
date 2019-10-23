@@ -28,7 +28,6 @@ const Map = (props) => {
     let end = { lat: 39.773563, lng: -105.039513 };
     console.log(map)
     console.log(maps)
-
     let request = {
       origin: start,
       destination: end,
@@ -39,38 +38,15 @@ const Map = (props) => {
       draggable: true,
       suppressMarkers: true
     });
-    // let directionsLegs = new maps.DirectionsLeg({
-    //   start_location: start,
-    //   end_location: end,
-    //   distance: '25'
-    // })
     let directionsService = new maps.DirectionsService();
     directionsService.route(request, function(result, status) {
+      console.log('result', result)
       if (status === 'OK') {
         directionsRenderer.setDirections(result)
       }
     })
-    // console.log(result)
-    // directionsLegs.setMap(map)
     directionsRenderer.setMap(map)
   }
-  // const polylineOptions = {
-  //   path: flightPath,
-  //   draggable: true,
-  //   editable: true
-  // };
-  // const setMap = (args) => {
-  //   const { maps }  = args;
-  //   console.log(maps)
-    // if (maps && typeof (maps.DirectionRenderer) === "function") {
-    //   // clean previous directions rendered to the map;
-    //   const directionDisplay = new maps.DirectionRenderer();
-    //   directionDisplay.setOptions(directionRendererOptions);
-    //   directionDisplay.setMap(maps);
-    // }
-    // const routePolyline = new maps.Polyline(polylineOptions);
-    // routePolyline.setMap(maps);
-  // }
   return(
     <div style={{height: '80vh', width: '100%'}}>
       <GoogleMapReact

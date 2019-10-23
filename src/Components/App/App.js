@@ -10,6 +10,8 @@ import CreateAccount from '../CreateAccount/CreateAccount'
 function App() {
   return (
     <div className="App">
+      <Route exact path='/login' render={() => <LoginForm />} />
+      <Route exact path='/create_account' render={() => <CreateAccount />} /> 
       <Route exact path='/' render={() =>
         <div className="nav_banner">
           <Navigation />
@@ -24,8 +26,6 @@ function App() {
           </div>
         </div> 
         } />
-      <Route exact path='/login' render={() => <LoginForm />} />
-      <Route exact path='/create_account' render={() => <CreateAccount />} /> 
     </div>
   );
 }

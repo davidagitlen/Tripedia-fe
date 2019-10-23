@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./FormsContainer.scss";
 import StartForm from "../StartForm/StartForm";
 import AttractionsForm from "../AttractionsForm/AttractionsForm";
-import AccommidationsForm from "../AccommodationsForm/AccommodationsForm";
+import AccommodationsForm from "../AccommodationsForm/AccommodationsForm";
 import FoodForm from "../FoodForm/FoodForm";
 import DrinksForm from "../DrinksForm/DrinksForm";
 import ServicesForm from "../ServicesForm/ServicesForm";
@@ -59,15 +59,29 @@ export const FormsContainer = () => {
             openForm={openForm}
             defaultForm={defaultOpenForm}
           />
-          <AccommidationsForm
+          <AccommodationsForm
             collapseForm={collapseForm}
             openForm={openForm}
             defaultForm={defaultOpenForm}
           />
-          <FoodForm collapseForm={collapseForm} />
-          <DrinksForm collapseForm={collapseForm} />
-          <ServicesForm collapseForm={collapseForm} />
-          <SubmitTripForm collapseForm={collapseForm} />
+          <FoodForm 
+            collapseForm={collapseForm}
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
+          <DrinksForm 
+            collapseForm={collapseForm} 
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
+          <ServicesForm 
+            collapseForm={collapseForm}
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
+          <SubmitTripForm 
+            collapseForm={collapseForm} 
+          />
         </div>
         <button
           className="collapse_button"
