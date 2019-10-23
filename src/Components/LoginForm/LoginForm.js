@@ -11,7 +11,7 @@ const LoginForm = () => {
     <main>
       <img src={banner} alt="" /> 
       <form className="login_form">
-        <h2>LoginForm</h2>
+        <h2>Login Form</h2>
         <input
           type="email"
           className="email_input"
