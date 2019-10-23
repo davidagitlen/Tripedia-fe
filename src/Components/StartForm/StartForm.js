@@ -12,6 +12,12 @@ const StartForm = ({ collapseForm, openForm, defaultForm}) => {
     enterCities({...cities, [e.target.name]:e.target.value})
   }
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    const pointsToSend = {...cities}
+    console.log('start and end for BE', pointsToSend)
+  }
+
   if(openForm.StartForm) {
     return(
       <form className='start-form__container'>
@@ -31,7 +37,11 @@ const StartForm = ({ collapseForm, openForm, defaultForm}) => {
           placeholder='End'
           onChange={ e => updateCities(e)}
         />
-        <button>Create Trip</button>
+        <button
+          onClick={handleSubmit}
+        >
+          Create Trip
+        </button>
       </form>
     )
   } else {
