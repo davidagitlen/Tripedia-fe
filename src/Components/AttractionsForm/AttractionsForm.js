@@ -40,11 +40,12 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
           onClick={e =>
             toggleClicked({ ...form, [e.target.value]: !form[e.target.value] })
           }
-        ></input>
+        />
         <label>{checkBox}</label>
       </div>
     );
   });
+
   if(openForm.AttractionsForm) {
     return (
       <div className="attraction-form__container">

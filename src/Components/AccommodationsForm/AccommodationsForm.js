@@ -10,7 +10,8 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
     Resorts: false,
     Campgrounds: false,
     Hostels: false,
-    SkiResorts: false
+    SkiResorts: false,
+    GuestHouses: false
   });
 
   let mockProps = [
@@ -20,7 +21,8 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
     "Resorts",
     "Campgrounds",
     "Hostels",
-    "Ski Resorts"
+    "Ski Resorts",
+    "Guest Houses"
   ];
 
   const checkBoxes = mockProps.map(checkBox => {
