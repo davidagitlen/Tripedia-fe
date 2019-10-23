@@ -32,7 +32,7 @@ const LoginForm = () => {
           className="login_button"
           type="submit">Login
         </button>
-        <NavLink to='/create_account'><p className="create_account_link">Create An Account</p></NavLink>
+        <NavLink to='/create_account'><p className="create_account_link">Create Account</p></NavLink>
       </form> 
     </main>
   )
