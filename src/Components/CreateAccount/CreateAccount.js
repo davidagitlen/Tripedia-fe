@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CreateAccount.scss';
+import banner from '../../images/banner.jpg'
+
 
 const CreateAccount = () => {
+  // const [] = useState('')
   return(
-    <p>CreateAccount</p>
+    <img src={banner} alt="Tripedia for all your travel planning needs" />
   )
 }
 

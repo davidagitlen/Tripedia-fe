@@ -9,20 +9,18 @@ const LoginForm = () => {
 
   return (
     <main>
-      <img src={banner} alt="" /> 
+      <img src={banner} alt="Tripedia for all your travel planning needs" /> 
       <form className="login_form">
         <h2>Login Form</h2>
         <input
           type="email"
           className="email_input"
-          alt="email_input"
           placeholder="email"
           value={emailInput}
           onChange={(e) => handleEmail(e.target.value)}>
         </input>
         <input
           type="password"
-          alt="password_input"
           className="password_input"
           placeholder="password"
           value={passwordInput}
