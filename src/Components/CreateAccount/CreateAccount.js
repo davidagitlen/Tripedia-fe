@@ -8,11 +8,12 @@ const CreateAccount = () => {
   const [emailInput, handleEmail] = useState('');
   const [passwordInput, handlePassword] = useState('');
   const [confirmPasswordInput, handlePasswordConfirmation] = useState('');
+  const isEnabled = emailInput.length > 0 && passwordInput.length > 0 && nameInput.length > 0 && passwordInput.length > 0 && confirmPasswordInput.length > 0;
 
   return(
     <main>
       <img src={banner} alt="Tripedia for all your travel planning needs" />
-      <form>
+      <form className="create_account_form">
         <h2>Create Account</h2>
         <input
           type="text"
@@ -42,7 +43,7 @@ const CreateAccount = () => {
           onChange={(e) => handlePasswordConfirmation(e.target.value)}>
         </input>
         <button
-          // disabled={!isEnabled}
+          disabled={!isEnabled}
           className="submit_button"
           type="submit">Submit
         </button>
