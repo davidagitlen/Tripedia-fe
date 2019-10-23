@@ -28,7 +28,7 @@ class Pin extends Component {
   };
   render() {
     const { isHovered } = this.state;
-    const { text, type, select } = this.props;
+    const { name, image, rating, url, type, addWaypt, lat, lng} = this.props;
     const imagePath = this.switchImage(type);
     if(!isHovered) {
       return (
@@ -55,7 +55,6 @@ class Pin extends Component {
               cursor: 'pointer',
               }}
             />
-          <p>{text}</p>
         </div>
       );
     } else {
@@ -79,6 +78,10 @@ class Pin extends Component {
               padding: '4px',
               cursor: 'pointer',
             }}>
+            <h3>{name}</h3>
+            <img style={{ width: '50px', height: '50px' }} src={image} alt={name}></img>
+            <a href={url} target="_blank" rel="noopener noreferrer">{rating}</a>
+            <button onClick={(e) => addWaypt(e.target.value)} value={[lat, lng]}>Add to Trip</button>
           </div> 
         </div>
       );

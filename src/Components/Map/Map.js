@@ -1,24 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import GoogleMapReact from "google-map-react";
-// import Polyline from 'google-map-react';
 import Pin from "../Pin/Pin";
 import "./Map.scss";
-
-// const Polyline = () => {
-//   <Polyline
-//     path={pathCoordinates}
-//     options={{
-//       strokeColor: '#00ffff',
-//       strokeOpacity: 1,
-//       strokeWeight: 2,
-//       icons: [{
-//         icon: "hello",
-//         offset: '0',
-//         repeat: '10px'
-//       }],
-//     }}
-//   />
-// }
 
 const mockYelpResponse = {
   id: "yRl2-nI6P15QASVda1qqwA",
@@ -63,32 +46,42 @@ const cleanYelpResponse = yelp => {
   };
 };
 
-// const createPin = () => {
-//  let yelpObject = cleanYelpResponse(mockYelpResponse);
-//  console.log('yelpObject :', yelpObject);
-//   let x = <Pin
-//     onClick={waypts.push({ lat: 39.71698, lng: -105.08001 })}
-//     lat={yelpObject.latitude}
-//     lng={yelpObject.longitude}
-//     text={yelpObject.name}
-//     type="house"
-//   />
-//   return x
-// }
-
 const Map = props => {
+  const [newWaypoint, createNewWaypoint] = useState([])
   const { center, zoom } = props;
-  let waypts = [
-    { location: { lat: 39.71698, lng: -105.08001 }, stopover: true }
-  ];
+  const addWaypt =value => {
+    let waypts = [];
+    const coordinates = value.split(',')
+    waypts.push({location: {lat: parseFloat(coordinates[0]), lng: parseFloat(coordinates[1]) }, stopover: true})
+    let newPoints = [...newWaypoint, waypts[0]]
+    console.log('newPoints', newPoints)
+    createNewWaypoint([...newPoints])
+  };
+  const createPin = () => {
+    console.log('rerender')
+    let yelp = cleanYelpResponse(mockYelpResponse);
+    return (
+      <Pin
+        lat={yelp.latitude}
+        lng={yelp.longitude}
+        name={yelp.name}
+        image={yelp.image}
+        rating={yelp.rating}
+        url={yelp.url}
+        type="house"
+        addWaypt={addWaypt}
+      />
+    )
+  };
   const displayRoute = (map, maps) => {
+    console.log('HIT')
     let start = { lat: 39.751774, lng: -104.996809 };
     let end = { lat: 39.773563, lng: -105.039513 };
 
     let request = {
       origin: start,
       destination: end,
-      waypoints: waypts,
+      waypoints: newWaypoint,
       travelMode: "DRIVING"
     };
     let directionsRenderer = new maps.DirectionsRenderer({
@@ -113,31 +106,32 @@ const Map = props => {
         defaultZoom={zoom}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
-      >
+        >
         <Pin
           lat={39.773563}
           lng={-105.039513}
           text={"David's House"}
           type="school"
-        />
+          />
         <Pin
           lat={39.751774}
           lng={-104.996809}
           text={"Turing School"}
           type="school"
-        />
-        <Pin
+          />
+        {createPin()}
+        {/* <Pin
           // select={() => {
-          //   waypts.push({
-          //     location: { lat: 39.71698, lng: -105.08001 },
-          //     stopover: true
-          //   });
-          // }}
-          lat={39.71698}
-          lng={-105.08001}
-          text="Blah Yelp"
-          type="school"
-        />
+            //   waypts.push({
+              //     location: { lat: 39.71698, lng: -105.08001 },
+              //     stopover: true
+              //   });
+              // }}
+              lat={39.71698}
+              lng={-105.08001}
+              text="Blah Yelp"
+              type="school"
+            /> */}
       </GoogleMapReact>
     </div>
   );
