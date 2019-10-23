@@ -1,27 +1,89 @@
-import React from 'react';
-import './Pin.scss';
-import schoolPin from '../../images/school-pin.svg';
-import housePin from '../../images/house-pin.svg';
-import mapPin from '../../images/map-pin.svg';
+import React, {Component} from "react";
+import "./Pin.scss";
+import schoolPin from "../../images/school-pin.svg";
+import housePin from "../../images/house-pin.svg";
+import mapPin from "../../images/map-pin.svg";
 
-const Pin = ({text, type}) => {
-  const switchImage = (imageType) => {
-    switch(imageType) {
-      case 'school' : 
-        return schoolPin;
-      case 'house' :
-        return housePin;
-      default :
-        return mapPin
+class Pin extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isHovered: false
     }
   }
-  const imagePath = switchImage(type);
-  return(
-    <>
-      <img src={imagePath} alt={type} style={{ height: '25px', width: '25px', position: 'relative', top: '-25px', left: '-10.5px'}}/>
-      <p>{text}</p>
-    </>
-  )
-}
+
+  handleMouseHover = () => {
+    this.setState({isHovered: !this.state.isHovered})
+  }
+  
+  switchImage = imageType => {
+    switch (imageType) {
+      case "school":
+        return schoolPin;
+      case "house":
+        return housePin;
+      default:
+        return mapPin;
+    }
+  };
+  render() {
+    const { isHovered } = this.state;
+    const { text, type, select } = this.props;
+    const imagePath = this.switchImage(type);
+    if(!isHovered) {
+      return (
+        <div className='pin'
+             onMouseEnter={this.handleMouseHover}
+             >
+          <img 
+            src={imagePath}
+            alt={type}
+            style={{
+              position: 'absolute',
+              width: '40px',
+              height: '40px',
+              left: '-20px',
+              top: '-20px',
+              border: '5px solid rgb(244, 67, 54)',
+              borderRadius: '40px',
+              backgroundColor: 'white',
+              textAlign: 'center',
+              color: 'rgb(63, 81, 181)',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              padding: '4px',
+              cursor: 'pointer',
+              }}
+            />
+          <p>{text}</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className='pin'
+          onMouseLeave={this.handleMouseHover}>
+          <div
+            style={{
+              position: 'absolute',
+              width: '200px',
+              height: '200px',
+              left: '-20px',
+              top: '-20px',
+              border: '5px solid rgb(244, 67, 54)',
+              borderRadius: '40px',
+              backgroundColor: 'white',
+              textAlign: 'center',
+              color: 'rgb(63, 81, 181)',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              padding: '4px',
+              cursor: 'pointer',
+            }}>
+          </div> 
+        </div>
+      );
+    }
+  }
+};
 
 export default Pin;
