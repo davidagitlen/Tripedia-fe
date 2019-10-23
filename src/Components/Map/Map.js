@@ -47,15 +47,12 @@ const cleanYelpResponse = yelp => {
 };
 
 const Map = props => {
-  const [newWaypoint, createNewWaypoint] = useState([])
+  const [allWaypoints, createNewWaypoint] = useState([])
   const { center, zoom } = props;
-  const addWaypt =value => {
-    let waypts = [];
+  const addWaypt = value => {
     const coordinates = value.split(',')
-    waypts.push({location: {lat: parseFloat(coordinates[0]), lng: parseFloat(coordinates[1]) }, stopover: true})
-    let newPoints = [...newWaypoint, waypts[0]]
-    console.log('newPoints', newPoints)
-    createNewWaypoint([...newPoints])
+    createNewWaypoint([...allWaypoints, { location: { lat: parseFloat(coordinates[0]), lng: parseFloat(coordinates[1]) }, stopover: true }])
+
   };
   const createPin = () => {
     console.log('rerender')
@@ -81,7 +78,7 @@ const Map = props => {
     let request = {
       origin: start,
       destination: end,
-      waypoints: newWaypoint,
+      waypoints: allWaypoints,
       travelMode: "DRIVING"
     };
     let directionsRenderer = new maps.DirectionsRenderer({
@@ -98,6 +95,8 @@ const Map = props => {
     });
     directionsRenderer.setMap(map);
   };
+
+
   return (
     <div style={{ height: "80vh", width: "100%" }}>
       <GoogleMapReact
@@ -120,18 +119,6 @@ const Map = props => {
           type="school"
           />
         {createPin()}
-        {/* <Pin
-          // select={() => {
-            //   waypts.push({
-              //     location: { lat: 39.71698, lng: -105.08001 },
-              //     stopover: true
-              //   });
-              // }}
-              lat={39.71698}
-              lng={-105.08001}
-              text="Blah Yelp"
-              type="school"
-            /> */}
       </GoogleMapReact>
     </div>
   );
