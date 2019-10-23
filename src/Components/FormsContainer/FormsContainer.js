@@ -69,7 +69,11 @@ export const FormsContainer = () => {
             openForm={openForm}
             defaultForm={defaultOpenForm}
           />
-          <DrinksForm collapseForm={collapseForm} />
+          <DrinksForm 
+            collapseForm={collapseForm} 
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
           <ServicesForm collapseForm={collapseForm} />
           <SubmitTripForm collapseForm={collapseForm} />
         </div>
