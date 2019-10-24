@@ -56,11 +56,13 @@ const CreateAccount = () => {
           value={confirmPassword}
           onChange={handleChange}>
         </input>
-        <button
-          disabled={!isEnabled}
-          className="submit_button"
-          type="submit">Submit
-        </button>
+        <NavLink to="/" className="button">
+          <button
+            disabled={!isEnabled}
+            className="submit_button"
+            type="submit">Submit
+          </button>
+        </NavLink>
         <NavLink to="/login">
           <p className="login_link">Login</p>
         </NavLink>

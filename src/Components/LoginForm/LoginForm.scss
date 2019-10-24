@@ -32,10 +32,14 @@ h2 {
   color: white;
 }
 
-button .login_button {
+.login_button {
   @extend %form_style;
   background-color: #010202;
   color: white;
+}
+
+.button {
+  text-align: center;
 }
 
 .banner {

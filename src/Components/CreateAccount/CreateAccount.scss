@@ -29,7 +29,7 @@ h2,
   color: white;
 }
 
-button .submit_button {
+.submit_button {
   @extend %form_style;
   background-color: #010202;
   color: white;

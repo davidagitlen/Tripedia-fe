@@ -40,9 +40,11 @@ const LoginForm = () => {
           value={password}
           onChange={handleChange}
         ></input>
-        <button disabled={!isEnabled} className="login_button" type="submit">
-          Login
-        </button>
+        <NavLink to="/" className="button">
+          <button disabled={!isEnabled} className="login_button" type="submit">
+            Login
+          </button>
+        </NavLink>
         <NavLink to="/create_account">
           <p className="create_account_link">Create Account</p>
         </NavLink>
