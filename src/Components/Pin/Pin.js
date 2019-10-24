@@ -32,13 +32,8 @@ class Pin extends Component {
     const imagePath = this.switchImage(type);
     if(!isHovered) {
       return (
-        <div
-             onMouseEnter={this.handleMouseHover}
-             >
-          <img  className='pin'
-            src={imagePath}
-            alt={type}
-            />
+        <div className="pin" onMouseEnter={this.handleMouseHover}>
+          <img className='pin-image' src={imagePath} alt={type} />
         </div>
       );
     } else {
