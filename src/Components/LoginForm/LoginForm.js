@@ -16,7 +16,7 @@ const LoginForm = () => {
   };
 
   return (
-    <main className='blah'>
+    <main>
       <img
         className="banner"
         src={banner}

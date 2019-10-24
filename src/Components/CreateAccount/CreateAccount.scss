@@ -32,3 +32,18 @@ h2,
   background-color: #010202;
   color: white;
 }
+
+.login_link {
+  text-align: center;
+  margin: 10px 0px 30px;
+  font-size: 1.5em;
+}
+
+.login_link:hover {
+  cursor: pointer;
+  color: #DE582A;
+}
+
+.login_link:active {
+  color: red;
+}

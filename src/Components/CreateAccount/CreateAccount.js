@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './CreateAccount.scss';
 import banner from '../../images/banner.jpg'
 
 
 const CreateAccount = () => {
-  // const [nameInput, handleName] = useState('');
-  // const [emailInput, handleEmail] = useState('');
-  // const [passwordInput, handlePassword] = useState('');
-  // const [confirmPasswordInput, handlePasswordConfirmation] = useState('');
   
   const [accountState, setAccountState] = useState({
     name: '',
@@ -64,6 +61,9 @@ const CreateAccount = () => {
           className="submit_button"
           type="submit">Submit
         </button>
+        <NavLink to="/login">
+          <p className="login_link">Login</p>
+        </NavLink>
       </form>
     </main>
   )
