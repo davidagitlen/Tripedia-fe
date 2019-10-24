@@ -64,6 +64,8 @@ const cleanYelpResponse = yelp => {
         rating={yelp.rating}
         url={yelp.url}
         type="house"
+        updateWaypoints={updateWaypoints}
+        waypoints={waypoints}
       />
     )
   };
