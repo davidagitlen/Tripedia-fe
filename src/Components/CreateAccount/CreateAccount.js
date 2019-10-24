@@ -4,11 +4,24 @@ import banner from '../../images/banner.jpg'
 
 
 const CreateAccount = () => {
-  const [nameInput, handleName] = useState('');
-  const [emailInput, handleEmail] = useState('');
-  const [passwordInput, handlePassword] = useState('');
-  const [confirmPasswordInput, handlePasswordConfirmation] = useState('');
-  const isEnabled = emailInput.length > 0 && passwordInput.length > 0 && nameInput.length > 0 && passwordInput.length > 0 && confirmPasswordInput.length > 0;
+  // const [nameInput, handleName] = useState('');
+  // const [emailInput, handleEmail] = useState('');
+  // const [passwordInput, handlePassword] = useState('');
+  // const [confirmPasswordInput, handlePasswordConfirmation] = useState('');
+  
+  const [accountState, setAccountState] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  })
+
+  const {name, email, password, confirmPassword} = accountState
+  const isEnabled = email && password && name && password && confirmPassword;
+  
+ const handleChange = (e) => {
+   setAccountState({...accountState, [e.target.name]: e.target.value })
+  }
 
   return(
     <main>
@@ -19,28 +32,32 @@ const CreateAccount = () => {
           type="text"
           className="name_input"
           placeholder="name"
-          value={nameInput}
-          onChange={(e) => handleName(e.target.value)}></input>
+          name='name'
+          value={name}
+          onChange={handleChange}></input>
         <input
           type="email"
+          name='email'
           className="email_input"
           placeholder="email"
-          value={emailInput}
-          onChange={(e) => handleEmail(e.target.value)}>
+          value={email}
+          onChange={handleChange}>
         </input>
         <input
           type="password"
+          name='password'
           className="password_input"
           placeholder="password"
-          value={passwordInput}
-          onChange={(e) => handlePassword(e.target.value)}>
+          value={password}
+          onChange={handleChange}>
         </input>
         <input
           type="password"
+          name='confirmPassword'
           className="confirm_password_input"
           placeholder="confirm password"
-          value={confirmPasswordInput}
-          onChange={(e) => handlePasswordConfirmation(e.target.value)}>
+          value={confirmPassword}
+          onChange={handleChange}>
         </input>
         <button
           disabled={!isEnabled}

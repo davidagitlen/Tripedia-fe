@@ -1,41 +1,54 @@
-import React, { useState } from 'react';
-import './LoginForm.scss';
-import banner from '../../images/banner.jpg'
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import "./LoginForm.scss";
+import { NavLink } from "react-router-dom";
+import banner from "../../images/banner.jpg";
 
 const LoginForm = () => {
-  const [emailInput, handleEmail] = useState('');
-  const [passwordInput, handlePassword] = useState('');
-  const isEnabled = emailInput.length > 0 && passwordInput.length > 0;
+  const [loginState, handleForm] = useState({
+    email: "",
+    password: ""
+  });
+  const { email, password } = loginState;
+  const isEnabled = email && password;
+
+  const handleChange = e => {
+    handleForm({ ...loginState, [e.target.name]: e.target.value });
+  };
 
   return (
-    <main>
-      <img src={banner} alt="Tripedia for all your travel planning needs" /> 
+    <main className='blah'>
+      <img
+        className="banner"
+        src={banner}
+        alt="Tripedia for all your travel planning needs"
+      />
       <form className="login_form">
         <h2>Login Form</h2>
         <input
-          type="email"
           className="email_input"
+          type="email"
+          name="email"
           placeholder="email"
-          value={emailInput}
-          onChange={(e) => handleEmail(e.target.value)}>
-        </input>
+          value={email}
+          onChange={handleChange}
+        ></input>
         <input
           type="password"
+          name="password"
           className="password_input"
           placeholder="password"
-          value={passwordInput}
-          onChange={(e) => handlePassword(e.target.value)}>
-        </input>
-        <button
-          disabled={!isEnabled}
-          className="login_button"
-          type="submit">Login
+          value={password}
+          onChange={handleChange}
+        ></input>
+        <button disabled={!isEnabled} className="login_button" type="submit">
+          Login
         </button>
-        <NavLink to='/create_account'><p className="create_account_link">Create Account</p></NavLink>
-      </form> 
+        <NavLink to="/create_account">
+          <p className="create_account_link">Create Account</p>
+        </NavLink>
+      </form>
     </main>
-  )
-}
+  );
+};
 
 export default LoginForm;
