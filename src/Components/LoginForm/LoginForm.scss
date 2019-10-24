@@ -1,3 +1,14 @@
+.form_body {
+  padding: 40px 150px 0px;
+  background-color: whitesmoke;
+  height: 120vh;
+}
+
+.banner {
+  border-radius: 8px;
+  width: 100%;
+}
+
 %form_style {
   margin: 10px;
   width: 33%;
@@ -21,10 +32,11 @@ h2,
   @extend %form_style;
 }
 
-h2 {
-  margin-top: 20px;
-  font-size: 3em;
+.form_title {
+  margin: 25px;
+  font-size: 2.6em;
   text-align: center;
+  width: 40%;
 }
 
 .login_button:disabled {
@@ -40,10 +52,6 @@ h2 {
 
 .button {
   text-align: center;
-}
-
-.banner {
-  width: 100%;
 }
 
 .create_account_link {

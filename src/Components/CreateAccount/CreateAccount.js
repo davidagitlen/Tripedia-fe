@@ -21,10 +21,10 @@ const CreateAccount = () => {
   }
 
   return(
-    <main>
+    <main className="form_body">
       <img src={banner} alt="Tripedia for all your travel planning needs" className="banner" />
       <form className="create_account_form">
-        <h2>Create Account</h2>
+        <h2 className="form_title">Create Account</h2>
         <input
           type="text"
           className="name_input"

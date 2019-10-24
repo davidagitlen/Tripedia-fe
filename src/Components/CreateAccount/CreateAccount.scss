@@ -21,7 +21,6 @@ h2,
 .confirm_password_input,
 .submit_button {
   @extend %form_style;
-
 }
 
 .submit_button:disabled {
