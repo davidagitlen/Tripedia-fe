@@ -74,7 +74,6 @@ const Map = props => {
     console.log('HIT')
     let start = { lat: 39.751774, lng: -104.996809 };
     let end = { lat: 39.773563, lng: -105.039513 };
-
     let request = {
       origin: start,
       destination: end,
@@ -89,18 +88,16 @@ const Map = props => {
 
     let directionsService = new maps.DirectionsService();
     directionsService.route(request, function(result, status) {
-      if (status === "OK") {
-        directionsRenderer.setDirections(result);
+      console.log('result', result)
+      if (status === 'OK') {
+        directionsRenderer.setDirections(result)
       }
-    });
-    directionsRenderer.setMap(map);
-  };
-
-
-  return (
-    <div style={{ height: "80vh", width: "100%" }}>
+    })
+    directionsRenderer.setMap(map)
+  }
+  return(
+    <div style={{height: '80vh', width: '100%'}}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyDB8SS8Xy8AGlUmcAOQhqurMugTBv31xns" }}
         defaultCenter={center}
         defaultZoom={zoom}
         yesIWantToUseGoogleMapApiInternals

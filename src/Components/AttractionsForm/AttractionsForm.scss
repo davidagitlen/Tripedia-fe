@@ -1,4 +1,3 @@
-
 .attraction-form__container {
   width: 100%;
   height: 32vh;
@@ -8,17 +7,20 @@
   justify-content: center;
   flex-direction: column;
 }
+
 .checkbox__container {
   display: flex;
   flex-flow: row wrap;
   height: 90%;
   padding: 20px;
 }
+
 .individual-checkbox__container {
   display: flex;
   width: 50%;
   padding: 10px;
 }
+
 .attraction__checkbox {
   margin-right: 10px;
 }

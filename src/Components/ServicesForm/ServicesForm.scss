@@ -1,5 +1,19 @@
 .services-form__container {
   width: 100%;
-  height: 8vh;
+  height: 32vh;
   background: blueviolet;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.services-form-closed__container {
+  width: 100%;
+  height: 8vh;
+  background: orange;
+}
+
+.food__checkbox {
+  margin: 0px 10px 0px 0px;
 }
