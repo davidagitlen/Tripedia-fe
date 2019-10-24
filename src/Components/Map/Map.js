@@ -50,7 +50,7 @@ const Map = (props) => {
   return(
     <div style={{height: '80vh', width: '100%'}}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyDB8SS8Xy8AGlUmcAOQhqurMugTBv31xns' }}
+        
         defaultCenter={center}
         defaultZoom={zoom}
         yesIWantToUseGoogleMapApiInternals
