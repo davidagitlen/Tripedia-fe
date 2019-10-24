@@ -17,21 +17,21 @@
 // }
 
 .pin-hover {
-              position: absolute;
-              width: 200px;
-              height: 200px;
-              left: -20px;
-              top: -20px;
-              border: 5px solid rgb(244, 67, 54);
-              border-radius: 8px;
-              background-color: white;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-around;
-              align-items: center;
-              color: rgb(63, 81, 181);
-              font-size: 16px;
-              font-weight: bold;
-              padding: 4px;
-              z-index: 999;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: -20px;
+  top: -20px;
+  border: 5px solid rgb(244, 67, 54);
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: rgb(63, 81, 181);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px;
+  z-index: 999;
             }
