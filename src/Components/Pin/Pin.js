@@ -6,17 +6,37 @@ import mapPin from "../../images/map-pin.svg";
 
 
 const Pin = (props) => {
-  const { name, image, rating, url, type, updateWaypoints, lat, lng, waypoints } = props;
-  console.log('waypoints', waypoints)
+  const { name, image, rating, url, type, updateStops, lat, lng, stops } = props;
+  console.log('stops', stops)
   console.log('lat and lng', lat, lng)
   const [isHovered, toggleHovered] = useState(false);
-  const waypointFound = waypoints.find(waypoint => {
-    return waypoint.lat === lat && waypoint.lng === lng
+  const stopFound = stops.find(stop => {
+    return stop.lat === lat && stop.lng === lng
   });
-  const addOrRemoveText = waypointFound ? 'Remove From Trip' : 'Add To Trip';
+  const addOrRemoveText = stopFound ? 'Remove From Trip' : 'Add To Trip';
 
   const handleMouseOver = () => {
     toggleHovered(!isHovered)
+  }
+
+  const handleUpdateStops = () => {
+    if (stopFound) {
+      const filteredStops = stops.filter(stop => 
+        stop.lat !== lat && stop.lng !== lng
+      );
+      updateStops(filteredStops)
+    } else {
+      const stopToAdd = {
+        name,
+        image,
+        rating,
+        url,
+        type,
+        lat,
+        lng
+      }
+      updateStops([...stops, stopToAdd])
+    }
   }
 
   const switchImage = imageType => {
@@ -31,7 +51,7 @@ const Pin = (props) => {
   };
   
   const imagePath = switchImage(type);
-      
+
   if (!isHovered) {
     return (
       <div
@@ -48,11 +68,19 @@ const Pin = (props) => {
       <div className='pin-hover'
         onMouseLeave={handleMouseOver}>
         <h3>{name}</h3>
-        <img style={{ width: '50px', height: '50px' }} src={image} alt={name}></img>
-        <a href={url} target="_blank" rel="noopener noreferrer">{rating}</a>
+        <img 
+          style={{ width: '50px', height: '50px' }} 
+          src={image} 
+          alt={name}></img>
+        <a 
+          href={url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+        {rating}
+        </a>
         <button 
-          onClick={(e) => 
-          updateWaypoints([...waypoints, { location: { lat, lng } }])}
+          onClick={handleUpdateStops}
         >
         {addOrRemoveText}
         </button>

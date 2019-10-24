@@ -5,7 +5,8 @@ import FormsContainer from '../FormsContainer/FormsContainer';
 import './App.scss';
 import Map from '../Map/Map';
 import LoginForm from '../LoginForm/LoginForm';
-import CreateAccount from '../CreateAccount/CreateAccount'
+import CreateAccount from '../CreateAccount/CreateAccount';
+
 export const CategoriesContext = React.createContext();
 
 

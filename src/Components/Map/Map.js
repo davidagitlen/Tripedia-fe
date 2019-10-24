@@ -4,7 +4,14 @@ import Pin from '../Pin/Pin';
 import './Map.scss';
 
 const Map = (props) => {
-  const [waypoints, updateWaypoints] = useState([]);
+  const [stops, updateStops] = useState([]);
+  const waypoints = stops.map(stop => ({
+    location : {
+      lat: stop.lat,
+      lng: stop.lng
+    },
+    stopover: true
+  }));
   const { center, zoom } = props;
   let start = { lat: 39.739131, lng: -104.990085 };
   let end = { lat: 40.027750, lng: -105.270350 };
@@ -63,8 +70,8 @@ const cleanYelpResponse = yelp => {
         rating={yelp.rating}
         url={yelp.url}
         type="house"
-        updateWaypoints={updateWaypoints}
-        waypoints={waypoints}
+        updateStops={updateStops}
+        stops={stops}
       />
     )
   };
@@ -92,11 +99,11 @@ const cleanYelpResponse = yelp => {
 
   return (
     <div style={{ height: '80vh', width: '100%' }}>
-        <button
+        {/* <button
           style={{ position: 'absolute', zIndex: 100 }}
           onClick={() => updateWaypoints([{ location: { lat: 39.734551, lng: -104.832522 }, stopover: true }, { location: { lat: 39.739131, lng: -104.990085 }, stopover: true }, { location: { lat: 40.734551, lng: -104.832522 }, stopover: true }])
           }>
-        </button>
+        </button> */}
         <GoogleMapReact
           key={waypoints}
           bootstrapURLKeys={{ key: 'AIzaSyDB8SS8Xy8AGlUmcAOQhqurMugTBv31xns' }}
@@ -110,16 +117,16 @@ const cleanYelpResponse = yelp => {
             lng={-105.039513}
             text={'David\'s House'}
             type='house'
-            updateWaypoints={updateWaypoints}
-            waypoints={waypoints}
+            updateStops={updateStops}
+            stops={stops}
           />
           <Pin
             lat={39.751774}
             lng={-104.996809}
             text={'Turing'}
             type='school'
-            updateWaypoints={updateWaypoints}
-            waypoints={waypoints}
+            updateWtops={updateStops}
+            stops={stops}
           />
           {createPin()}
         </GoogleMapReact>
