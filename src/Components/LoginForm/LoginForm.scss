@@ -5,6 +5,7 @@
   font-size: 1.5em;
   align-self: center;
   text-align: center;
+  border-radius: 8px;
 }
 
 .login_form {
@@ -31,13 +32,13 @@ h2 {
   color: white;
 }
 
-.login_button {
+button .login_button {
   @extend %form_style;
   background-color: #010202;
   color: white;
 }
 
-img {
+.banner {
   width: 100%;
 }
 

@@ -5,6 +5,7 @@
   font-size: 1.5em;
   align-self: center;
   text-align: center;
+  border-radius: 8px;
 }
 
 .create_account_form {
@@ -20,6 +21,7 @@ h2,
 .confirm_password_input,
 .submit_button {
   @extend %form_style;
+
 }
 
 .submit_button:disabled {
@@ -27,7 +29,7 @@ h2,
   color: white;
 }
 
-.submit_button {
+button .submit_button {
   @extend %form_style;
   background-color: #010202;
   color: white;
