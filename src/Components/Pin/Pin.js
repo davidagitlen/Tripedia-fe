@@ -35,25 +35,9 @@ class Pin extends Component {
         <div
              onMouseEnter={this.handleMouseHover}
              >
-          <img 
+          <img  className='pin'
             src={imagePath}
             alt={type}
-            style={{
-              position: 'absolute',
-              width: '40px',
-              height: '40px',
-              left: '-20px',
-              top: '-20px',
-              border: '5px solid rgb(244, 67, 54)',
-              borderRadius: '40px',
-              backgroundColor: 'white',
-              textAlign: 'center',
-              color: 'rgb(63, 81, 181)',
-              fontSize: '16px',
-              fontWeight: 'bold',
-              padding: '4px',
-              cursor: 'pointer',
-              }}
             />
         </div>
       );
