@@ -53,7 +53,6 @@ const cleanYelpResponse = yelp => {
 };
 
   const createPin = () => {
-    console.log('rerender')
     let yelp = cleanYelpResponse(mockYelpResponse);
     return (
       <Pin
@@ -71,8 +70,6 @@ const cleanYelpResponse = yelp => {
   };
 
   const displayRoute = (map, maps) => {
-    console.log(map)
-    console.log(maps)
     let request = {
       origin: start,
       destination: end,
@@ -86,9 +83,7 @@ const cleanYelpResponse = yelp => {
     });
     let directionsService = new maps.DirectionsService();
     directionsService.route(request, async function (result, status) {
-      console.log('result', result)
       if (status === 'OK') {
-        // getPoints(result);
         directionsRenderer.setDirections(result)
       }
     })
@@ -96,13 +91,11 @@ const cleanYelpResponse = yelp => {
   }
 
   return (
-    <div
-        style={{ height: '80vh', width: '100%' }}
-      >
+    <div style={{ height: '80vh', width: '100%' }}>
         <button
           style={{ position: 'absolute', zIndex: 100 }}
-           onClick={() => updateWaypoints([{ location: { lat: 39.734551, lng: -104.832522 }, stopover: true }, { location: { lat: 39.739131, lng: -104.990085 }, stopover: true }, { location: { lat: 40.734551, lng: -104.832522 }, stopover: true }])
-            }>
+          onClick={() => updateWaypoints([{ location: { lat: 39.734551, lng: -104.832522 }, stopover: true }, { location: { lat: 39.739131, lng: -104.990085 }, stopover: true }, { location: { lat: 40.734551, lng: -104.832522 }, stopover: true }])
+          }>
         </button>
         <GoogleMapReact
           key={waypoints}
@@ -117,12 +110,16 @@ const cleanYelpResponse = yelp => {
             lng={-105.039513}
             text={'David\'s House'}
             type='house'
+            updateWaypoints={updateWaypoints}
+            waypoints={waypoints}
           />
           <Pin
             lat={39.751774}
             lng={-104.996809}
             text={'Turing'}
             type='school'
+            updateWaypoints={updateWaypoints}
+            waypoints={waypoints}
           />
           {createPin()}
         </GoogleMapReact>
