@@ -67,6 +67,7 @@ const cleanYelpResponse = yelp => {
       />
     )
   };
+
   const displayRoute = (map, maps) => {
     console.log(map)
     console.log(maps)
@@ -81,7 +82,6 @@ const cleanYelpResponse = yelp => {
       draggable: true,
       suppressMarkers: true
     });
-
     let directionsService = new maps.DirectionsService();
     directionsService.route(request, async function (result, status) {
       console.log('result', result)
@@ -122,6 +122,7 @@ const cleanYelpResponse = yelp => {
             text={'Turing'}
             type='school'
           />
+          {createPin()}
         </GoogleMapReact>
       </div>
     )
