@@ -4,9 +4,17 @@ import banner from '../../images/banner.jpg'
 import { NavLink } from 'react-router-dom';
 
 const LoginForm = () => {
-  const [emailInput, handleEmail] = useState('');
-  const [passwordInput, handlePassword] = useState('');
-  const isEnabled = emailInput.length > 0 && passwordInput.length > 0;
+
+  const [loginState, handleForm] = useState({
+    email: '',
+    password: ''
+  })
+  const {email, password} = loginState
+  const isEnabled = email && password;
+
+  const handleChange = (e) => {
+    handleForm({ ...loginState, [e.target.name]: e.target.value })
+  }
 
   return (
     <main>
@@ -14,18 +22,20 @@ const LoginForm = () => {
       <form className="login_form">
         <h2>Login Form</h2>
         <input
-          type="email"
           className="email_input"
+          type="email"
+          name='email'
           placeholder="email"
-          value={emailInput}
-          onChange={(e) => handleEmail(e.target.value)}>
+          value={email}
+          onChange={handleChange}>
         </input>
         <input
           type="password"
+          name='password'
           className="password_input"
           placeholder="password"
-          value={passwordInput}
-          onChange={(e) => handlePassword(e.target.value)}>
+          value={password}
+          onChange={handleChange}>
         </input>
         <button
           disabled={!isEnabled}
