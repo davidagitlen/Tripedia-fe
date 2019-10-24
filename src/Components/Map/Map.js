@@ -113,7 +113,7 @@ const Map = props => {
           lat={39.751774}
           lng={-104.996809}
           text={"Turing School"}
-          type="school"
+          type="drink"
           />
         {createPin()}
       </GoogleMapReact>
