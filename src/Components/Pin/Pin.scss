@@ -1,19 +1,19 @@
+.pin-image {
+  transform: rotateZ(-137deg);
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: -2px;
+  left: 1.5px;
+}
 .pin {
-  position: absolute;
   width: 40px;
   height: 40px;
-  left: -20px;
-  top: -20px;
-  border: 5px solid rgb(244, 67, 54);
-  border-radius: 40px;
-  background-color: white;
-  text-align: center;
-  color: rgb(63, 81, 181);
-  font-size: 16px;
-  font-weight: bold;
-  padding: 4px;
-  cursor: pointer;
-
+  cursor: default;
+  border: black solid 2px;
+  border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  background: white;
+  transform: rotateZ(495.03553deg);
 }
 
 .pin-hover {
@@ -22,9 +22,9 @@
   height: 200px;
   left: -20px;
   top: -20px;
-  border: 5px solid rgb(244, 67, 54);
+  border: 2.5px solid rgb(0, 0, 0);
   border-radius: 8px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.95);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -34,4 +34,4 @@
   font-weight: bold;
   padding: 4px;
   z-index: 999;
-            }
+ }

@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import "./Pin.scss";
-import schoolPin from "../../images/school-pin.svg";
-import housePin from "../../images/house-pin.svg";
+import accommidationPin from "../../images/accommidation-pin.svg";
+import foodPin from "../../images/food-pin.svg";
 import mapPin from "../../images/map-pin.svg";
+import drinkPin from '../../images/drink-pin.svg';
 
 class Pin extends Component {
   constructor() {
@@ -19,9 +20,11 @@ class Pin extends Component {
   switchImage = imageType => {
     switch (imageType) {
       case "school":
-        return schoolPin;
+        return accommidationPin;
       case "house":
-        return housePin;
+        return foodPin;
+      case "drink":
+        return drinkPin;
       default:
         return mapPin;
     }
@@ -32,13 +35,8 @@ class Pin extends Component {
     const imagePath = this.switchImage(type);
     if(!isHovered) {
       return (
-        <div
-             onMouseEnter={this.handleMouseHover}
-             >
-          <img  className='pin'
-            src={imagePath}
-            alt={type}
-            />
+        <div className="pin" onMouseEnter={this.handleMouseHover}>
+          <img className='pin-image' src={imagePath} alt={type} />
         </div>
       );
     } else {
