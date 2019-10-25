@@ -1,11 +1,12 @@
 .pin-image {
-  transform: rotateZ(-137deg);
+  transform: rotateZ(-134.5deg);
   height: 35px;
   width: 35px;
   position: relative;
-  top: -2px;
-  left: 1.5px;
+  top: -6px;
+  left: -2px;
 }
+
 .pin {
   width: 40px;
   height: 40px;
@@ -20,7 +21,7 @@
   cursor: default;
   border: black solid 2px;
   border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
-  transform: rotateZ(495.03553deg);
+  transform: rotateZ(134.03553deg);
 }
 
 .pin-hover {

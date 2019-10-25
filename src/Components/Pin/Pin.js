@@ -57,9 +57,10 @@ const Pin = (props) => {
   if (!isHovered) {
     return (
       <div
+        className='pin'
         onMouseEnter={handleMouseOver}
       >
-        <img className='pin'
+        <img className='pin-image'
           src={imagePath}
           alt={type}
         />

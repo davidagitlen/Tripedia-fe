@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Pin from '../Pin/Pin';
-import './Map.scss';
+import './Map.scss'; 
 
 const Map = (props) => {
   const [stops, updateStops] = useState([]);
@@ -113,7 +113,6 @@ const cleanYelpResponse = yelp => {
         </button> */}
         <GoogleMapReact
           // key={waypoints}
-          bootstrapURLKeys={{ key: 'AIzaSyDB8SS8Xy8AGlUmcAOQhqurMugTBv31xns' }}
           defaultCenter={center}
           defaultZoom={zoom}
           yesIWantToUseGoogleMapApiInternals
