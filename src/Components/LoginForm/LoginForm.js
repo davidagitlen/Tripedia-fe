@@ -16,14 +16,14 @@ const LoginForm = () => {
   };
 
   return (
-    <main className='blah'>
+    <main className="form_body">
       <img
         className="banner"
         src={banner}
         alt="Tripedia for all your travel planning needs"
       />
       <form className="login_form">
-        <h2>Login Form</h2>
+        <h2 className="form_title">Login Form</h2>
         <input
           className="email_input"
           type="email"
@@ -40,9 +40,11 @@ const LoginForm = () => {
           value={password}
           onChange={handleChange}
         ></input>
-        <button disabled={!isEnabled} className="login_button" type="submit">
-          Login
-        </button>
+        <NavLink to="/" className="button">
+          <button disabled={!isEnabled} className="login_button" type="submit">
+            Login
+          </button>
+        </NavLink>
         <NavLink to="/create_account">
           <p className="create_account_link">Create Account</p>
         </NavLink>

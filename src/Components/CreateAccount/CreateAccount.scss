@@ -5,6 +5,7 @@
   font-size: 1.5em;
   align-self: center;
   text-align: center;
+  border-radius: 8px;
 }
 
 .create_account_form {
@@ -31,4 +32,19 @@ h2,
   @extend %form_style;
   background-color: #010202;
   color: white;
+}
+
+.login_link {
+  text-align: center;
+  margin: 10px 0px 30px;
+  font-size: 1.5em;
+}
+
+.login_link:hover {
+  cursor: pointer;
+  color: #DE582A;
+}
+
+.login_link:active {
+  color: red;
 }
