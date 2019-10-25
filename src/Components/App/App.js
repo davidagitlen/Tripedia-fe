@@ -44,7 +44,7 @@ function App() {
   } else {
     return (
       <LoadingContext.Provider value={contextState}>
-        <div className="app-is-loading">
+          <div>
           <Route exact path='/login' render={() => <LoginForm />} />
           <Route exact path='/create_account' render={() => <CreateAccount />} /> 
           <Route exact path='/' render={() =>
@@ -61,6 +61,9 @@ function App() {
               </div>
             </div> 
             }/>
+        </div>
+        <div className="app-is-loading">
+        <div></div>
         </div>
       </LoadingContext.Provider>
     )

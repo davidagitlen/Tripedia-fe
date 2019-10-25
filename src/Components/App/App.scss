@@ -4,7 +4,17 @@ body {
   margin: 0;
 }
 
-
+.app-is-loading {
+  background-color: rgba(170, 164, 164, 0.75);
+  position:fixed;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+  z-index: 75;
+  height: 100vh;
+  width: 100vw;
+}
 
 .map-form__container {
   display: flex;
