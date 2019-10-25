@@ -1,25 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
 import banner from "../../images/banner.jpg";
-import { CategoriesContext } from '../../Contexts/CategoriesContext';
 
 const LoginForm = () => {
-  const { categories, chooseCategories } = useContext(CategoriesContext);
-
-  console.log('context categories', categories)
-  // const inputField = <CategoriesContext.Consumer>
-  //   {value => (
-  //     <input
-  //       className="email_input"
-  //       type="email"
-  //       name="email"
-  //       placeholder="email"
-  //       value={value.email}
-  //       onChange={handleChange}
-  //     />
-  //   )}
-  // </CategoriesContext.Consumer>
   const [loginState, handleForm] = useState({
     email: "",
     password: ""
