@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
 import banner from "../../images/banner.jpg";
-import { CategoriesContext } from '../App/App';
+import { CategoriesContext } from '../../Contexts/CategoriesContext';
 
 const LoginForm = () => {
-  const inputField = <CategoriesContext.Consumer>
-    {value => (
-      <input
-        className="email_input"
-        type="email"
-        name="email"
-        placeholder="email"
-        value={value.email}
-        onChange={handleChange}
-      />
-    )}
-  </CategoriesContext.Consumer>
+  const { categories, chooseCategories } = useContext(CategoriesContext);
+
+  console.log('context categories', categories)
+  // const inputField = <CategoriesContext.Consumer>
+  //   {value => (
+  //     <input
+  //       className="email_input"
+  //       type="email"
+  //       name="email"
+  //       placeholder="email"
+  //       value={value.email}
+  //       onChange={handleChange}
+  //     />
+  //   )}
+  // </CategoriesContext.Consumer>
   const [loginState, handleForm] = useState({
     email: "",
     password: ""
@@ -38,15 +41,14 @@ const LoginForm = () => {
       />
       <form className="login_form">
         <h2>Login Form</h2>
-        {/* <input
+        <input
           className="email_input"
           type="email"
           name="email"
           placeholder="email"
           value={email}
           onChange={handleChange}
-          /> */}
-          {inputField}
+          />
           <input
             type="password"
             name="password"

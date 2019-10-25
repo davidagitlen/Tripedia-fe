@@ -6,9 +6,7 @@ import mapPin from "../../images/map-pin.svg";
 
 
 const Pin = (props) => {
-  const { name, image, rating, url, type, updateStops, lat, lng, stops } = props;
-  console.log('stops', stops)
-  console.log('lat and lng', lat, lng)
+  const { name, image, rating, url, type, updateStops, lat, lng, stops, onGoogleApiLoaded} = props;
   const [isHovered, toggleHovered] = useState(false);
   const stopFound = stops.find(stop => {
     return stop.lat === lat && stop.lng === lng
@@ -34,8 +32,9 @@ const Pin = (props) => {
         type,
         lat,
         lng
-      }
+      };
       updateStops([...stops, stopToAdd])
+      onGoogleApiLoaded();
     }
   }
 

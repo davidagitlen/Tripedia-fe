@@ -12,6 +12,8 @@ const Map = (props) => {
     },
     stopover: true
   }));
+
+  console.log('waypoints', waypoints)
   const { center, zoom } = props;
   let start = { lat: 39.739131, lng: -104.990085 };
   let end = { lat: 40.027750, lng: -105.270350 };
@@ -58,6 +60,29 @@ const cleanYelpResponse = yelp => {
     phone: yelp.display_phone
   };
 };
+  let currentMap, mapsResponse;
+  const displayRoute = (map, maps) => {
+    let request = {
+      origin: start,
+      destination: end,
+      waypoints,
+      travelMode: 'DRIVING'
+    };
+    currentMap = map;
+    mapsResponse = maps;
+    let directionsRenderer = new maps.DirectionsRenderer({
+      path: { start, end },
+      draggable: true,
+      suppressMarkers: true
+    });
+    let directionsService = new maps.DirectionsService();
+    directionsService.route(request, async function (result, status) {
+      if (status === 'OK') {
+        directionsRenderer.setDirections(result)
+      }
+    })
+    directionsRenderer.setMap(map);
+  }
 
   const createPin = () => {
     let yelp = cleanYelpResponse(mockYelpResponse);
@@ -71,31 +96,13 @@ const cleanYelpResponse = yelp => {
         url={yelp.url}
         type="house"
         updateStops={updateStops}
+        waypoints={waypoints}
         stops={stops}
+        yesIWantToUseGoogleMapApiInternals
+        onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
       />
     )
   };
-
-  const displayRoute = (map, maps) => {
-    let request = {
-      origin: start,
-      destination: end,
-      waypoints,
-      travelMode: 'DRIVING'
-    };
-    let directionsRenderer = new maps.DirectionsRenderer({
-      path: { start, end },
-      draggable: true,
-      suppressMarkers: true
-    });
-    let directionsService = new maps.DirectionsService();
-    directionsService.route(request, async function (result, status) {
-      if (status === 'OK') {
-        directionsRenderer.setDirections(result)
-      }
-    })
-    directionsRenderer.setMap(map)
-  }
 
   return (
     <div style={{ height: '80vh', width: '100%' }}>
@@ -105,7 +112,7 @@ const cleanYelpResponse = yelp => {
           }>
         </button> */}
         <GoogleMapReact
-          key={waypoints}
+          // key={waypoints}
           bootstrapURLKeys={{ key: 'AIzaSyDB8SS8Xy8AGlUmcAOQhqurMugTBv31xns' }}
           defaultCenter={center}
           defaultZoom={zoom}
@@ -118,15 +125,23 @@ const cleanYelpResponse = yelp => {
             text={'David\'s House'}
             type='house'
             updateStops={updateStops}
+            waypoints={waypoints}
             stops={stops}
+            map={currentMap}
+            maps={mapsResponse}
+            onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
           />
           <Pin
             lat={39.751774}
             lng={-104.996809}
             text={'Turing'}
             type='school'
-            updateWtops={updateStops}
+            updateStops={updateStops}
+            waypoints={waypoints}
             stops={stops}
+            map={currentMap}
+            maps={mapsResponse}
+            onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
           />
           {createPin()}
         </GoogleMapReact>
