@@ -63,7 +63,9 @@ function App() {
             }/>
         </div>
         <div className="app-is-loading">
-        <div></div>
+        <div className='trivia-box__container'>
+            <p></p>
+        </div>
         </div>
       </LoadingContext.Provider>
     )
