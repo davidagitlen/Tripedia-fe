@@ -7,6 +7,7 @@ import { CategoriesContext } from '../../Contexts/CategoriesContext';
 const LoginForm = () => {
   const { categories, chooseCategories } = useContext(CategoriesContext);
 
+  
   console.log('context categories', categories)
   // const inputField = <CategoriesContext.Consumer>
   //   {value => (

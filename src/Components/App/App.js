@@ -11,7 +11,7 @@ import { CategoriesContext } from '../../Contexts/CategoriesContext';
 
 
 function App() {
-  const [categories, chooseCategories] = useState({categories: 'Blah blah blah'});
+  const [categories, chooseCategories] = useState({});
   const currentCategories = useMemo(() => ({ categories, chooseCategories }), [categories, chooseCategories]);
   return (
     <CategoriesContext.Provider value={currentCategories}>
