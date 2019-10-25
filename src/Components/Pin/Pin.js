@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Pin.scss";
-import schoolPin from "../../images/school-pin.svg";
-import housePin from "../../images/house-pin.svg";
+import accommidationPin from "../../images/accommidation-pin.svg";
+import foodPin from "../../images/food-pin.svg";
 import mapPin from "../../images/map-pin.svg";
+import drinkPin from '../../images/drink-pin.svg';
 
 
 const Pin = (props) => {
@@ -41,9 +42,11 @@ const Pin = (props) => {
   const switchImage = imageType => {
     switch (imageType) {
       case "school":
-      return schoolPin;
+        return accommidationPin;
       case "house":
-      return housePin;
+        return foodPin;
+      case "drink":
+        return drinkPin;
       default:
       return mapPin;
     }
@@ -85,6 +88,7 @@ const Pin = (props) => {
         </button>
       </div>
     );
+
   }
 }
 

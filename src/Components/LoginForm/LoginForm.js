@@ -33,14 +33,14 @@ const LoginForm = () => {
   
 
   return (
-    <main className='blah'>
+    <main className="form_body">
       <img
         className="banner"
         src={banner}
         alt="Tripedia for all your travel planning needs"
       />
       <form className="login_form">
-        <h2>Login Form</h2>
+        <h2 className="form_title">Login Form</h2>
         <input
           className="email_input"
           type="email"
