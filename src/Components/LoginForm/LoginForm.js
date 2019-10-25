@@ -3,6 +3,7 @@ import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
 import banner from "../../images/banner.jpg";
 import { CategoriesContext } from '../../Contexts/CategoriesContext';
+import { loginUser } from '../../util/apiCalls';
 
 const LoginForm = () => {
   const { categories, chooseCategories } = useContext(CategoriesContext);
@@ -30,6 +31,13 @@ const LoginForm = () => {
   const handleChange = e => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const user = await loginUser(email, password);
+    }
+  }
   
 
   return (
