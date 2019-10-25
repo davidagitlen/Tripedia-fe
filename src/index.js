@@ -6,11 +6,12 @@ import "./index.css";
 import App from "./Components/App/App";
 import * as serviceWorker from "./serviceWorker";
 
+
 const router = (
   <BrowserRouter>
     <App />
   </BrowserRouter>
-)
+);
 
 ReactDOM.render(router, document.getElementById("root"));
 

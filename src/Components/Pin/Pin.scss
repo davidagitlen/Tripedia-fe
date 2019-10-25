@@ -9,10 +9,17 @@
 .pin {
   width: 40px;
   height: 40px;
+  left: -20px;
+  top: -45px;
+  background-color: white;
+  text-align: center;
+  color: rgb(63, 81, 181);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px;
   cursor: default;
   border: black solid 2px;
   border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
-  background: white;
   transform: rotateZ(495.03553deg);
 }
 
@@ -34,4 +41,5 @@
   font-weight: bold;
   padding: 4px;
   z-index: 999;
- }
+}
+
