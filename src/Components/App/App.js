@@ -70,7 +70,7 @@ function App() {
         <div className="app-is-loading">
         <div className='trivia-box__container'>
             <p>While we prepare your trip, did you know:</p>
-            <p>Atlas Obsucra's attractions api endpoint is down?</p>
+            <p>Atlas Obscura's attractions api endpoint is down?</p>
             <div className='animation-container'>
               <img className='loading__icon' alt='loading' src={LoadingIcon}></img>
               <img className='stop-sign' alt='loading' src={stopSign}></img>
