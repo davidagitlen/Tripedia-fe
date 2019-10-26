@@ -6,7 +6,7 @@ import './App.scss';
 import Map from '../Map/Map';
 import LoginForm from '../LoginForm/LoginForm';
 import CreateAccount from '../CreateAccount/CreateAccount';
-
+import LoadingIcon from '../../images/loading-icon.svg'
 import { LoadingContext } from '../../Contexts/LoadingContext';
 
 
@@ -64,7 +64,11 @@ function App() {
         </div>
         <div className="app-is-loading">
         <div className='trivia-box__container'>
-            <p></p>
+            <p>While we prepare your trip, did you know:</p>
+            <div className='animation-container'>
+              <img className='loading__icon' src={LoadingIcon}></img>
+              <div className='road'></div>
+            </div>
         </div>
         </div>
       </LoadingContext.Provider>

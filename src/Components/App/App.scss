@@ -29,9 +29,74 @@ body {
 }
 
 .trivia-box__container {
-  width: 1000px;
+  width: 1200px;
   height: 600px;
   margin-left: 650px;
-  background-color: whitesmoke;
+  background-color: rgba(240, 240, 240, .98);
   border-radius: 8px;
+  font-size: 34px;
+  color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: space-around;
+}
+
+.animation-container {
+  width: 99.3%;
+  height: 100px;
+}
+
+.loading__icon {
+  width: 100px;
+  animation: drive 10s;
+  animation-iteration-count: infinite;
+}
+
+.road {
+  width: 100%;
+  margin-top: -45px;
+  height: 7px;
+  box-shadow: 0px 0px 4px 4px darkgrey;
+  background-color: darkgrey;
+}
+
+
+@keyframes drive {
+  0% {
+            transform: translateX(0px, 0px);
+  }
+  10% {
+            transform: translateX(120px, -50px);
+  }
+  20% {
+            transform: translateX(240px, -100px);
+  }
+  30% {
+            transform: translateX(360px, -105px);
+  }
+  40% {
+            transform: translateX(480px, -200px);
+  }
+  50% {
+            transform: translateX(600px);
+  }
+  60% {
+            transform: translateX(720px);
+		        // transform: translateY(-12px);
+  }
+  70% {
+            transform: translateX(840px);
+  }
+  80% {
+            transform: translateX(960px);
+  }
+  90% {
+            transform: translateX(1080px);
+            // transform: translateY(0);
+  }
+  100% {
+            transform: translateX(1100px);
+            display: none;
+  }
 }
