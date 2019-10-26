@@ -56,9 +56,11 @@ const CreateAccount = () => {
             type="submit">Submit
           </button>}
         {isEnabled &&
+        <NavLink to='/'>
           <button className='button__enabled'
             type="submit">Submit
-          </button>}
+          </button>
+        </NavLink>}
         <NavLink to="/login">
           <p>Login</p>
         </NavLink>

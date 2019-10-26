@@ -20,6 +20,12 @@
       padding-left: 150px;
       padding-right: 150px;
       margin-top: 15px;
+      a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+      }
     }
 
     input {
@@ -29,7 +35,6 @@
       border: 2px solid grey;
       text-align: center;
     }
-
     .button__disabled {
       width: 50%;
       border-radius: 40px;
