@@ -2,8 +2,12 @@
   "name": "tripedia-fe",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.12.0",
+    "npm": "6.11.3"
+  },
   "dependencies": {
-    "google-map-react": "^1.1.5",
+    "google-map-react": "^1.1.5", 
     "node-sass": "^4.12.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

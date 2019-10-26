@@ -6,20 +6,28 @@ import './App.scss';
 import Map from '../Map/Map';
 import LoginForm from '../LoginForm/LoginForm';
 import CreateAccount from '../CreateAccount/CreateAccount';
-import { CategoriesContext } from '../../Contexts/CategoriesContext';
+import { FormContext } from '../../Contexts/FormContext';
 import { UserContext } from '../../Contexts/UserContext';
 
-
 function App() {
-  const [categories, chooseCategories] = useState({categories: 'Blah blah blah'});
-  const currentCategories = useMemo(() => ({ categories, chooseCategories }), [categories, chooseCategories]);
+    const [formState, setFormState] = useState({
+    origin: '',
+    destination: '',
+    tripSubmitted: false,
+    attractions: [],
+    accommodations: [],
+    food: [],
+    drinks: [],
+    services: []
+  });
+  const currentForm = useMemo(() => ({ formState, setFormState }), [formState, setFormState]);
   const [user, userLogin] = useState({ email: '', password: ''});
   const loggedInUser = useMemo(() => ({ user, userLogin }), [ user, userLogin ]);
   return (
-    <CategoriesContext.Provider value={currentCategories}>
+    <FormContext.Provider value={currentForm}>
       <UserContext.Provider value={loggedInUser}>
         <div className="App">
-            <Route exact path="/login" render={() => <LoginForm />} />
+          <Route exact path="/login" render={() => <LoginForm />} />
             <Route
               exact
               path="/create_account"
@@ -42,7 +50,7 @@ function App() {
           />
         </div>
       </UserContext.Provider>
-    </CategoriesContext.Provider>
+    </FormContext.Provider>
   );
 }
 

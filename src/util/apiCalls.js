@@ -1,3 +1,4 @@
+
 const path = process.env.REACT_APP_BACKEND_URL;
 
 export const createAccount = async (name, email, password, passwordConfirmation) => {
@@ -40,4 +41,21 @@ export const loginUser = async (email, password) => {
     const user = await response.json();
     console.log('in loginuser apicall user', user)
     return user;
+}
+
+export const getStartAndEnd = async (origin, destination) => {
+  const url = process.env.REACT_APP_BACKEND_URL + '';
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      origin,
+      destination
+    }),
+    headers: {
+      'Content-Type' : 'application/json'
+    }
+  };
+  const response = await fetch(url, options);
+  const startAndEndPoints = await response.json();
+  return startAndEndPoints
 }

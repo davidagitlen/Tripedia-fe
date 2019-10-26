@@ -1,21 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './StartForm.scss';
+import { FormContext } from '../../Contexts/FormContext';
+import { getStartAndEnd } from '../../util/apiCalls';
 
 const StartForm = ({ collapseForm, openForm, defaultForm}) => {
-  
+  const { formState, setFormState } = useContext(FormContext);
+  console.log('startform', formState);
   const [cities, enterCities] = useState({
     origin: '',
-    destination: ''
+    destination: '',
+    error: ''
   });
 
   const updateCities = e => {
     enterCities({...cities, [e.target.name]:e.target.value})
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    const pointsToSend = {...cities}
-    console.log('start and end for BE', pointsToSend)
+    try {
+      const { origin, destination } = cities; 
+    // const { origin: originCity, destination: destinationCity } = cities;
+    // const returnedPoints = await getStartAndEnd(originCity, destinationCity);
+    // const { origin, destination } = returnedPoints; 
+      setFormState({...formState, origin, destination });
+    } catch ({ message }) {
+      enterCities({...cities, error: message})
+    }
   }
 
   if(openForm.StartForm) {
@@ -26,7 +37,7 @@ const StartForm = ({ collapseForm, openForm, defaultForm}) => {
           type='text' 
           name='origin'
           value={cities.origin}
-          placeholder='Start'
+          placeholder='City, State'
           onChange={ e => updateCities(e)}
         />
         <p>to:</p>
@@ -34,7 +45,7 @@ const StartForm = ({ collapseForm, openForm, defaultForm}) => {
           type='text' 
           name='destination'
           value={cities.destination}
-          placeholder='End'
+          placeholder='City, State'
           onChange={ e => updateCities(e)}
         />
         <button

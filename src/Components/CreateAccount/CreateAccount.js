@@ -5,7 +5,6 @@ import banner from '../../Images/banner.jpg';
 import { UserContext } from '../../Contexts/UserContext';
 import { createAccount } from '../../util/apiCalls';
 
-
 const CreateAccount = () => {
   const { createUser } = useContext(UserContext);
   

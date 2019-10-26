@@ -7,14 +7,12 @@ import { loginUser } from '../../util/apiCalls';
 
 const LoginForm = () => {
   const { userLogin } = useContext(UserContext);
-
   const [loginState, handleForm] = useState({
     email: "",
     password: ""
   });
   const { email, password } = loginState;
   const isEnabled = email && password;
-
   const handleChange = e => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
@@ -32,7 +30,7 @@ const LoginForm = () => {
       return message;
     }
   }
-  
+
   return (
     <main className="form_body">
       <img

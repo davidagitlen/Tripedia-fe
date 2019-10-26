@@ -98,8 +98,6 @@ const cleanYelpResponse = yelp => {
         updateStops={updateStops}
         waypoints={waypoints}
         stops={stops}
-        yesIWantToUseGoogleMapApiInternals
-        onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
       />
     )
   };
@@ -126,9 +124,6 @@ const cleanYelpResponse = yelp => {
             updateStops={updateStops}
             waypoints={waypoints}
             stops={stops}
-            map={currentMap}
-            maps={mapsResponse}
-            onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
           />
           <Pin
             lat={39.751774}
@@ -138,9 +133,6 @@ const cleanYelpResponse = yelp => {
             updateStops={updateStops}
             waypoints={waypoints}
             stops={stops}
-            map={currentMap}
-            maps={mapsResponse}
-            onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
           />
           {createPin()}
         </GoogleMapReact>
