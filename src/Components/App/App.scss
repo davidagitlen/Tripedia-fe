@@ -49,8 +49,58 @@ body {
 
 .loading__icon {
   width: 100px;
-  animation: drive 10s;
+  animation: drive 13s;
   animation-iteration-count: infinite;
+  position: relative;
+  z-index: 100;
+}
+.stop-sign {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  left: 565px;
+  bottom: 24px;
+  z-index: 60;
+}
+
+.trees {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  right: 21px;
+  bottom: 24px;
+}
+
+.house {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  right: 126px;
+  bottom: 24px;
+}
+
+.hotel {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  left: 386px;
+  bottom: 24px;
+}
+
+.city {
+  width: 75px;
+  height: 75px;
+  position: relative;
+  left: 72px;
+  bottom: 37px;
+}
+
+.city2 {
+  width: 75px;
+  height: 75px;
+  position: relative;
+  left: 104px;
+  bottom: 37px;
 }
 
 .road {
@@ -82,21 +132,20 @@ body {
             transform: translateX(600px);
   }
   60% {
-            transform: translateX(720px);
+            transform: translateX(720px, 0px);
 		        // transform: translateY(-12px);
   }
   70% {
-            transform: translateX(840px);
+            transform: translateX(840px, -50px);
   }
   80% {
-            transform: translateX(960px);
+            transform: translateX(960px, -100px);
   }
   90% {
-            transform: translateX(1080px);
+            transform: translateX(1080px, -105px);
             // transform: translateY(0);
   }
   100% {
-            transform: translateX(1100px);
-            display: none;
+            transform: translateX(1100px,);
   }
 }

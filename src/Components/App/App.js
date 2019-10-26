@@ -7,6 +7,11 @@ import Map from '../Map/Map';
 import LoginForm from '../LoginForm/LoginForm';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import LoadingIcon from '../../images/loading-icon.svg'
+import stopSign from '../../images/stop-sign.svg';
+import trees from '../../images/trees.svg';
+import house from '../../images/house.svg';
+import hotel from '../../images/hotel.svg';
+import city from '../../images/city.svg';
 import { LoadingContext } from '../../Contexts/LoadingContext';
 
 
@@ -67,6 +72,18 @@ function App() {
             <p>While we prepare your trip, did you know:</p>
             <div className='animation-container'>
               <img className='loading__icon' src={LoadingIcon}></img>
+              <img className='stop-sign' src={stopSign}></img>
+              <img className='house' src={house}></img>
+              <img className='trees' src={trees}></img>
+              <img className='trees' src={trees}></img>
+              <img className='trees' src={trees}></img>
+              <img className='trees' src={trees}></img>
+              <img className='trees' src={trees}></img>
+              <img className='city' src={city}></img>
+              <img className='city' src={city}></img>
+              <img className='city2' src={city}></img>
+              <img className='city2' src={city}></img>
+              <img className='hotel' src={hotel}></img>
               <div className='road'></div>
             </div>
         </div>
