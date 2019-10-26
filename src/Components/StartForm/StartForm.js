@@ -8,6 +8,9 @@ const StartForm = ({ collapseForm, openForm, defaultForm}) => {
     destination: ''
   });
 
+  const {origin, destination} = cities
+  const toggleButtonClass = !origin || !destination ? 'disabled':'enabled'
+
   const updateCities = e => {
     enterCities({...cities, [e.target.name]:e.target.value})
   }
@@ -21,33 +24,32 @@ const StartForm = ({ collapseForm, openForm, defaultForm}) => {
   if(openForm.StartForm) {
     return(
       <form className='start-form__container'>
-        <h2 className='start-form__header'>Start Your Journey</h2>
+        <p className='start-form__header'>Start Your Journey</p>
         <input 
           type='text' 
           name='origin'
           value={cities.origin}
-          placeholder='Start'
+          placeholder='Origin, State'
           onChange={ e => updateCities(e)}
         />
-        <p>to:</p>
         <input 
           type='text' 
           name='destination'
           value={cities.destination}
-          placeholder='End'
+          placeholder='Destination, State'
           onChange={ e => updateCities(e)}
         />
         <button
+          className={toggleButtonClass}
           onClick={handleSubmit}
-        >
-          Create Trip
+        >Create Trip
         </button>
       </form>
     )
   } else {
     return (
       <div onClick={(e) => collapseForm({...defaultForm, StartForm: !openForm.StartForm})} className='start-form-closed__container'>
-        <p>Start to Denver</p>
+        <p>Chicago to Denver</p>
         <p>290.1 mi</p>
       </div>
     )
