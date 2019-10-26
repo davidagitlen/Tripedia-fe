@@ -35,7 +35,6 @@ const Pin = (props) => {
         lng
       };
       updateStops([...stops, stopToAdd])
-      onGoogleApiLoaded();
     }
   }
 
