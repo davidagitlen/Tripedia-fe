@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./Pin.scss";
-import accommidationPin from "../../images/accommidation-pin.svg";
-import foodPin from "../../images/food-pin.svg";
-import mapPin from "../../images/map-pin.svg";
-import drinkPin from '../../images/drink-pin.svg';
+import accommidationPin from "../../Images/accommidation-pin.svg";
+import foodPin from "../../Images/food-pin.svg";
+import mapPin from "../../Images/map-pin.svg";
+import drinkPin from '../../Images/drink-pin.svg';
+
 
 
 const Pin = (props) => {

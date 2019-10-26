@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './CreateAccount.scss';
-import banner from '../../images/banner.jpg'
+import banner from '../../Images/banner.jpg'
 
 
 const CreateAccount = () => {
