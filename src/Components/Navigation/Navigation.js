@@ -9,7 +9,7 @@ const Navigation = () => {
     <nav className='navigation__contianer'>
       <div className='logo-title__nav'>
         <NavLink to='/'>
-          <img className='tripedia-logo__nav' src='' alt='Tripedia Logo' />
+          <img className='tripedia-logo__nav' src={Logo} alt='Tripedia Logo' />
         </NavLink>
         <h1 className='tripedia-text__nav'>TRIPEDIA</h1>
       </div>
