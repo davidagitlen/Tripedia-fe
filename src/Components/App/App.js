@@ -70,20 +70,21 @@ function App() {
         <div className="app-is-loading">
         <div className='trivia-box__container'>
             <p>While we prepare your trip, did you know:</p>
+            <p>Atlas Obsucra's attractions api endpoint is down?</p>
             <div className='animation-container'>
-              <img className='loading__icon' src={LoadingIcon}></img>
-              <img className='stop-sign' src={stopSign}></img>
-              <img className='house' src={house}></img>
-              <img className='trees' src={trees}></img>
-              <img className='trees' src={trees}></img>
-              <img className='trees' src={trees}></img>
-              <img className='trees' src={trees}></img>
-              <img className='trees' src={trees}></img>
-              <img className='city' src={city}></img>
-              <img className='city' src={city}></img>
-              <img className='city2' src={city}></img>
-              <img className='city2' src={city}></img>
-              <img className='hotel' src={hotel}></img>
+              <img className='loading__icon' alt='loading' src={LoadingIcon}></img>
+              <img className='stop-sign' alt='loading' src={stopSign}></img>
+              <img className='house' alt='loading' src={house}></img>
+              <img className='trees' alt='loading' src={trees}></img>
+              <img className='trees' alt='loading' src={trees}></img>
+              <img className='trees' alt='loading' src={trees}></img>
+              <img className='trees' alt='loading' src={trees}></img>
+              <img className='trees' alt='loading' src={trees}></img>
+              <img className='city' alt='loading' src={city}></img>
+              <img className='city' alt='loading' src={city}></img>
+              <img className='city2' alt='loading' src={city}></img>
+              <img className='city2' alt='loading' src={city}></img>
+              <img className='hotel' alt='loading' src={hotel}></img>
               <div className='road'></div>
             </div>
         </div>
