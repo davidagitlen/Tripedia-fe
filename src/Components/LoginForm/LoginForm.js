@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
-import banner from "../../images/banner.jpg";
+import banner from "../../Images/banner.jpg";
+
 
 const LoginForm = () => {
   const [loginState, handleForm] = useState({
