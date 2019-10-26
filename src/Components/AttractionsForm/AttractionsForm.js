@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./AttractionsForm.scss";
+import { FormContext } from '../../Contexts/FormContext';
 
 const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
+  const { formState, setFormState } = useContext(FormContext);
+  console.log('attractionsform', formState);
   const [form, toggleClicked] = useState({
     DinosaurBones: false,
     CandyFactory: false,

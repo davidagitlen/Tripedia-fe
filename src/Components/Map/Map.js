@@ -111,7 +111,6 @@ const cleanYelpResponse = yelp => {
         </button> */}
         <GoogleMapReact
           // key={waypoints}
-          bootstrapURLKeys={{ key: 'AIzaSyDB8SS8Xy8AGlUmcAOQhqurMugTBv31xns' }}
           defaultCenter={center}
           defaultZoom={zoom}
           yesIWantToUseGoogleMapApiInternals

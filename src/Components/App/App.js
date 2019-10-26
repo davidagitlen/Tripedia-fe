@@ -7,14 +7,23 @@ import Map from '../Map/Map';
 import LoginForm from '../LoginForm/LoginForm';
 import CreateAccount from '../CreateAccount/CreateAccount';
 
-import { CategoriesContext } from '../../Contexts/CategoriesContext';
+import { FormContext } from '../../Contexts/FormContext';
 
 
 function App() {
-  const [categories, chooseCategories] = useState({});
-  const currentCategories = useMemo(() => ({ categories, chooseCategories }), [categories, chooseCategories]);
+  const [formState, setFormState] = useState({
+    origin: '',
+    destination: '',
+    tripSubmitted: false,
+    attractions: [],
+    accommodations: [],
+    food: [],
+    drinks: [],
+    services: []
+  });
+  const currentForm = useMemo(() => ({ formState, setFormState }), [formState, setFormState]);
   return (
-    <CategoriesContext.Provider value={currentCategories}>
+    <FormContext.Provider value={currentForm}>
       <div className="App">
         <Route exact path='/login' render={() => <LoginForm />} />
         <Route exact path='/create_account' render={() => <CreateAccount />} /> 
@@ -33,7 +42,7 @@ function App() {
           </div> 
           }/>
       </div>
-    </CategoriesContext.Provider>
+    </FormContext.Provider>
   );
 }
 
