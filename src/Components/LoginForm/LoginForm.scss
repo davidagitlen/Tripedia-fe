@@ -48,6 +48,7 @@ h2,
   @extend %form_style;
   background-color: #010202;
   color: white;
+  text-align: center;
 }
 
 .button {
@@ -67,4 +68,17 @@ h2,
 
 .create_account_link:active {
   color: red;
+}
+
+@media screen and (max-width: 770px) {
+  %form_style {
+    margin: 8px;
+    width: 48%;
+  }
+
+  .form_title {
+    margin: 18px;
+    font-size: 2em;
+  }
+
 }
