@@ -1,50 +1,50 @@
-%form_style {
-  margin: 10px;
-  width: 33%;
-  height: 40px;
-  font-size: 1.5em;
-  align-self: center;
-  text-align: center;
-  border-radius: 8px;
-}
+.create-account__container {
+  padding-left: 125px;
+  padding-right: 125px;
+  padding-top: 100px;
+  background-color: rgba(32, 113, 120, .3);
+  height: 100vh;
+  
+    .banner {
+      width: 100%;
+      height: 350px;
+      border-radius: 40px;
+    }
 
-.create_account_form {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
+    .create-account__form {
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-left: 150px;
+      padding-right: 150px;
+      margin-top: 15px;
+    }
 
-h2,
-.name_input,
-.email_input,
-.password_input,
-.confirm_password_input,
-.submit_button {
-  @extend %form_style;
-}
+    input {
+      width: 100%;
+      height: 40px;
+      border-radius: 40px;
+      border: 2px solid grey;
+      text-align: center;
+    }
 
-.submit_button:disabled {
-  background-color: #d9e6e6;
-  color: white;
-}
+    .button__disabled {
+      width: 50%;
+      border-radius: 40px;
+      height: 40px;
+      background-color: rgba(128, 128, 128, .3)
+    }
 
-.submit_button {
-  @extend %form_style;
-  background-color: #010202;
-  color: white;
-}
-
-.login_link {
-  text-align: center;
-  margin: 10px 0px 30px;
-  font-size: 1.5em;
-}
-
-.login_link:hover {
-  cursor: pointer;
-  color: #DE582A;
-}
-
-.login_link:active {
-  color: red;
+    .button__enabled {
+      width: 50%;
+      border-radius: 40px;
+      height: 40px;
+      background-color: #FF9766;
+      color: #207178;
+      font-weight: bold;
+      font-size: 20px;
+      border: 2px solid #207178;
+    }
 }

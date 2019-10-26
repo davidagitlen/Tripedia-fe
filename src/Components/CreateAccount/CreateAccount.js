@@ -21,13 +21,11 @@ const CreateAccount = () => {
   }
 
   return(
-    <main className="form_body">
+    <main className='create-account__container'>
       <img src={banner} alt="Tripedia for all your travel planning needs" className="banner" />
-      <form className="create_account_form">
-        <h2 className="form_title">Create Account</h2>
+      <form className="create-account__form">
         <input
           type="text"
-          className="name_input"
           placeholder="name"
           name='name'
           value={name}
@@ -35,7 +33,6 @@ const CreateAccount = () => {
         <input
           type="email"
           name='email'
-          className="email_input"
           placeholder="email"
           value={email}
           onChange={handleChange}>
@@ -43,7 +40,6 @@ const CreateAccount = () => {
         <input
           type="password"
           name='password'
-          className="password_input"
           placeholder="password"
           value={password}
           onChange={handleChange}>
@@ -51,20 +47,20 @@ const CreateAccount = () => {
         <input
           type="password"
           name='confirmPassword'
-          className="confirm_password_input"
           placeholder="confirm password"
           value={confirmPassword}
           onChange={handleChange}>
         </input>
-        <NavLink to="/" className="button">
-          <button
-            disabled={!isEnabled}
-            className="submit_button"
+        {!isEnabled && 
+          <button className='button__disabled'
             type="submit">Submit
-          </button>
-        </NavLink>
+          </button>}
+        {isEnabled &&
+          <button className='button__enabled'
+            type="submit">Submit
+          </button>}
         <NavLink to="/login">
-          <p className="login_link">Login</p>
+          <p>Login</p>
         </NavLink>
       </form>
     </main>
