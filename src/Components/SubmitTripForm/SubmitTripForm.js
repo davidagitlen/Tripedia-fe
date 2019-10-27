@@ -29,4 +29,5 @@ const SubmitTripForm = ( { collapseForm, openForm, defaultForm } ) => {
   }
 }
 
+
 export default SubmitTripForm;
