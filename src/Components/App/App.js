@@ -33,7 +33,7 @@ export const App = () => {
     services: []
   });
   const currentForm = useMemo(() => ({ formState, setFormState }), [formState, setFormState]);
-  const [user, userLogin] = useState({ email: '', password: ''});
+  const [user, userLogin] = useState({ name: '', email: '', password: '', password_confirmation: ''});
   const loggedInUser = useMemo(() => ({ user, userLogin }), [ user, userLogin ]);
   const {isLoading} = isLoadingState;
 
