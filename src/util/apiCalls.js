@@ -18,6 +18,7 @@ export const createAccount = async (name, email, password, passwordConfirmation)
       };
       const response = await fetch(url, options);
       const newUser = await response.json();
+      console.log(newUser)
       return newUser;
 };
 
@@ -36,6 +37,7 @@ export const loginUser = async (email, password) => {
     };
     const response = await fetch(url, options);
     const user = await response.json();
+    console.log(user)
     return user;
 }
 

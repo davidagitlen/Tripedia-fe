@@ -54,13 +54,14 @@ const LoginForm = () => {
             Login
           </button>
         )}
-        {isEnabled && 
-          <NavLink to="/">
-            <button className="button__enabled" type="submit" onClick={handleSubmit}>
-              Login
-            </button>
-          </NavLink>
-        }
+        {isEnabled && (
+          <button
+            className="button__enabled"
+            type="submit"
+            onClick={handleSubmit}>
+              <NavLink to="/">Login</NavLink>
+          </button>
+        )}
         <NavLink to="/create_account">
           <p>Create Account</p>
         </NavLink>

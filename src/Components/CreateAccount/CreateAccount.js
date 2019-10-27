@@ -55,37 +55,38 @@ const CreateAccount = () => {
         ></input>
         <input
           type="email"
-          name='email'
+          name="email"
           placeholder="email"
           value={email}
           onChange={handleChange}
         ></input>
         <input
           type="password"
-          name='password'
+          name="password"
           placeholder="password"
           value={password}
           onChange={handleChange}
         ></input>
         <input
           type="password"
-          name='confirmPassword'
+          name="password_confirmation"
           placeholder="confirm password"
-          value={confirmPassword}
-          onChange={handleChange}>
-        </input>
-        {!isEnabled && 
-          <button 
-            className='button__disabled'
-            type="submit">
+          value={password_confirmation}
+          onChange={handleChange}
+        ></input>
+        {!isEnabled && (
+          <button className="button__disabled" type="submit">
             Submit
-          </button>}
-        {isEnabled &&
-        <NavLink to='/'>
-          <button className='button__enabled'
-            type="submit">Submit
           </button>
-        </NavLink>}
+        )}
+        {isEnabled && (
+          <button
+            className="button__enabled"
+            type="submit"
+            onClick={handleSubmit}>
+            <NavLink to="/">Submit</NavLink>
+          </button>
+        )}
         <NavLink to="/login">
           <p>Login</p>
         </NavLink>
