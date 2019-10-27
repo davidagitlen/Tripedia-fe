@@ -39,75 +39,79 @@ export const App = () => {
 
   if(!isLoading) {
     return (
-    <FormContext.Provider value={currentForm}>
-     <UserContext.Provider value={loggedInUser}>
-      <LoadingContext.Provider value={contextState}>
-        <div>
-          <Route exact path='/login' render={() => <LoginForm />} />
-          <Route exact path='/create_account' render={() => <CreateAccount />} /> 
-          <Route exact path='/' render={() =>
-            <div className="nav_banner">
-              <Navigation />
-              <div className='map-form__container'>
-                <FormsContainer />
-                <div className='map-container'>
-                  <Map
-                    center={{ lat: 39.7392, lng:  -104.9903 }}
-                    zoom={11}
-                  />
-                </div>
-              </div>
-            </div> 
-            }/>
-        </div>
-      </LoadingContext.Provider>
+      <FormContext.Provider value={currentForm}>
+        <UserContext.Provider value={loggedInUser}>
+          <LoadingContext.Provider value={contextState}>
+            <div>
+              <Route exact path='/login' render={() => <LoginForm />} />
+              <Route exact path='/create_account' render={() => <CreateAccount />} /> 
+              <Route exact path='/' render={() =>
+                <div className="nav_banner">
+                  <Navigation />
+                  <div className='map-form__container'>
+                    <FormsContainer />
+                    <div className='map-container'>
+                      <Map
+                        center={{ lat: 39.7392, lng:  -104.9903 }}
+                        zoom={11}
+                      />
+                    </div>
+                  </div>
+                </div> 
+                }/>
+            </div>
+          </LoadingContext.Provider>
+        </UserContext.Provider>
+      </FormContext.Provider>      
     );
   } else {
     return (
-      <LoadingContext.Provider value={contextState}>
-          <div>
-          <Route exact path='/login' render={() => <LoginForm />} />
-          <Route exact path='/create_account' render={() => <CreateAccount />} /> 
-          <Route exact path='/' render={() =>
-            <div className="nav_banner">
-              <Navigation />
-              <div className='map-form__container'>
-                <FormsContainer />
-                <div className='map-container'>
-                  <Map
-                    center={{ lat: 39.7392, lng:  -104.9903 }}
-                    zoom={11}
-                  />
-                </div>
-              </div>
-            </div> 
-            }/>
-        </div>
-        <div className="app-is-loading">
-        <div className='trivia-box__container'>
-            <p>While we prepare your trip, did you know:</p>
-            <p>Atlas Obscura's attractions api endpoint is down?</p>
-            <div className='animation-container'>
-              <img className='loading__icon' alt='loading' src={LoadingIcon}></img>
-              <img className='stop-sign' alt='loading' src={stopSign}></img>
-              <img className='house' alt='loading' src={house}></img>
-              <img className='trees' alt='loading' src={trees}></img>
-              <img className='trees' alt='loading' src={trees}></img>
-              <img className='trees' alt='loading' src={trees}></img>
-              <img className='trees' alt='loading' src={trees}></img>
-              <img className='trees' alt='loading' src={trees}></img>
-              <img className='city' alt='loading' src={city}></img>
-              <img className='city' alt='loading' src={city}></img>
-              <img className='city2' alt='loading' src={city}></img>
-              <img className='city2' alt='loading' src={city}></img>
-              <img className='hotel' alt='loading' src={hotel}></img>
-              <div className='road'></div>
+      <FormContext.Provider value={currentForm}>
+        <UserContext.Provider value={loggedInUser}>
+          <LoadingContext.Provider value={contextState}>
+              <div>
+              <Route exact path='/login' render={() => <LoginForm />} />
+              <Route exact path='/create_account' render={() => <CreateAccount />} /> 
+              <Route exact path='/' render={() =>
+                <div className="nav_banner">
+                  <Navigation />
+                  <div className='map-form__container'>
+                    <FormsContainer />
+                    <div className='map-container'>
+                      <Map
+                        center={{ lat: 39.7392, lng:  -104.9903 }}
+                        zoom={11}
+                      />
+                    </div>
+                  </div>
+                </div> 
+                }/>
             </div>
-        </div>
-        </div>
-      </LoadingContext.Provider>
-     </UserContext.Provider>
-    </FormContext.Provider>
+            <div className="app-is-loading">
+            <div className='trivia-box__container'>
+                <p>While we prepare your trip, did you know:</p>
+                <p>Atlas Obscura's attractions api endpoint is down?</p>
+                <div className='animation-container'>
+                  <img className='loading__icon' alt='loading' src={LoadingIcon}></img>
+                  <img className='stop-sign' alt='loading' src={stopSign}></img>
+                  <img className='house' alt='loading' src={house}></img>
+                  <img className='trees' alt='loading' src={trees}></img>
+                  <img className='trees' alt='loading' src={trees}></img>
+                  <img className='trees' alt='loading' src={trees}></img>
+                  <img className='trees' alt='loading' src={trees}></img>
+                  <img className='trees' alt='loading' src={trees}></img>
+                  <img className='city' alt='loading' src={city}></img>
+                  <img className='city' alt='loading' src={city}></img>
+                  <img className='city2' alt='loading' src={city}></img>
+                  <img className='city2' alt='loading' src={city}></img>
+                  <img className='hotel' alt='loading' src={hotel}></img>
+                  <div className='road'></div>
+                </div>
+            </div>
+            </div>
+          </LoadingContext.Provider>
+        </UserContext.Provider>
+      </FormContext.Provider>
     )
   }
 }

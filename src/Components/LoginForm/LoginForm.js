@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
-import banner from "../../Images/banner.jpg";
+import banner from "../../Images/banner.png";
 import { UserContext } from '../../Contexts/UserContext';
 import { loginUser } from '../../util/apiCalls';
 
