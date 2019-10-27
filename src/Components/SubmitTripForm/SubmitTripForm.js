@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SubmitTripForm.scss';
+import { FormContext } from '../../Contexts/FormContext';
 
 const SubmitTripForm = ( { collapseForm, openForm, defaultForm } ) => {
   const handleSubmit = e => {

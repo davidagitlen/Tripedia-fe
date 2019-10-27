@@ -1,20 +1,35 @@
 import React, { useState } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
-import banner from "../../images/banner.png";
+import banner from "../../Images/banner.jpg";
+import { UserContext } from '../../Contexts/UserContext';
+import { loginUser } from '../../util/apiCalls';
 
 const LoginForm = () => {
+  const { userLogin } = useContext(UserContext);
   const [loginState, handleForm] = useState({
     email: "",
     password: ""
   });
   const { email, password } = loginState;
   const isEnabled = email && password;
-
   const handleChange = e => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
   
+  const handleSubmit = async (e) => {
+    console.log('trying to handlesubmit')
+    e.preventDefault();
+    try {
+      console.log('are we awaiting forever?');
+      console.log('arguments', email, password)
+      const userInfo = await loginUser(email, password);
+      console.log('userInfo', userInfo)
+      userLogin({email: userInfo.email, password: userInfo.password})
+    } catch ({ message }) {
+      return message;
+    }
+  }
 
   return (
     <main className="login-form__container">

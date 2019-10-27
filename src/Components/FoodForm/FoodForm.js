@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-import "./FoodForm.scss";
+import React, { useState, useContext } from 'react';
+import './FoodForm.scss';
+import { FormContext } from '../../Contexts/FormContext';
 
 const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
+  const { formState, setFormState } = useContext(FormContext);
+  console.log('foodform', formState);
   const [form, toggleClicked] = useState({
     Mexican: false,
     Thai: false,

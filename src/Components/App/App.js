@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useContext } from 'react';
 import { Route } from 'react-router-dom'
 import Navigation from '../Navigation/Navigation';
 import FormsContainer from '../FormsContainer/FormsContainer';
@@ -6,25 +6,41 @@ import './App.scss';
 import Map from '../Map/Map';
 import LoginForm from '../LoginForm/LoginForm';
 import CreateAccount from '../CreateAccount/CreateAccount';
-import LoadingIcon from '../../images/loading-icon.svg'
-import stopSign from '../../images/stop-sign.svg';
-import trees from '../../images/trees.svg';
-import house from '../../images/house.svg';
-import hotel from '../../images/hotel.svg';
-import city from '../../images/city.svg';
+import LoadingIcon from '../../Images/loading-icon.svg'
+import stopSign from '../../Images/stop-sign.svg';
+import trees from '../../Images/trees.svg';
+import house from '../../Images/house.svg';
+import hotel from '../../Images/hotel.svg';
+import city from '../../Images/city.svg';
 import { LoadingContext } from '../../Contexts/LoadingContext';
+import { FormContext } from '../../Contexts/FormContext';
+import { UserContext } from '../../Contexts/UserContext';
 
-
-function App() {
+export const App = () => {
   const [isLoadingState, setLoadingContext] = useState({categories: 'Blah blah blah', isLoading: false});
   const contextState = useMemo(() => ({ isLoadingState, setLoadingContext }), [
     isLoadingState,
     setLoadingContext
   ]);
+  const [formState, setFormState] = useState({
+    origin: '',
+    destination: '',
+    tripSubmitted: false,
+    attractions: [],
+    accommodations: [],
+    food: [],
+    drinks: [],
+    services: []
+  });
+  const currentForm = useMemo(() => ({ formState, setFormState }), [formState, setFormState]);
+  const [user, userLogin] = useState({ email: '', password: ''});
+  const loggedInUser = useMemo(() => ({ user, userLogin }), [ user, userLogin ]);
   const {isLoading} = isLoadingState;
 
   if(!isLoading) {
     return (
+    <FormContext.Provider value={currentForm}>
+     <UserContext.Provider value={loggedInUser}>
       <LoadingContext.Provider value={contextState}>
         <div>
           <Route exact path='/login' render={() => <LoginForm />} />
@@ -90,6 +106,8 @@ function App() {
         </div>
         </div>
       </LoadingContext.Provider>
+     </UserContext.Provider>
+    </FormContext.Provider>
     )
   }
 }
