@@ -64,23 +64,25 @@ export const FormsContainer = () => {
             openForm={openForm}
             defaultForm={defaultOpenForm}
           />
-          <FoodForm 
+          <FoodForm
             collapseForm={collapseForm}
             openForm={openForm}
             defaultForm={defaultOpenForm}
           />
-          <DrinksForm 
-            collapseForm={collapseForm} 
-            openForm={openForm}
-            defaultForm={defaultOpenForm}
-          />
-          <ServicesForm 
+          <DrinksForm
             collapseForm={collapseForm}
             openForm={openForm}
             defaultForm={defaultOpenForm}
           />
-          <SubmitTripForm 
-            collapseForm={collapseForm} 
+          <ServicesForm
+            collapseForm={collapseForm}
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
+          />
+          <SubmitTripForm
+            collapseForm={collapseForm}
+            openForm={openForm}
+            defaultForm={defaultOpenForm}
           />
         </div>
         <button

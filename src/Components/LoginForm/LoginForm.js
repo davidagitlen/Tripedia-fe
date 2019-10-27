@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
 import banner from "../../Images/banner.jpg";
@@ -32,41 +32,41 @@ const LoginForm = () => {
   }
 
   return (
-    <main className="form_body">
+    <main className="login-form__container">
       <img
         className="banner"
         src={banner}
         alt="Tripedia for all your travel planning needs"
       />
-      <form className="login_form">
-        <h2 className="form_title">Login Form</h2>
+      <form className="login__form">
         <input
-          className="email_input"
           type="email"
           name="email"
-          placeholder="email"
+          placeholder="example@email.com"
           value={email}
           onChange={handleChange}
         />
         <input
           type="password"
           name="password"
-          className="password_input"
           placeholder="enter password"
           value={password}
           onChange={handleChange}
         />
-        <NavLink to="/" className="button">
-          <button 
-            disabled={!isEnabled} 
-            className="login_button" 
-            type="submit" 
-            onClick={handleSubmit}>
+        {!isEnabled && (
+          <button className="button__disabled" disabled={true} type="submit">
             Login
           </button>
-        </NavLink>
+        )}
+        {isEnabled && 
+          <NavLink to="/">
+            <button className="button__enabled" type="submit">
+              Login
+            </button>
+          </NavLink>
+        }
         <NavLink to="/create_account">
-          <p className="create_account_link">Create Account</p>
+          <p>Create Account</p>
         </NavLink>
       </form>
     </main>

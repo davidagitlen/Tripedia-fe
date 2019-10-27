@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Pin from '../Pin/Pin';
 import './Map.scss'; 
+import { LoadingContext } from "../../Contexts/LoadingContext";
+
+
+
 
 const Map = (props) => {
+const { isLoadingState, setLoadingContext} = useContext(LoadingContext);
+const { isLoading } = isLoadingState;
+  console.log('context map', isLoading)
   const [stops, updateStops] = useState([]);
   const waypoints = stops.map(stop => ({
     location : {
@@ -13,7 +20,6 @@ const Map = (props) => {
     stopover: true
   }));
 
-  console.log('waypoints', waypoints)
   const { center, zoom } = props;
   let start = { lat: 39.739131, lng: -104.990085 };
   let end = { lat: 40.027750, lng: -105.270350 };
@@ -66,7 +72,7 @@ const cleanYelpResponse = yelp => {
       origin: start,
       destination: end,
       waypoints,
-      travelMode: 'DRIVING'
+      travelMode: "DRIVING"
     };
     currentMap = map;
     mapsResponse = maps;
@@ -136,6 +142,7 @@ const cleanYelpResponse = yelp => {
           />
           {createPin()}
         </GoogleMapReact>
+        <button onClick={() => setLoadingContext({...isLoadingState, isLoading: !isLoading })}></button>
       </div>
     )
   }
