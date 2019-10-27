@@ -17,15 +17,10 @@ const LoginForm = () => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
   
-  const handleSubmit = async (e) => {
-    console.log('trying to handlesubmit')
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
-      console.log('are we awaiting forever?');
-      console.log('arguments', email, password)
       const userInfo = await loginUser(email, password);
-      console.log('userInfo', userInfo)
-      userLogin({email: userInfo.email, password: userInfo.password})
+      userLogin({email: userInfo.email, name: userInfo.name, id: userInfo.id})
     } catch ({ message }) {
       return message;
     }
@@ -60,7 +55,11 @@ const LoginForm = () => {
         )}
         {isEnabled && 
           <NavLink to="/">
-            <button className="button__enabled" type="submit">
+            <button 
+              className="button__enabled" 
+              type="submit"
+              onClick={handleSubmit}
+              >
               Login
             </button>
           </NavLink>
