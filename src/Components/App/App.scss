@@ -2,24 +2,152 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   margin: 0;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  .map-form__container {
+    display: flex;
+  }
 
-.map-form__container {
-  display: flex;
-}
+  .map-container {
+    height: 100%;
+    width: 100%;
+  }
+  .app-is-loading {
+    background-color: rgba(170, 164, 164, 0.75);
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 75;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .trivia-box__container {
+      width: 1200px;
+      height: 600px;
+      background-color: rgba(240, 240, 240, 0.98);
+      border-radius: 8px;
+      font-size: 34px;
+      color: blue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background: url("../../Images/loading-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
 
-.map-container {
-  height: 100%;
-  width: 100%;
+      .animation-container {
+        width: 99.3%;
+        height: 100px;
+        // background: url('../../images/loading-background.jpg');
+        // background-repeat: no-repeat;
+        // background-size: fill;
+        // background-position: 0%;
+        .loading__icon {
+          width: 100px;
+          animation: drive 13s;
+          animation-iteration-count: infinite;
+          position: relative;
+          z-index: 100;
+        }
+        .stop-sign {
+          width: 50px;
+          height: 50px;
+          position: relative;
+          left: 565px;
+          bottom: 24px;
+          z-index: 60;
+        }
+
+        .trees {
+          width: 50px;
+          height: 50px;
+          position: relative;
+          right: 21px;
+          bottom: 24px;
+        }
+
+        .house {
+          width: 50px;
+          height: 50px;
+          position: relative;
+          right: 126px;
+          bottom: 24px;
+        }
+
+        .hotel {
+          width: 50px;
+          height: 50px;
+          position: relative;
+          left: 386px;
+          bottom: 24px;
+        }
+
+        .city {
+          width: 75px;
+          height: 75px;
+          position: relative;
+          left: 72px;
+          bottom: 37px;
+        }
+
+        .city2 {
+          width: 75px;
+          height: 75px;
+          position: relative;
+          left: 104px;
+          bottom: 37px;
+        }
+
+        .road {
+          width: 100%;
+          margin-top: -45px;
+          height: 7px;
+          box-shadow: 0px 0px 4px 4px darkgrey;
+          background-color: darkgrey;
+        }
+
+        @keyframes drive {
+          0% {
+            transform: translateX(0px, 0px);
+          }
+          10% {
+            transform: translateX(120px, -50px);
+          }
+          20% {
+            transform: translateX(240px, -100px);
+          }
+          30% {
+            transform: translateX(360px, -105px);
+          }
+          40% {
+            transform: translateX(480px, -200px);
+          }
+          50% {
+            transform: translateX(600px);
+          }
+          60% {
+            transform: translateX(720px, 0px);
+            // transform: translateY(-12px);
+          }
+          70% {
+            transform: translateX(840px, -50px);
+          }
+          80% {
+            transform: translateX(960px, -100px);
+          }
+          90% {
+            transform: translateX(1080px, -105px);
+            // transform: translateY(0);
+          }
+          100% {
+            transform: translateX(1100px);
+          }
+        }
+      }
+    }
+  }
 }

@@ -17,31 +17,29 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
   });
 
   let mockProps = [
-    'Mexican',
-    'Thai',
-    'Chinese',
-    'Japanese',
-    'Vietnamese',
-    'Fast Food',
-    'Fine Dining',
-    'Pizza'
+    "Mexican",
+    "Thai",
+    "Chinese",
+    "Japanese",
+    "Vietnamese",
+    "Fast Food",
+    "Fine Dining",
+    "Pizza"
   ];
 
   const checkBoxes = mockProps.map(checkBox => {
-    let name = checkBox.replace(/ /gi, '');
+    let name = checkBox.replace(/ /gi, "");
     return (
-      <div
-        key={name}
-        className='individual-checkbox__container'
-        >
+      <div key={name} className="individual-checkbox__container">
         <input
-          className='food__checkbox'
-          type='checkbox'
+          className="checkbox"
+          type="checkbox"
           value={name}
           checked={form[name]}
-          onChange={e => 
+          onChange={e =>
             toggleClicked({
-              ...form, [e.target.value]: !form[e.target.value]
+              ...form,
+              [e.target.value]: !form[e.target.value]
             })
           }
         />
@@ -50,31 +48,28 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
     );
   });
 
-  if(openForm.FoodForm) {
+  if (openForm.FoodForm) {
     return (
-      <div className='food-form__container'>
-        <h2>- Food -</h2>
-        <div className='checkbox__container'>
-          {checkBoxes}
-        </div>
+      <div className="form__container">
+        <p>- Food -</p>
+        <div className="checkbox__container">{checkBoxes}</div>
       </div>
     );
   } else {
     return (
       <div
-        onClick={e => 
+        onClick={e =>
           collapseForm({
             ...defaultForm,
-            FoodForm:
-            !openForm.FoodForm
+            FoodForm: !openForm.FoodForm
           })
         }
-        className='food-form-closed__container'
+        className="form-closed__container"
       >
-        <p>FoodForm</p>
+        <p>- Food -</p>
       </div>
     );
   }
-}
+};
 
 export default FoodForm;
