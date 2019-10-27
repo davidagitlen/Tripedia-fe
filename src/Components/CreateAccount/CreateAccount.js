@@ -3,20 +3,20 @@ import { NavLink } from 'react-router-dom';
 import './CreateAccount.scss';
 import banner from '../../Images/banner.jpg';
 import { UserContext } from '../../Contexts/UserContext';
-import { createAccount, loginUser } from '../../util/apiCalls';
+import { createAccount } from '../../util/apiCalls';
 
 const CreateAccount = () => {
-  const { createUser } = useContext(UserContext);
+  const { userLogin } = useContext(UserContext);
   
   const [accountState, setAccountState] = useState({
     name: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    password_confirmation: '',
   })
 
-  const {name, email, password, confirmPassword} = accountState
-  const isEnabled = email && password && name && password && confirmPassword;
+  const {name, email, password, password_confirmation} = accountState
+  const isEnabled = email && password && name && password && password_confirmation;
   
  const handleChange = (e) => {
    setAccountState({...accountState, [e.target.name]: e.target.value })
@@ -25,12 +25,12 @@ const CreateAccount = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const userInfo = await createAccount(name, email, password, confirmPassword);
-      createUser({ 
-        name: userInfo.name, 
-        email: userInfo.email, 
-        password: userInfo.password,
-        password_confirmation: userInfo.passwordConfirmation
+      const userInfo = await createAccount(name, email, password, password_confirmation);
+      userLogin({ 
+        name, 
+        email, 
+        password,
+        password_confirmation
       });
     } catch ({ message }) {
       return message;
@@ -72,10 +72,10 @@ const CreateAccount = () => {
         ></input>
         <input
           type="password"
-          name="confirmPassword"
+          name="password_confirmation"
           className="confirm_password_input"
           placeholder="confirm password"
-          value={confirmPassword}
+          value={password_confirmation}
           onChange={handleChange}
         ></input>
         <NavLink to="/" className="button">
