@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import './AccommodationsForm.scss';
+import React, { useState } from "react";
+import "./AccommodationsForm.scss";
 
-const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
-
+const AccommodationsForm = ({ collapseForm, openForm, defaultForm }) => {
   const [form, toggleClicked] = useState({
     Hotels: false,
     Motels: false,
@@ -28,10 +27,7 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
   const checkBoxes = mockProps.map(checkBox => {
     let name = checkBox.replace(/ /gi, "");
     return (
-      <div 
-        key={name}
-        className="individual-checkbox__container"
-      >
+      <div key={name} className="individual-checkbox__container">
         <input
           className="checkbox"
           type="checkbox"
@@ -46,13 +42,11 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
     );
   });
 
-  if(openForm.AccommodationsForm) {
+  if (openForm.AccommodationsForm) {
     return (
-      <div className='form__container'>
+      <div className="form__container">
         <p>- Accommodations -</p>
-        <div className='checkbox__container'>
-          {checkBoxes}
-        </div>
+        <div className="checkbox__container">{checkBoxes}</div>
       </div>
     );
   } else {
@@ -70,6 +64,6 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
       </div>
     );
   }
-}
+};
 
 export default AccommodationsForm;

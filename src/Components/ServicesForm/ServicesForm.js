@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import './ServicesForm.scss';
+import React, { useState } from "react";
+import "./ServicesForm.scss";
 
 const ServicesForm = ({ collapseForm, openForm, defaultForm }) => {
-
   const [form, toggleClicked] = useState({
     GasStation: false,
     Hospital: false,
@@ -12,49 +11,45 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm }) => {
   });
 
   let mockProps = [
-    'Gas Station',
-    'Hospital',
-    'Mechanic',
-    'Grocery Store',
-    'Rest Stop'
+    "Gas Station",
+    "Hospital",
+    "Mechanic",
+    "Grocery Store",
+    "Rest Stop"
   ];
 
   const checkBoxes = mockProps.map(checkBox => {
-    let name = checkBox.replace(/ /gi, '');
+    let name = checkBox.replace(/ /gi, "");
     return (
-      <div
-        key={name}
-        className='individual-checkbox__container'
-      >
+      <div key={name} className="individual-checkbox__container">
         <input
-          className='checkbox'
-          type='checkbox'
+          className="checkbox"
+          type="checkbox"
           value={name}
           checked={form[name]}
-          onChange={e => 
+          onChange={e =>
             toggleClicked({
-              ...form, [e.target.value]: !form[e.target.value]
+              ...form,
+              [e.target.value]: !form[e.target.value]
             })
           }
         />
-      <label>{checkBox}</label>
+        <label>{checkBox}</label>
       </div>
     );
   });
   if (openForm.ServicesForm) {
-    return(
-      <div className='form__container'>
+    return (
+      <div className="form__container">
         <p>- Services -</p>
-        <div className='checkbox__container'>
-          {checkBoxes}
-        </div>
+        <div className="checkbox__container">{checkBoxes}</div>
       </div>
     );
   } else {
     return (
       <div
-        className='form-closed__container'
-        onClick={e => 
+        className="form-closed__container"
+        onClick={e =>
           collapseForm({
             ...defaultForm,
             ServicesForm: !openForm.ServicesForm
@@ -65,6 +60,6 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm }) => {
       </div>
     );
   }
-}
+};
 
 export default ServicesForm;

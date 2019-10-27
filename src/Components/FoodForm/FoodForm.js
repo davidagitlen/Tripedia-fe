@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './FoodForm.scss';
+import React, { useState } from "react";
+import "./FoodForm.scss";
 
 const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
   const [form, toggleClicked] = useState({
@@ -14,31 +14,29 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
   });
 
   let mockProps = [
-    'Mexican',
-    'Thai',
-    'Chinese',
-    'Japanese',
-    'Vietnamese',
-    'Fast Food',
-    'Fine Dining',
-    'Pizza'
+    "Mexican",
+    "Thai",
+    "Chinese",
+    "Japanese",
+    "Vietnamese",
+    "Fast Food",
+    "Fine Dining",
+    "Pizza"
   ];
 
   const checkBoxes = mockProps.map(checkBox => {
-    let name = checkBox.replace(/ /gi, '');
+    let name = checkBox.replace(/ /gi, "");
     return (
-      <div
-        key={name}
-        className='individual-checkbox__container'
-        >
+      <div key={name} className="individual-checkbox__container">
         <input
-          className='checkbox'
-          type='checkbox'
+          className="checkbox"
+          type="checkbox"
           value={name}
           checked={form[name]}
-          onChange={e => 
+          onChange={e =>
             toggleClicked({
-              ...form, [e.target.value]: !form[e.target.value]
+              ...form,
+              [e.target.value]: !form[e.target.value]
             })
           }
         />
@@ -47,31 +45,28 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
     );
   });
 
-  if(openForm.FoodForm) {
+  if (openForm.FoodForm) {
     return (
-      <div className='form__container'>
+      <div className="form__container">
         <p>- Food -</p>
-        <div className='checkbox__container'>
-          {checkBoxes}
-        </div>
+        <div className="checkbox__container">{checkBoxes}</div>
       </div>
     );
   } else {
     return (
       <div
-        onClick={e => 
+        onClick={e =>
           collapseForm({
             ...defaultForm,
-            FoodForm:
-            !openForm.FoodForm
+            FoodForm: !openForm.FoodForm
           })
         }
-        className='form-closed__container'
+        className="form-closed__container"
       >
         <p>- Food -</p>
       </div>
     );
   }
-}
+};
 
 export default FoodForm;
