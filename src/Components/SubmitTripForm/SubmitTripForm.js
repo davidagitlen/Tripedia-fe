@@ -9,7 +9,7 @@ const SubmitTripForm = ( { collapseForm, openForm, defaultForm } ) => {
   if (openForm.SubmitForm) {
     return (
       <form className="form__container">
-        <button>
+        <button className='submit-trip__button'>
           Create Trip
         </button>
       </form>

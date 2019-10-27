@@ -46,8 +46,18 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-       border-top: 2px solid rgba(0, 28, 58, 0.5);
-
+      border-top: 2px solid rgba(0, 28, 58, 0.5);
+      .submit-trip__button {
+        width: 75%;
+        border-radius: 40px;
+        height: 40px;
+        font-weight: bold;
+        border: 2px solid #001c3a;
+        &:hover {
+          background-color: #001c3a;
+          color: whitesmoke;
+        }
+      }
       .checkbox__container {
         display: flex;
         flex-flow: row wrap;
