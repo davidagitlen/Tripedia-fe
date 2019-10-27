@@ -33,7 +33,7 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
         className="individual-checkbox__container"
       >
         <input
-          className="accommodation__checkbox"
+          className="checkbox"
           type="checkbox"
           value={name}
           checked={form[name]}
@@ -48,8 +48,8 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
 
   if(openForm.AccommodationsForm) {
     return (
-      <div className='accommodations-form__container'>
-        <h2>- Accommodations -</h2>
+      <div className='form__container'>
+        <p>- Accommodations -</p>
         <div className='checkbox__container'>
           {checkBoxes}
         </div>
@@ -64,9 +64,9 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
             AccommodationsForm: !openForm.AccommodationsForm
           })
         }
-        className="accommodations-form-closed__container"
+        className="form-closed__container"
       >
-        <p>AccommodationsForm</p>
+        <p>- Accommodations -</p>
       </div>
     );
   }

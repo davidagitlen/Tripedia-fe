@@ -27,7 +27,7 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm }) => {
         className='individual-checkbox__container'
       >
         <input
-          className='services__checkbox'
+          className='checkbox'
           type='checkbox'
           value={name}
           checked={form[name]}
@@ -43,8 +43,8 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm }) => {
   });
   if (openForm.ServicesForm) {
     return(
-      <div className='services-form__container'>
-        <h2>- Services -</h2>
+      <div className='form__container'>
+        <p>- Services -</p>
         <div className='checkbox__container'>
           {checkBoxes}
         </div>
@@ -53,7 +53,7 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm }) => {
   } else {
     return (
       <div
-        className='services-form-closed__container'
+        className='form-closed__container'
         onClick={e => 
           collapseForm({
             ...defaultForm,
@@ -61,7 +61,7 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm }) => {
           })
         }
       >
-        <p>ServicesForm</p>
+        <p>- ServicesForm -</p>
       </div>
     );
   }

@@ -28,7 +28,7 @@ const DrinksForm = ({ collapseForm, openForm, defaultForm}) => {
         className='individual-checkbox__container'
       >   
       <input 
-        className='drink__checkbox'
+        className='checkbox'
         type='checkbox'
         value={name}
         checked={form[name]}
@@ -45,8 +45,8 @@ const DrinksForm = ({ collapseForm, openForm, defaultForm}) => {
 
   if (openForm.DrinkForm) {
     return (
-      <div className='drink-form__container'>
-        <h2>- Drink -</h2>
+      <div className='form__container'>
+        <p>- Drink -</p>
         <div className='checkbox__container'>
           {checkBoxes}
         </div>
@@ -55,7 +55,7 @@ const DrinksForm = ({ collapseForm, openForm, defaultForm}) => {
   } else {
     return ( 
       <div 
-        className='drink-form-closed__container'
+        className='form-closed__container'
         onClick={e => 
           collapseForm({
             ...defaultForm,
@@ -63,7 +63,7 @@ const DrinksForm = ({ collapseForm, openForm, defaultForm}) => {
         })
       }
       >
-        <p>DrinkForm</p>
+        <p>- DrinkForm -</p>
       </div>
     );
   }

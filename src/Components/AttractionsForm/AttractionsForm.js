@@ -36,7 +36,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
         className="individual-checkbox__container"
       >
         <input
-          className="attraction__checkbox"
+          className="checkbox"
           type="checkbox"
           value={name}
           checked={form[name]}
@@ -51,8 +51,8 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
 
   if(openForm.AttractionsForm) {
     return (
-      <div className="attraction-form__container">
-        <h2>- Attractions -</h2>
+      <div className="form__container">
+        <p>- Attractions -</p>
         <div className="checkbox__container">{checkBoxes}</div>
       </div>
     );
@@ -62,9 +62,9 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
         onClick={e =>
           collapseForm({ ...defaultForm, AttractionsForm: !openForm.AttractionsForm })
         }
-        className="attraction-form-closed__container"
+        className="form-closed__container"
       >
-        <h2>- Attractions -</h2>
+        <p>- Attractions -</p>
       </div>
     );
   }

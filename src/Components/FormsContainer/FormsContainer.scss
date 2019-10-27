@@ -6,7 +6,6 @@
   background-color: rgba(228, 226, 226, 0);
   z-index: 3;
   position: absolute;
-
 }
 .collapse_button {
   height: 350px;
@@ -16,7 +15,6 @@
   background-color: rgba(245, 245, 245, 0.8);
   border: solid lightgrey 1px;
   border-left: none;
-
 }
 
 .collapse_button:hover {
@@ -40,5 +38,59 @@
   .forms-container__container {
     width: 30vw;
     height: 80vh;
+    .form__container {
+      width: 100%;
+      height: 32vh;
+      background: whitesmoke;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+       border-top: 2px solid rgba(0, 28, 58, 0.5);
+
+      .checkbox__container {
+        display: flex;
+        flex-flow: row wrap;
+        height: 90%;
+        padding: 20px;
+      }
+      p {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: rgb(0, 28, 58);
+      }
+      .individual-checkbox__container {
+        display: flex;
+        width: 50%;
+        padding: 10px;
+
+        label {
+          font-size: 1.1em;
+          font-weight: bold;
+          color: rgb(0, 28, 58);
+        }
+        .checkbox {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .form-closed__container {
+      width: 100%;
+      height: 8vh;
+      background-color: whitesmoke;
+      border-top: 2px solid rgba(0, 28, 58, 0.5);
+      // border-bottom: 2px solid rgba(0, 28, 58, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      p {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: rgb(0, 28, 58);
+      }
+    }
   }
 }

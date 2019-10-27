@@ -6,54 +6,50 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border-bottom: 2px solid rgba(0, 28, 58, .5);
-  border-top: 2px solid rgba(0, 28, 58, .5);
-  // border-bottom: 2px solid #001C3A;
+  border-top: 2px solid rgba(0, 28, 58, 0.5);
 
-    input {
-      text-align: center;
-      font-size: 1em;
-      font-weight: bold;
-      height: 40px;
-      width: 75%;
-      border-radius: 40px;
-      border: 2px solid #001C3A;
-    }
+  input {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    height: 40px;
+    width: 75%;
+    border-radius: 40px;
+    border: 2px solid #001c3a;
+  }
 
-    p {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
+  p {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
 
-    .enabled {
-      width: 75%;
-      border-radius: 40px;
-      height: 40px;
-      font-weight: bold;
-      border: 2px solid #001C3A;
-        &:hover {
-          background-color: #001C3A;
-          color: whitesmoke;
-          
-        }
+  .enabled {
+    width: 75%;
+    border-radius: 40px;
+    height: 40px;
+    font-weight: bold;
+    border: 2px solid #001c3a;
+    &:hover {
+      background-color: #001c3a;
+      color: whitesmoke;
     }
-    .disabled {
-      width: 75%;
-      border-radius: 40px;
-      height: 40px;
-      font-weight: bold;
-      background-color: rgba(128, 128, 128, .3);
-      color:  rgba(0, 28, 58, .5);
-      cursor: default;
-    }
+  }
+  .disabled {
+    width: 75%;
+    border-radius: 40px;
+    height: 40px;
+    font-weight: bold;
+    background-color: rgba(128, 128, 128, 0.3);
+    color: rgba(0, 28, 58, 0.5);
+    cursor: default;
+  }
 }
 
 .start-form-closed__container {
   width: 100%;
   height: 8vh;
   background-color: whitesmoke;
-  border-top: 2px solid rgba(0, 28, 58, .5);
-  border-bottom: 2px solid  rgba(0, 28, 58, .5);
+  border-top: 2px solid rgba(0, 28, 58, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,6 +58,6 @@
   p {
     font-size: 1.5em;
     font-weight: bold;
-    color: rgb(0, 28, 58)
+    color: rgb(0, 28, 58);
   }
 }

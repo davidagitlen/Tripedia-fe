@@ -32,7 +32,7 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
         className='individual-checkbox__container'
         >
         <input
-          className='food__checkbox'
+          className='checkbox'
           type='checkbox'
           value={name}
           checked={form[name]}
@@ -49,8 +49,8 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
 
   if(openForm.FoodForm) {
     return (
-      <div className='food-form__container'>
-        <h2>- Food -</h2>
+      <div className='form__container'>
+        <p>- Food -</p>
         <div className='checkbox__container'>
           {checkBoxes}
         </div>
@@ -66,9 +66,9 @@ const FoodForm = ({ collapseForm, openForm, defaultForm }) => {
             !openForm.FoodForm
           })
         }
-        className='food-form-closed__container'
+        className='form-closed__container'
       >
-        <p>FoodForm</p>
+        <p>- Food -</p>
       </div>
     );
   }
