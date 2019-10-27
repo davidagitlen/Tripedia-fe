@@ -72,7 +72,7 @@ const cleanYelpResponse = yelp => {
       origin: start,
       destination: end,
       waypoints,
-      travelMode: 'DRIVING'
+      travelMode: "DRIVING"
     };
     currentMap = map;
     mapsResponse = maps;
