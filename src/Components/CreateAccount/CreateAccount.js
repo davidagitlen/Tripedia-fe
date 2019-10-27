@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './CreateAccount.scss';
 import banner from '../../Images/banner.jpg';
 import { UserContext } from '../../Contexts/UserContext';
-import { createAccount } from '../../util/apiCalls';
+import { createAccount, loginUser } from '../../util/apiCalls';
 
 const CreateAccount = () => {
   const { createUser } = useContext(UserContext);
