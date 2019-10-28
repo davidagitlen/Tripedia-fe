@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateAccount should match the wrapper with data passed in 1`] = `
+<main
+  className="create-account__container"
+>
+  <img
+    alt="Tripedia for all your travel planning needs"
+    className="banner"
+    src="banner.png"
+  />
+  <form
+    className="create-account_form"
+  >
+    <h2
+      className="form_title"
+    >
+      Create Account
+    </h2>
+    <input
+      name="name"
+      onChange={[Function]}
+      placeholder="name"
+      type="text"
+      value=""
+    />
+    <input
+      name="email"
+      onChange={[Function]}
+      placeholder="email"
+      type="email"
+      value=""
+    />
+    <input
+      name="password"
+      onChange={[Function]}
+      placeholder="password"
+      type="password"
+      value=""
+    />
+    <input
+      name="password_confirmation"
+      onChange={[Function]}
+      placeholder="confirm password"
+      type="password"
+      value=""
+    />
+    <button
+      className="button__disabled"
+      type="submit"
+    >
+      Submit
+    </button>
+    <NavLink
+      to="/login"
+    >
+      <p>
+        Login
+      </p>
+    </NavLink>
+  </form>
+</main>
+`;
