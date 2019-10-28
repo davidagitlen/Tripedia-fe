@@ -21,7 +21,7 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const userInfo = await loginUser(email, password);
-      userLogin({email: userInfo.email, password: userInfo.password})
+      userLogin({email, password})
     } catch ({ message }) {
       return message;
     }
