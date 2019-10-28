@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
 import banner from "../../Images/banner.png";
-import { UserContext } from '../../Contexts/UserContext';
-import { loginUser } from '../../util/apiCalls';
+import { UserContext } from "../../Contexts/UserContext";
+import { loginUser } from "../../util/apiCalls";
 
 const LoginForm = () => {
   const { userLogin } = useContext(UserContext);
@@ -16,15 +16,19 @@ const LoginForm = () => {
   const handleChange = e => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
-  
+
   const handleSubmit = async () => {
     try {
       const userInfo = await loginUser(email, password);
-      userLogin({email: userInfo.email, name: userInfo.name, id: userInfo.id})
+      userLogin({
+        email: userInfo.email,
+        name: userInfo.name,
+        id: userInfo.id
+      });
     } catch ({ message }) {
       return message;
     }
-  }
+  };
 
   return (
     <main className="login-form__container">
@@ -53,13 +57,17 @@ const LoginForm = () => {
             Login
           </button>
         )}
-        {isEnabled && 
+        {isEnabled && (
           <NavLink to="/">
-            <button onClick={handleSubmit}className="button__enabled" type="submit">
+            <button
+              onClick={handleSubmit}
+              className="button__enabled"
+              type="submit"
+            >
               Login
             </button>
           </NavLink>
-        }
+        )}
         <NavLink to="/create_account">
           <p>Create Account</p>
         </NavLink>

@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
-import './SubmitTripForm.scss';
-import { FormContext } from '../../Contexts/FormContext';
+import React, { useContext } from "react";
+import "./SubmitTripForm.scss";
+import { FormContext } from "../../Contexts/FormContext";
 
-const SubmitTripForm = ( { collapseForm, openForm, defaultForm } ) => {
-  
+const SubmitTripForm = ({ collapseForm, openForm, defaultForm }) => {
   const handleSubmit = e => {
     e.preventDefault();
   };
@@ -11,9 +10,7 @@ const SubmitTripForm = ( { collapseForm, openForm, defaultForm } ) => {
   if (openForm.SubmitForm) {
     return (
       <form className="form__container">
-        <button className='submit-trip__button'>
-          Create Trip
-        </button>
+        <button className="submit-trip__button">Create Trip</button>
       </form>
     );
   } else {
@@ -24,10 +21,10 @@ const SubmitTripForm = ( { collapseForm, openForm, defaultForm } ) => {
         }
         className="form-closed__container"
       >
-      <p>- Complete Trip -</p>
+        <p>- Complete Trip -</p>
       </div>
     );
   }
-}
+};
 
 export default SubmitTripForm;
