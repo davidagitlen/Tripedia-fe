@@ -4,7 +4,6 @@ import { FormContext } from '../../Contexts/FormContext';
 
 const AccommodationsForm = ({ collapseForm, openForm, defaultForm}) => {
   const { formState, setFormState } = useContext(FormContext);
-  console.log('accommodationsForm', formState);
   const [form, toggleClicked] = useState({
     Hotels: false,
     Motels: false,

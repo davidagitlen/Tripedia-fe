@@ -18,11 +18,8 @@ const LoginForm = () => {
   };
   
   const handleSubmit = async () => {
-    console.log('are we awaiting forever?');
     try {
-      console.log('arguments', email, password)
       const userInfo = await loginUser(email, password);
-      console.log('userInfo', userInfo)
       userLogin({email: userInfo.email, name: userInfo.name, id: userInfo.id})
     } catch ({ message }) {
       return message;

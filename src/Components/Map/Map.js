@@ -10,7 +10,6 @@ import { LoadingContext } from "../../Contexts/LoadingContext";
 const Map = (props) => {
 const { isLoadingState, setLoadingContext} = useContext(LoadingContext);
 const { isLoading } = isLoadingState;
-  console.log('context map', isLoading)
   const [stops, updateStops] = useState([]);
   const waypoints = stops.map(stop => ({
     location : {
@@ -66,7 +65,7 @@ const cleanYelpResponse = yelp => {
     phone: yelp.display_phone
   };
 };
-  let currentMap, mapsResponse;
+
   const displayRoute = (map, maps) => {
     let request = {
       origin: start,
@@ -74,8 +73,7 @@ const cleanYelpResponse = yelp => {
       waypoints,
       travelMode: "DRIVING"
     };
-    currentMap = map;
-    mapsResponse = maps;
+  
     let directionsRenderer = new maps.DirectionsRenderer({
       path: { start, end },
       draggable: true,
@@ -110,11 +108,7 @@ const cleanYelpResponse = yelp => {
 
   return (
     <div style={{ height: '80vh', width: '100%' }}>
-        {/* <button
-          style={{ position: 'absolute', zIndex: 100 }}
-          onClick={() => updateWaypoints([{ location: { lat: 39.734551, lng: -104.832522 }, stopover: true }, { location: { lat: 39.739131, lng: -104.990085 }, stopover: true }, { location: { lat: 40.734551, lng: -104.832522 }, stopover: true }])
-          }>
-        </button> */}
+      
         <GoogleMapReact
           // key={waypoints}
           defaultCenter={center}

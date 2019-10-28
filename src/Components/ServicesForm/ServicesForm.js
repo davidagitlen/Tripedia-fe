@@ -4,7 +4,6 @@ import { FormContext } from '../../Contexts/FormContext';
 
 const ServicesForm = ({ collapseForm, openForm, defaultForm }) => {
   const { formState, setFormState } = useContext(FormContext);
-  console.log('servicesForm', formState);
 
   const [form, toggleClicked] = useState({
     GasStation: false,

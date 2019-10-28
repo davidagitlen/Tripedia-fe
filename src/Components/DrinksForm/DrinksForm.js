@@ -4,7 +4,6 @@ import { FormContext } from '../../Contexts/FormContext';
 
 const DrinksForm = ({ collapseForm, openForm, defaultForm}) => {
   const { formState, setFormState } = useContext(FormContext);
-  console.log('drinksform', formState);
   const [form, toggleClicked] = useState({
     Cocktails: false,
     Beer: false,

@@ -5,7 +5,6 @@ import { getStartAndEnd } from '../../util/apiCalls';
 
 const StartForm = ({ collapseForm, openForm, defaultForm}) => {
   const { formState, setFormState } = useContext(FormContext);
-  console.log('startform', formState);
   const [cities, enterCities] = useState({
     origin: '',
     destination: '',

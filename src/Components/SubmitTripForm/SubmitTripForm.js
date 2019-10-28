@@ -3,6 +3,7 @@ import './SubmitTripForm.scss';
 import { FormContext } from '../../Contexts/FormContext';
 
 const SubmitTripForm = ( { collapseForm, openForm, defaultForm } ) => {
+  
   const handleSubmit = e => {
     e.preventDefault();
   };
@@ -28,6 +29,5 @@ const SubmitTripForm = ( { collapseForm, openForm, defaultForm } ) => {
     );
   }
 }
-
 
 export default SubmitTripForm;
