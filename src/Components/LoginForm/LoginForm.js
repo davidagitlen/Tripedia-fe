@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
-import banner from "../../Images/banner.jpg";
+import banner from "../../Images/banner.png";
 import { UserContext } from '../../Contexts/UserContext';
 import { loginUser } from '../../util/apiCalls';
 
@@ -17,15 +17,13 @@ const LoginForm = () => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
   
-  const handleSubmit = async (e) => {
-    console.log('trying to handlesubmit')
-    e.preventDefault();
+  const handleSubmit = async () => {
+    console.log('are we awaiting forever?');
     try {
-      console.log('are we awaiting forever?');
       console.log('arguments', email, password)
       const userInfo = await loginUser(email, password);
       console.log('userInfo', userInfo)
-      userLogin({email: userInfo.email, password: userInfo.password})
+      userLogin({email: userInfo.email, name: userInfo.name, id: userInfo.id})
     } catch ({ message }) {
       return message;
     }
@@ -60,7 +58,7 @@ const LoginForm = () => {
         )}
         {isEnabled && 
           <NavLink to="/">
-            <button className="button__enabled" type="submit">
+            <button onClick={handleSubmit}className="button__enabled" type="submit">
               Login
             </button>
           </NavLink>

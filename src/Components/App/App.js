@@ -33,37 +33,49 @@ export const App = () => {
     services: []
   });
   const currentForm = useMemo(() => ({ formState, setFormState }), [formState, setFormState]);
-  const [user, userLogin] = useState({ email: '', password: ''});
+  const [user, userLogin] = useState({ email: '', name: '', id:''});
   const loggedInUser = useMemo(() => ({ user, userLogin }), [ user, userLogin ]);
   const {isLoading} = isLoadingState;
 
   if(!isLoading) {
     return (
-    <FormContext.Provider value={currentForm}>
-     <UserContext.Provider value={loggedInUser}>
-      <LoadingContext.Provider value={contextState}>
-        <div>
-          <Route exact path='/login' render={() => <LoginForm />} />
-          <Route exact path='/create_account' render={() => <CreateAccount />} /> 
-          <Route exact path='/' render={() =>
-            <div className="nav_banner">
-              <Navigation />
-              <div className='map-form__container'>
-                <FormsContainer />
-                <div className='map-container'>
-                  <Map
-                    center={{ lat: 39.7392, lng:  -104.9903 }}
-                    zoom={11}
-                  />
-                </div>
-              </div>
-            </div> 
-            }/>
-        </div>
-      </LoadingContext.Provider>
+      <FormContext.Provider value={currentForm}>
+        <UserContext.Provider value={loggedInUser}>
+          <LoadingContext.Provider value={contextState}>
+            <div>
+              <Route exact path="/login" render={() => <LoginForm />} />
+              <Route
+                exact
+                path="/create_account"
+                render={() => <CreateAccount />}
+              />
+              <Route
+                exact
+                path="/"
+                render={() => (
+                  <div className="nav_banner">
+                    <Navigation />
+                    <div className="map-form__container">
+                      <FormsContainer />
+                      <div className="map-container">
+                        <Map
+                          center={{ lat: 39.7392, lng: -104.9903 }}
+                          zoom={11}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              />
+            </div>
+          </LoadingContext.Provider>
+        </UserContext.Provider>
+      </FormContext.Provider>
     );
   } else {
     return (
+       <FormContext.Provider value={currentForm}>
+     <UserContext.Provider value={loggedInUser}>
       <LoadingContext.Provider value={contextState}>
           <div>
           <Route exact path='/login' render={() => <LoginForm />} />
