@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation should match the wrapper with data passed in 1`] = `
+<nav
+  className="navigation__contianer"
+>
+  <div
+    className="logo-title__nav"
+  >
+    <NavLink
+      to="/"
+    >
+      <img
+        alt="Tripedia Logo"
+        className="tripedia-logo__nav"
+        src="Logo1.png"
+      />
+    </NavLink>
+    <h1
+      className="tripedia-text__nav"
+    >
+      TRIPEDIA
+    </h1>
+  </div>
+  <NavLink
+    to="/login"
+  >
+    <p>
+      LogOut
+    </p>
+  </NavLink>
+</nav>
+`;

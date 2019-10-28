@@ -83,7 +83,8 @@ const CreateAccount = () => {
           <button
             className="button__enabled"
             type="submit"
-            onClick={handleSubmit}>
+            onClick={handleSubmit}
+          >
             <NavLink to="/">Submit</NavLink>
           </button>
         )}

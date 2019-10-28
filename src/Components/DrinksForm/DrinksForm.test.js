@@ -4,8 +4,7 @@ import DrinksForm from './DrinksForm';
 
 describe('DrinksForm', () => {
 
-  it('should pass a dummy test', () => {
+  it("should pass a dummy test", () => {
     expect(true).toEqual(true);
   });
-
 });

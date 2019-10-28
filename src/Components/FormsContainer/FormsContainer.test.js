@@ -4,8 +4,8 @@ import FormsContainer from './FormsContainer';
 
 describe('FormsContainer', () => {
 
-  it('should pass a dummy test', () => {
-    expect(true).toEqual(true);
-  });
-
+ it("should match the wrapper with data passed in", () => {
+   const wrapper = shallow(<FormsContainer />);
+   expect(wrapper).toMatchSnapshot();
+ });
 });
