@@ -15,6 +15,7 @@ import city from "../../Images/city.svg";
 import { LoadingContext } from "../../Contexts/LoadingContext";
 import { FormContext } from "../../Contexts/FormContext";
 import { UserContext } from "../../Contexts/UserContext";
+import { triviaFacts } from "../../util/trivia-facts";
 
 export const App = () => {
   const [isLoadingState, setLoadingContext] = useState({
@@ -42,6 +43,16 @@ export const App = () => {
   const [user, userLogin] = useState({ email: "", name: "", id: "" });
   const loggedInUser = useMemo(() => ({ user, userLogin }), [user, userLogin]);
   const { isLoading } = isLoadingState;
+
+  const selectTriviaFact = triviaArray => {
+    let index = Math.floor(Math.random() * triviaArray.length);
+    return triviaArray[index];
+  };
+  // const [triviaBlurb, setTriviaBlurb] = useState(selectTriviaFact(triviaFacts));
+
+  // setInterval(() => {
+  //   setTriviaBlurb(selectTriviaFact(triviaFacts));
+  // }, 14000);
 
   if (!isLoading) {
     return (
@@ -111,8 +122,10 @@ export const App = () => {
             </div>
             <div className="app-is-loading">
               <div className="trivia-box__container">
-                <p>While we prepare your trip, did you know:</p>
-                <p>Atlas Obscura's attractions api endpoint is down?</p>
+                <p className="did-you-know__text">
+                  While we prepare your trip, did you know:
+                </p>
+                <p>{selectTriviaFact(triviaFacts)}</p>
                 <div className="animation-container">
                   <img
                     className="loading__icon"

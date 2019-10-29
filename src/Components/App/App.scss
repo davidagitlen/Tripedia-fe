@@ -40,13 +40,20 @@ body {
       background-size: cover;
       opacity: .95;
 
+      p {
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        color: navy;
+        margin-top: -93px;
+        padding: 20px;
+      }
+      .did-you-know__text {
+        margin-top: 35px;
+      }
       .animation-container {
         width: 99.3%;
         height: 100px;
-        // background: url('../../images/loading-background.jpg');
-        // background-repeat: no-repeat;
-        // background-size: fill;
-        // background-position: 0%;
         .loading__icon {
           width: 100px;
           animation: drive 13s;
