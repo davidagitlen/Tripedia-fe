@@ -85,10 +85,10 @@ const CreateAccount = () => {
             type="submit"
             onClick={handleSubmit}
           >
-            <NavLink to="/">Submit</NavLink>
+            <NavLink to="/map">Submit</NavLink>
           </button>
         )}
-        <NavLink to="/login">
+        <NavLink to="/">
           <p>Login</p>
         </NavLink>
       </form>

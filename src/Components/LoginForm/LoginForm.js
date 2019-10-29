@@ -59,7 +59,7 @@ const LoginForm = () => {
             className="button__enabled"
             type="submit"
             onClick={handleSubmit}>
-              <NavLink to="/">Login</NavLink>
+              <NavLink to="/map">Login</NavLink>
           </button>
         )}
         <NavLink to="/create_account">

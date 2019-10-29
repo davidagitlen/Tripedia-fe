@@ -43,9 +43,9 @@ export const App = () => {
         <UserContext.Provider value={loggedInUser}>
           <LoadingContext.Provider value={contextState}>
             <div>
-              <Route exact path='/login' render={() => <LoginForm />} />
+              <Route exact path='/' render={() => <LoginForm />} />
               <Route exact path='/create_account' render={() => <CreateAccount />} /> 
-              <Route exact path='/' render={() =>
+              <Route exact path='/map' render={() =>
                 <div className="nav_banner">
                   <Navigation />
                   <div className='map-form__container'>
@@ -70,9 +70,9 @@ export const App = () => {
         <UserContext.Provider value={loggedInUser}>
           <LoadingContext.Provider value={contextState}>
               <div>
-              <Route exact path='/login' render={() => <LoginForm />} />
+              <Route exact path='/' render={() => <LoginForm />} />
               <Route exact path='/create_account' render={() => <CreateAccount />} /> 
-              <Route exact path='/' render={() =>
+              <Route exact path='/map' render={() =>
                 <div className="nav_banner">
                   <Navigation />
                   <div className='map-form__container'>
