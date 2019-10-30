@@ -128,7 +128,7 @@ describe('dataCleaner', () => {
   });
 
   describe('createStateObject', () => {
-    it('should take in an object with categories assigned to arrays and return an object with the original keys uppercased and joined together', () => {
+    it('should take in an object with keys assigned to arrays and return an object with the original keys uppercased and joined together', () => {
 
       const mockFormObject = {
         'test one': ['test'],
@@ -143,9 +143,25 @@ describe('dataCleaner', () => {
       }
 
       expect(createStateObject(mockFormObject)).toEqual(expected)
+    });
+  });
 
-    })
+  describe('createCheckBoxNames', () => {
+    it('should take in an object with keys assigned to arrays and return an array with each index holding the original keys as strings with each word uppercased and separated by a space', () => {
+      const mockFormObject = {
+        'test one': ['test'],
+        'test two': ['test'],
+        'test three': ['test']
+      };
 
+      const expected = [
+        'Test One',
+        'Test Two',
+        'Test Three'
+      ];
+
+      expect(createCheckBoxNames(mockFormObject)).toEqual(expected);
+    });
   });
 
 
