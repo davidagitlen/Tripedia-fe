@@ -88,7 +88,8 @@ const CreateAccount = () => {
             >
             Submit
           </button>
-        )}
+        </NavLink>
+        }
         <NavLink to="/login">
           <p>Login</p>
         </NavLink>

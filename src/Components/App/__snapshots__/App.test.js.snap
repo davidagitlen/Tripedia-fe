@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the wrapper with data passed in 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "formState": Object {
+        "accommodations": Object {},
+        "attractions": Object {},
+        "destination": "",
+        "drinks": Object {},
+        "food": Object {},
+        "miscellaneous": Object {},
+        "origin": "",
+        "selectedCategories": Array [],
+        "services": Object {},
+        "tripSubmitted": false,
+      },
+      "setFormState": [Function],
+    }
+  }
+>
+  <ContextProvider
+    value={
+      Object {
+        "user": Object {
+          "email": "",
+          "id": "",
+          "name": "",
+        },
+        "userLogin": [Function],
+      }
+    }
+  >
+    <ContextProvider
+      value={
+        Object {
+          "isLoadingState": Object {
+            "isLoading": false,
+          },
+          "setLoadingContext": [Function],
+        }
+      }
+    >
+      <div>
+        <Route
+          exact={true}
+          path="/login"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/create_account"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/"
+          render={[Function]}
+        />
+      </div>
+    </ContextProvider>
+  </ContextProvider>
+</ContextProvider>
+`;

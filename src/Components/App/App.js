@@ -41,14 +41,6 @@ export const App = () => {
   const loggedInUser = useMemo(() => ({ user, userLogin }), [ user, userLogin ]);
   const {isLoading} = isLoadingState;
 
-  const currentForm = useMemo(() => ({ formState, setFormState }), [
-    formState,
-    setFormState
-  ]);
-  const [user, userLogin] = useState({ email: "", name: "", id: "" });
-  const loggedInUser = useMemo(() => ({ user, userLogin }), [user, userLogin]);
-  const { isLoading } = isLoadingState;
-
   const selectTriviaFact = triviaArray => {
     let index = Math.floor(Math.random() * triviaArray.length);
     return triviaArray[index];
@@ -94,7 +86,7 @@ export const App = () => {
     return (
       <FormContext.Provider value={currentForm}>
         <UserContext.Provider value={loggedInUser}>
-          <LoadingContext.Provider value={contextState}>
+          <LoadingContext.Provider value={loadingState}>
             <div>
               <Route exact path="/login" render={() => <LoginForm />} />
               <Route
