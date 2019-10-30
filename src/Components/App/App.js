@@ -18,7 +18,7 @@ import { UserContext } from "../../Contexts/UserContext";
 import { triviaFacts } from "../../util/trivia-facts";
 
 export const App = () => {
-  const [isLoadingState, setLoadingContext] = useState({ isLoading: false });
+  const [isLoadingState, setLoadingContext] = useState({ isLoading: false, loadingArray: [] });
   const loadingState = useMemo(() => ({ isLoadingState, setLoadingContext }), [
     isLoadingState,
     setLoadingContext

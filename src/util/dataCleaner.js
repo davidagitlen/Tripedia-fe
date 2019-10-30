@@ -1,6 +1,4 @@
 export const cleanData = (data) => {
-  data.trip.origin = data.trip.origin.replace(/:|=/gi, '').replace(/>/gi, ':').replace(/"/gi, ''); 
-  data.trip.destination = data.trip.destination.replace(/:|=/gi, '').replace(/>/gi, ':').replace(/"/gi, '');
   const filteredCategories = data.attractions.filter(attraction => attraction.length > 0);
   const purifiedCategories = filteredCategories.map(category => category.filter(subcategory => subcategory !== null));
   return purifiedCategories;
@@ -71,6 +69,27 @@ export const assignObjectToArrays = (array) => {
       case 'art classes':
         attractions.push(obj);
         return
+      case 'arcades' :
+        attractions.push(obj);
+        return;
+      case 'bubble soccer':
+        attractions.push(obj);
+        return;
+      case 'gay bars':
+        attractions.push(obj);
+        return;
+      case 'jazz & blues':
+        attractions.push(obj);
+        return;
+      case 'performing arts':
+        attractions.push(obj);
+        return;
+      case 'gastropubs':
+        food.push(obj);
+        return;
+      case 'sandwiches':
+        food.push(obj);
+        return;
       case 'fast food' :
         food.push(obj);
         return
@@ -178,3 +197,27 @@ export const cleanYelpResponse = yelp => {
     category: yelp.categories[0].title.toLowerCase()
   };
 };
+
+export const stringToFloatsArray = string => {
+  return string.replace(/[^0-9|.|,|-]/g, '').split(',').map(string => parseFloat(string))
+}
+
+export const createStateObject = formObject => {
+  const formCategories = Object.keys(formObject);
+
+  const stateObject = formCategories.reduce((categoryObject, category) => {
+    const categoryKey = category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+    categoryObject[categoryKey] = false;
+    return categoryObject
+  }, {});
+
+  return stateObject;
+}
+
+export const createCheckBoxNames = formObject => {
+  const formCategories = Object.keys(formObject);
+
+  const checkboxNames = formCategories.map(category => category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
+
+  return checkboxNames; 
+}
