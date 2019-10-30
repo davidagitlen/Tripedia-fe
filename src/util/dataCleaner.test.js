@@ -114,9 +114,20 @@ describe('dataCleaner', () => {
       };
 
       expect(cleanYelpResponse(mockYelpResponse)).toEqual(expected);
-
-
     });
   });
+
+  describe('stringToFloatsArray', () => {
+    it('should take in a string that looks like an object and return an array of two floats', () => {
+
+      const mockRawString = "{ lat: 35.909, lng: -108.108}";
+      const expected = [35.909, -108.108];
+
+      expect(stringToFloatsArray(mockRawString)).toEqual(expected);
+    });
+
+  });
+
+
 
 });
