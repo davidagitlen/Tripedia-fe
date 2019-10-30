@@ -36,6 +36,7 @@ export const App = () => {
     drinks: [],
     services: []
   });
+
   const currentForm = useMemo(() => ({ formState, setFormState }), [
     formState,
     setFormState
@@ -48,11 +49,7 @@ export const App = () => {
     let index = Math.floor(Math.random() * triviaArray.length);
     return triviaArray[index];
   };
-  // const [triviaBlurb, setTriviaBlurb] = useState(selectTriviaFact(triviaFacts));
-
-  // setInterval(() => {
-  //   setTriviaBlurb(selectTriviaFact(triviaFacts));
-  // }, 14000);
+  
 
   if (!isLoading) {
     return (

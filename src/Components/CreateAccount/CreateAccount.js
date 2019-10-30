@@ -1,41 +1,35 @@
-import React, { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
-import "./CreateAccount.scss";
-import banner from "../../Images/banner.png";
-import { UserContext } from "../../Contexts/UserContext";
-import { createAccount } from "../../util/apiCalls";
+import React, { useState, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import './CreateAccount.scss';
+import banner from '../../Images/banner.png';
+import { UserContext } from '../../Contexts/UserContext';
+import { createAccount } from '../../util/apiCalls';
 
 const CreateAccount = () => {
-  const { createUser } = useContext(UserContext);
-
+  const { userLogin } = useContext(UserContext);
+  
   const [accountState, setAccountState] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: ""
-  });
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+  })
 
-  const { name, email, password, confirmPassword } = accountState;
-  const isEnabled = email && password && name && password && confirmPassword;
-
-  const handleChange = e => {
-    setAccountState({ ...accountState, [e.target.name]: e.target.value });
-  };
+  const {name, email, password, password_confirmation} = accountState
+  const isEnabled = email && password && name && password && password_confirmation;
+  
+ const handleChange = (e) => {
+   setAccountState({...accountState, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async e => {
-    e.preventDefault();
     try {
-      const userInfo = await createAccount(
-        name,
-        email,
+      const userInfo = await createAccount(name, email, password, password_confirmation);
+      userLogin({ 
+        name, 
+        email, 
         password,
-        confirmPassword
-      );
-      createUser({
-        name: userInfo.name,
-        email: userInfo.email,
-        password: userInfo.password,
-        password_confirmation: userInfo.passwordConfirmation
+        password_confirmation
       });
     } catch ({ message }) {
       return message;
@@ -74,9 +68,9 @@ const CreateAccount = () => {
         ></input>
         <input
           type="password"
-          name="confirmPassword"
+          name="password_confirmation"
           placeholder="confirm password"
-          value={confirmPassword}
+          value={password_confirmation}
           onChange={handleChange}
         ></input>
         {!isEnabled && (
@@ -85,11 +79,13 @@ const CreateAccount = () => {
           </button>
         )}
         {isEnabled && (
-          <NavLink to="/">
-            <button className="button__enabled" type="submit">
-              Submit
-            </button>
-          </NavLink>
+          <button
+            className="button__enabled"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            <NavLink to="/">Submit</NavLink>
+          </button>
         )}
         <NavLink to="/login">
           <p>Login</p>

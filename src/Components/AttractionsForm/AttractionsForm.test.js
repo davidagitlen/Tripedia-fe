@@ -4,8 +4,7 @@ import AttractionsForm from './AttractionsForm';
 
 describe('AttractionsForm', () => {
 
-  it('should pass a dummy test', () => {
-    expect(true).toEqual(true);
-  });
-
+   it("should pass a dummy test", () => {
+     expect(true).toEqual(true);
+   });
 });

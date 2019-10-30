@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
 import banner from "../../Images/banner.png";
-import { UserContext } from "../../Contexts/UserContext";
-import { loginUser } from "../../util/apiCalls";
+import { UserContext } from '../../Contexts/UserContext';
+import { loginUser } from '../../util/apiCalls';
 
 const LoginForm = () => {
   const { userLogin } = useContext(UserContext);

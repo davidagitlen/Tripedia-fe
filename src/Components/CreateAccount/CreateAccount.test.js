@@ -4,8 +4,8 @@ import CreateAccount from './CreateAccount';
 
 describe('CreateAccount', () => {
 
-  it('should pass a dummy test', () => {
-    expect(true).toEqual(true);
+  it("should match the wrapper with data passed in", () => {
+    const wrapper = shallow(<CreateAccount />);
+    expect(wrapper).toMatchSnapshot();
   });
-
 });
