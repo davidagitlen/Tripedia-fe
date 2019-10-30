@@ -97,25 +97,6 @@ let end = { lat: 40.027750, lng: -105.270350 };
             yesIWantToUseGoogleMapApiInternals
             onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
           >
-            {/* <Pin
-              lat={39.773563}
-              lng={-105.039513}
-              text={'David\'s House'}
-              type='house'
-              updateStops={updateStops}
-              waypoints={waypoints}
-              stops={stops}
-            />
-            <Pin
-              lat={39.751774}
-              lng={-104.996809}
-              text={'Turing'}
-              type='school'
-              updateStops={updateStops}
-              waypoints={waypoints}
-              stops={stops}
-            />
-            {createPin()} */}
             {pinsToRender}
           </GoogleMapReact>
           <button onClick={() => setLoadingContext({...isLoadingState, isLoading: !isLoading })}></button>
