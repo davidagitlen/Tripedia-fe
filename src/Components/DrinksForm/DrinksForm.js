@@ -2,41 +2,46 @@ import React, { useState, useContext } from "react";
 import "./DrinksForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
 
-const DrinksForm = ({ collapseForm, openForm, defaultForm }) => {
+const DrinksForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const { formState, setFormState } = useContext(FormContext);
-  const [form, toggleClicked] = useState({
-    Cocktails: false,
-    Beer: false,
-    Wine: false,
-    NonAlcoholic: false,
-    SodaFactory: false,
-    TikiBar: false
-  });
+  const formCategories = Object.keys(formObject);
 
-  let mockProps = [
-    "Cocktails",
-    "Beer",
-    "Wine",
-    "Non-Alcoholic",
-    "Soda Factory",
-    "Tiki Bar"
-  ];
+  const stateObject = formCategories.reduce((categoryObject, category) => {
+    const categoryKey = category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+    categoryObject[categoryKey] = false;
+    return categoryObject
+  }, {});
 
-  const checkBoxes = mockProps.map(checkBox => {
-    let name = checkBox.replace(/-|\s/gi, "");
+  const [form, toggleClicked] = useState({ ...stateObject });
+
+  const checkboxNames = formCategories.map(category => category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
+
+  const handleCheckBox = (e) => {
+    toggleClicked({ ...form, [e.target.value]: !form[e.target.value] });
+    const formattedName = e.target.name.toLowerCase();
+    if (e.target.checked) {
+      const checkedArray = formState.drinks[formattedName];
+      setFormState({ ...formState, selectedCategories: formState.selectedCategories.concat(checkedArray) })
+    } else {
+      const filteredState = formState.selectedCategories.length ? formState.selectedCategories.filter(object => object.category !== formattedName) : [];
+      setFormState({ ...formState, selectedCategories: filteredState })
+    }
+  };
+
+  const checkBoxes = checkboxNames.map(checkBox => {
+    let name = checkBox.replace(/ /gi, "");
     return (
-      <div key={name} className="individual-checkbox__container">
+      <div
+        key={name}
+        className="individual-checkbox__container"
+      >
         <input
           className="checkbox"
           type="checkbox"
+          name={checkBox}
           value={name}
           checked={form[name]}
-          onChange={e =>
-            toggleClicked({
-              ...form,
-              [e.target.value]: !form[e.target.value]
-            })
-          }
+          onChange={e => handleCheckBox(e)}
         />
         <label>{checkBox}</label>
       </div>

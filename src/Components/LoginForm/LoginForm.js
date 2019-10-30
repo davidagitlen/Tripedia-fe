@@ -59,11 +59,11 @@ const LoginForm = () => {
         )}
         {isEnabled && (
           <NavLink to="/">
-            <button
-              onClick={handleSubmit}
-              className="button__enabled"
+            <button 
+              className="button__enabled" 
               type="submit"
-            >
+              onClick={handleSubmit}
+              >
               Login
             </button>
           </NavLink>

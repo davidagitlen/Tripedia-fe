@@ -5,22 +5,11 @@ import foodPin from "../../Images/food-pin.svg";
 import mapPin from "../../Images/map-pin.svg";
 import drinkPin from "../../Images/drink-pin.svg";
 
-const Pin = props => {
-  const {
-    name,
-    image,
-    rating,
-    url,
-    type,
-    updateStops,
-    lat,
-    lng,
-    stops,
-    onGoogleApiLoaded
-  } = props;
+const Pin = (props) => {
+  const { name, image, rating, url, type, updateStops, lat, lng, stops } = props;
   const [isHovered, toggleHovered] = useState(false);
   const stopFound = stops.find(stop => {
-    return stop.lat === lat && stop.lng === lng;
+    return stop.name === name
   });
   const addOrRemoveText = stopFound ? "Remove From Trip" : "Add To Trip";
 
@@ -41,8 +30,9 @@ const Pin = props => {
         rating,
         url,
         type,
-        lat,
-        lng
+        latitude: lat,
+        longitude: lng,
+        updateStops
       };
       updateStops([...stops, stopToAdd]);
     }

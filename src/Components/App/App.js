@@ -18,11 +18,8 @@ import { UserContext } from "../../Contexts/UserContext";
 import { triviaFacts } from "../../util/trivia-facts";
 
 export const App = () => {
-  const [isLoadingState, setLoadingContext] = useState({
-    categories: "Blah blah blah",
-    isLoading: false
-  });
-  const contextState = useMemo(() => ({ isLoadingState, setLoadingContext }), [
+  const [isLoadingState, setLoadingContext] = useState({ isLoading: false });
+  const loadingState = useMemo(() => ({ isLoadingState, setLoadingContext }), [
     isLoadingState,
     setLoadingContext
   ]);
@@ -30,12 +27,19 @@ export const App = () => {
     origin: "",
     destination: "",
     tripSubmitted: false,
-    attractions: [],
-    accommodations: [],
-    food: [],
-    drinks: [],
-    services: []
+    attractions: {},
+    accommodations: {},
+    food: {},
+    drinks: {},
+    services: {},
+    miscellaneous: {},
+    selectedCategories: []
   });
+
+  const currentForm = useMemo(() => ({ formState, setFormState }), [formState, setFormState]);
+  const [user, userLogin] = useState({ email: '', name: '', id: ''});
+  const loggedInUser = useMemo(() => ({ user, userLogin }), [ user, userLogin ]);
+  const {isLoading} = isLoadingState;
 
   const currentForm = useMemo(() => ({ formState, setFormState }), [
     formState,
@@ -55,7 +59,7 @@ export const App = () => {
     return (
       <FormContext.Provider value={currentForm}>
         <UserContext.Provider value={loggedInUser}>
-          <LoadingContext.Provider value={contextState}>
+          <LoadingContext.Provider value={loadingState}>
             <div>
               <Route exact path="/login" render={() => <LoginForm />} />
               <Route

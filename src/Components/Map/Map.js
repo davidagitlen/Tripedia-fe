@@ -1,72 +1,35 @@
-import React, { useState, useContext } from "react";
-import GoogleMapReact from "google-map-react";
-import Pin from "../Pin/Pin";
-import "./Map.scss";
+import React, { useState, useContext, useEffect } from 'react';
+import GoogleMapReact from 'google-map-react';
+import Pin from '../Pin/Pin';
+import './Map.scss'; 
+import { FormContext } from '../../Contexts/FormContext';
 import { LoadingContext } from "../../Contexts/LoadingContext";
+import { getApiKey } from '../../util/apiCalls';
 
-const Map = props => {
-  const { isLoadingState, setLoadingContext } = useContext(LoadingContext);
-  const { isLoading } = isLoadingState;
-  const [stops, updateStops] = useState([]);
-  const waypoints = stops.map(stop => ({
-    location: {
-      lat: stop.lat,
-      lng: stop.lng
-    },
-    stopover: true
-  }));
+const Map = (props) => {
+const { formState, setFormState } = useContext(FormContext);
+const { isLoadingState, setLoadingContext} = useContext(LoadingContext);
+const { isLoading } = isLoadingState;
+console.log('map component isloading: ', isLoading)
+const [ keyString, updateKeyString ] = useState('')
+const [stops, updateStops] = useState([]);
+const waypoints = stops.map(stop => ({
+  location : {
+    lat: stop.latitude,
+    lng: stop.longitude
+  },
+  stopover: true
+}));
 
-  const { center, zoom } = props;
-  let start = { lat: 39.739131, lng: -104.990085 };
-  let end = { lat: 40.02775, lng: -105.27035 };
-
-  const mockYelpResponse = {
-    id: "yRl2-nI6P15QASVda1qqwA",
-    alias: "farmhouse-thai-eatery-lakewood",
-    name: "Farmhouse Thai Eatery",
-    image_url:
-      "https://s3-media2.fl.yelpcdn.com/bphoto/LptPoRUPkDFObRHm5L1xuQ/o.jpg",
-    is_closed: false,
-    url:
-      "https://www.yelp.com/biz/farmhouse-thai-eatery-lakewood?adjust_creative=pVrRdyk-0QZdpoY-HSxTFg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=pVrRdyk-0QZdpoY-HSxTFg",
-    review_count: 117,
-    categories: [{ alias: "thai", title: "Thai" }],
-    rating: 4.5,
-    coordinates: { latitude: 39.71698, longitude: -105.08001 },
-    transactions: [],
-    price: "$$",
-    location: {
-      address1: "98 Wadsworth Blvd",
-      address2: "Ste 117",
-      address3: null,
-      city: "Lakewood",
-      zip_code: "80226",
-      country: "US",
-      state: "CO",
-      display_address: ["98 Wadsworth Blvd", "Ste 117", "Lakewood, CO 80226"]
-    },
-    phone: "+13032372475",
-    display_phone: "(303) 237-2475",
-    distance: 1990.1371756025123
-  };
-
-  const cleanYelpResponse = yelp => {
-    return {
-      name: yelp.name,
-      image: yelp.image_url,
-      url: yelp.url,
-      rating: yelp.rating,
-      latitude: yelp.coordinates.latitude,
-      longitude: yelp.coordinates.longitude,
-      address: yelp.location.display_address,
-      phone: yelp.display_phone
-    };
-  };
+const { origin, destination } = formState;
+const { center, zoom } = props;
+let start = { lat: 39.739131, lng: -104.990085 };
+let end = { lat: 40.027750, lng: -105.270350 };
 
   const displayRoute = (map, maps) => {
     let request = {
-      origin: start,
-      destination: end,
+      origin,
+      destination,
       waypoints,
       travelMode: "DRIVING"
     };
@@ -85,10 +48,10 @@ const Map = props => {
     directionsRenderer.setMap(map);
   };
 
-  const createPin = () => {
-    let yelp = cleanYelpResponse(mockYelpResponse);
+  const createPin = (yelp, i) => {
     return (
       <Pin
+        key={i + Date.now()}
         lat={yelp.latitude}
         lng={yelp.longitude}
         name={yelp.name}
@@ -103,42 +66,68 @@ const Map = props => {
     );
   };
 
-  return (
-    <div style={{ height: "80vh", width: "100%" }}>
-      <GoogleMapReact
-        // key={waypoints}
-        defaultCenter={center}
-        defaultZoom={zoom}
-        yesIWantToUseGoogleMapApiInternals
-        onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
-      >
-        <Pin
-          lat={39.773563}
-          lng={-105.039513}
-          text={"David's House"}
-          type="house"
-          updateStops={updateStops}
-          waypoints={waypoints}
-          stops={stops}
-        />
-        <Pin
-          lat={39.751774}
-          lng={-104.996809}
-          text={"Turing"}
-          type="school"
-          updateStops={updateStops}
-          waypoints={waypoints}
-          stops={stops}
-        />
-        {createPin()}
-      </GoogleMapReact>
-      <button
-        onClick={() =>
-          setLoadingContext({ ...isLoadingState, isLoading: !isLoading })
-        }
-      ></button>
-    </div>
-  );
-};
+  const { selectedCategories } = formState; 
+  console.log('in map selectedCategories: ', selectedCategories)
+
+  const stopList = stops.map((stop, i) => createPin(stop, i));
+
+  const pinList = selectedCategories.map((obj, i) => createPin(obj, i));
+
+  const pinsToRender = pinList.length ? pinList.filter(pin => !stops.find(stop => stop.name === pin.name)) : stopList; 
+
+  console.log('in map pinList: ', pinList);
+  const returnApiKey = async () => {
+    const apiKey = await getApiKey();
+    updateKeyString(apiKey)
+  };
+
+  useEffect(() => {
+    returnApiKey();
+  });
+ 
+  if (keyString) {
+    return ( 
+        <div 
+        style={{ height: '80vh', width: '100%' }}>
+          <GoogleMapReact
+            key={isLoading}
+            bootstrapURLKeys={{ key: keyString }}
+            defaultCenter={center}
+            defaultZoom={zoom}
+            yesIWantToUseGoogleMapApiInternals
+            onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
+          >
+            {/* <Pin
+              lat={39.773563}
+              lng={-105.039513}
+              text={'David\'s House'}
+              type='house'
+              updateStops={updateStops}
+              waypoints={waypoints}
+              stops={stops}
+            />
+            <Pin
+              lat={39.751774}
+              lng={-104.996809}
+              text={'Turing'}
+              type='school'
+              updateStops={updateStops}
+              waypoints={waypoints}
+              stops={stops}
+            />
+            {createPin()} */}
+            {pinsToRender}
+          </GoogleMapReact>
+          <button onClick={() => setLoadingContext({...isLoadingState, isLoading: !isLoading })}></button>
+        </div>
+      )
+  } else {
+    return(
+      <div>
+        <p>Why the fuck</p>
+      </div>
+    ) 
+  }
+}
 
 export default Map;
