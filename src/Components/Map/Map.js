@@ -22,19 +22,29 @@ const waypoints = stops.map(stop => ({
 }));
 
 const { origin, destination } = formState;
+console.log('formState :', formState);
+let newDes = formState.destination.replace(/[^1-9]|.|,/g, '').split(',')
+console.log('newDes', newDes)
+let newOrigin = formState.origin.replace(/[^1-9]|.|,/g, '').split(',')
+console.log('newOrigin', newOrigin)
+let newStart = {lat: newOrigin[0], lng: newOrigin[1]}
+let newEnd = {lat: newDes[0], lng: newDes[1]}
+console.log('newStart', newStart)
+console.log('newEnd', newEnd)
+
 let start = { lat: 39.739131, lng: -104.990085 };
 let end = { lat: 40.027750, lng: -105.270350 };
 
   const displayRoute = (map, maps) => {
     let request = {
-      origin,
-      destination,
+      origin: newStart,
+      destination: newEnd,
       waypoints,
       travelMode: "DRIVING"
     };
 
     let directionsRenderer = new maps.DirectionsRenderer({
-      path: { start, end },
+      path: { newStart, newEnd },
       draggable: true,
       suppressMarkers: true
     });
@@ -86,7 +96,7 @@ let end = { lat: 40.027750, lng: -105.270350 };
     return (
       <div style={{ height: "80vh", width: "100%" }}>
         <GoogleMapReact
-          key={isLoading}
+          key={waypoints}
           bootstrapURLKeys={{ key: keyString }}
           defaultCenter={{ lat: 39.8285, lng: -98.579521 }}
           defaultZoom={5}
