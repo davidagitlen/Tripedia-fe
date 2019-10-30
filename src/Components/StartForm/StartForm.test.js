@@ -4,8 +4,7 @@ import StartForm from './StartForm';
 
 describe('StartForm', () => {
 
-  it('should pass a dummy test', () => {
+  it("should pass a dummy test", () => {
     expect(true).toEqual(true);
   });
-
 });

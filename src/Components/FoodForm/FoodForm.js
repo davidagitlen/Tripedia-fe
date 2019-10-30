@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
-import './FoodForm.scss';
-import { FormContext } from '../../Contexts/FormContext';
+import React, { useState, useContext } from "react";
+import "./FoodForm.scss";
+import { FormContext } from "../../Contexts/FormContext";
 
 const FoodForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const { formState, setFormState } = useContext(FormContext);

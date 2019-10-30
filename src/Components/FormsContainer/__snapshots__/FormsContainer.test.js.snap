@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormsContainer should match the wrapper with data passed in 1`] = `
+<div
+  className="not-collapsed-forms__button"
+>
+  <div
+    className="forms-container__container"
+  >
+    <StartForm
+      collapseForm={[Function]}
+      defaultForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": false,
+          "SubmitTripForm": false,
+        }
+      }
+      openForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": true,
+          "SubmitTripForm": false,
+        }
+      }
+    />
+    <AttractionsForm
+      collapseForm={[Function]}
+      defaultForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": false,
+          "SubmitTripForm": false,
+        }
+      }
+      openForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": true,
+          "SubmitTripForm": false,
+        }
+      }
+    />
+    <AccommodationsForm
+      collapseForm={[Function]}
+      defaultForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": false,
+          "SubmitTripForm": false,
+        }
+      }
+      openForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": true,
+          "SubmitTripForm": false,
+        }
+      }
+    />
+    <FoodForm
+      collapseForm={[Function]}
+      defaultForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": false,
+          "SubmitTripForm": false,
+        }
+      }
+      openForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": true,
+          "SubmitTripForm": false,
+        }
+      }
+    />
+    <DrinksForm
+      collapseForm={[Function]}
+      defaultForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": false,
+          "SubmitTripForm": false,
+        }
+      }
+      openForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": true,
+          "SubmitTripForm": false,
+        }
+      }
+    />
+    <ServicesForm
+      collapseForm={[Function]}
+      defaultForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": false,
+          "SubmitTripForm": false,
+        }
+      }
+      openForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": true,
+          "SubmitTripForm": false,
+        }
+      }
+    />
+    <SubmitTripForm
+      collapseForm={[Function]}
+      defaultForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": false,
+          "SubmitTripForm": false,
+        }
+      }
+      openForm={
+        Object {
+          "AccommodationsForm": false,
+          "AttractionsForm": false,
+          "DrinksForm": false,
+          "FoodForm": false,
+          "ServicesForm": false,
+          "StartForm": true,
+          "SubmitTripForm": false,
+        }
+      }
+    />
+  </div>
+  <button
+    className="collapse_button"
+    onClick={[Function]}
+  >
+    ||
+  </button>
+</div>
+`;

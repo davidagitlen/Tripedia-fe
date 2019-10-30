@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react';
-import './DrinksForm.scss';
-import { FormContext } from '../../Contexts/FormContext';
+import React, { useState, useContext } from "react";
+import "./DrinksForm.scss";
+import { FormContext } from "../../Contexts/FormContext";
 
 const DrinksForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const { formState, setFormState } = useContext(FormContext);
-
   const formCategories = Object.keys(formObject);
 
   const stateObject = formCategories.reduce((categoryObject, category) => {

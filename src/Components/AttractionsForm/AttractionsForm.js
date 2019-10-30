@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./AttractionsForm.scss";
-import { FormContext } from '../../Contexts/FormContext';
+import { FormContext } from "../../Contexts/FormContext";
 
 const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => {
   const { formState, setFormState } = useContext(FormContext);
@@ -24,7 +24,6 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
       const checkedArray = formState.attractions[formattedName];
       setFormState({ ...formState, selectedCategories: formState.selectedCategories.concat(checkedArray)})
     } else {
-      // toggleClicked({ ...stateObject, [e.target.value]: !form[e.target.value] });
       const filteredState = formState.selectedCategories.length ? formState.selectedCategories.filter(object => object.category !== formattedName) : [];
       setFormState({ ...formState, selectedCategories: filteredState })
     }
@@ -33,10 +32,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
   const checkBoxes = checkboxNames.map(checkBox => {
     let name = checkBox.replace(/ /gi, "");
     return (
-      <div 
-        key={name}
-        className="individual-checkbox__container"
-      >
+      <div key={name} className="individual-checkbox__container">
         <input
           className="checkbox"
           type="checkbox"
@@ -50,7 +46,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
     );
   });
 
-  if(openForm.AttractionsForm) {
+  if (openForm.AttractionsForm) {
     return (
       <div className="form__container">
         <p>- Attractions -</p>
@@ -63,7 +59,10 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
     return (
       <div
         onClick={e =>
-          collapseForm({ ...defaultForm, AttractionsForm: !openForm.AttractionsForm })
+          collapseForm({
+            ...defaultForm,
+            AttractionsForm: !openForm.AttractionsForm
+          })
         }
         className="form-closed__container"
       >

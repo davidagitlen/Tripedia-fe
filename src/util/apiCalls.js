@@ -5,13 +5,16 @@ export const createAccount = async (name, email, password, passwordConfirmation)
       const url = path + `/api/v1/users?name=${name}&email=${email}&password=${password}&password_confirmation=${passwordConfirmation}`;
       const options = {
         method: "POST",
-        
-        // body: JSON.stringify({
-        //   name: name,
-        //   email: email,
-        //   password: password,
-        //   password_confirmation: passwordConfirmation
-        // })
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+          password_confirmation: passwordConfirmation
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }
       };
       const response = await fetch(url, options);
       const newUser = await response.json();
@@ -21,13 +24,14 @@ export const createAccount = async (name, email, password, passwordConfirmation)
 export const loginUser = async (email, password) => {
     const url = path + `/api/v1/user_login`;
     const options = {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         email,
         password
       }),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
       }
     };
     const response = await fetch(url, options);

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm should match the wrapper with data passed in 1`] = `
+<main
+  className="login-form__container"
+>
+  <img
+    alt="Tripedia for all your travel planning needs"
+    className="banner"
+    src="banner.png"
+  />
+  <form
+    className="login__form"
+  >
+    <input
+      name="email"
+      onChange={[Function]}
+      placeholder="example@email.com"
+      type="email"
+      value=""
+    />
+    <input
+      name="password"
+      onChange={[Function]}
+      placeholder="enter password"
+      type="password"
+      value=""
+    />
+    <button
+      className="button__disabled"
+      disabled={true}
+      type="submit"
+    >
+      Login
+    </button>
+    <NavLink
+      to="/create_account"
+    >
+      <p>
+        Create Account
+      </p>
+    </NavLink>
+  </form>
+</main>
+`;

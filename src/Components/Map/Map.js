@@ -33,19 +33,20 @@ let end = { lat: 40.027750, lng: -105.270350 };
       waypoints,
       travelMode: "DRIVING"
     };
+
     let directionsRenderer = new maps.DirectionsRenderer({
       path: { start, end },
       draggable: true,
       suppressMarkers: true
     });
     let directionsService = new maps.DirectionsService();
-    directionsService.route(request, async function (result, status) {
-      if (status === 'OK') {
-        directionsRenderer.setDirections(result)
+    directionsService.route(request, async function(result, status) {
+      if (status === "OK") {
+        directionsRenderer.setDirections(result);
       }
-    })
+    });
     directionsRenderer.setMap(map);
-  }
+  };
 
   const createPin = (yelp, i) => {
     return (
@@ -62,7 +63,7 @@ let end = { lat: 40.027750, lng: -105.270350 };
         waypoints={waypoints}
         stops={stops}
       />
-    )
+    );
   };
 
   const { selectedCategories } = formState; 
@@ -128,7 +129,5 @@ let end = { lat: 40.027750, lng: -105.270350 };
     ) 
   }
 }
-
- 
 
 export default Map;

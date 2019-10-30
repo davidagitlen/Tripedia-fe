@@ -53,14 +53,14 @@ const CreateAccount = () => {
         />
         <input
           type="email"
-          name='email'
+          name="email"
           placeholder="email"
           value={email}
           onChange={handleChange}
         />
         <input
           type="password"
-          name='password'
+          name="password"
           placeholder="password"
           value={password}
           onChange={handleChange}
@@ -88,13 +88,13 @@ const CreateAccount = () => {
             >
             Submit
           </button>
-        </NavLink>}
+        )}
         <NavLink to="/login">
           <p>Login</p>
         </NavLink>
       </form>
     </main>
   );
-}
+};
 
 export default CreateAccount;

@@ -16,15 +16,19 @@ const LoginForm = () => {
   const handleChange = e => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
-  
+
   const handleSubmit = async () => {
     try {
       const userInfo = await loginUser(email, password);
-      userLogin({email: userInfo.email, name: userInfo.name, id: userInfo.id})
+      userLogin({
+        email: userInfo.email,
+        name: userInfo.name,
+        id: userInfo.id
+      });
     } catch ({ message }) {
       return message;
     }
-  }
+  };
 
   return (
     <main className="login-form__container">
@@ -53,7 +57,7 @@ const LoginForm = () => {
             Login
           </button>
         )}
-        {isEnabled && 
+        {isEnabled && (
           <NavLink to="/">
             <button 
               className="button__enabled" 
@@ -63,7 +67,7 @@ const LoginForm = () => {
               Login
             </button>
           </NavLink>
-        }
+        )}
         <NavLink to="/create_account">
           <p>Create Account</p>
         </NavLink>

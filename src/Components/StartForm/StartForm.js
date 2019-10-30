@@ -7,24 +7,22 @@ import { getStartAndEnd } from '../../util/apiCalls';
 import { rawData } from '../../util/jsonData';
 import { cleanData, assignObjectToArrays, cleanYelpResponse } from '../../util/dataCleaner';
 
-const StartForm = ({ collapseForm, openForm, defaultForm}) => {
+const StartForm = ({ collapseForm, openForm, defaultForm }) => {
   const { formState, setFormState } = useContext(FormContext);
   const { isLoadingState, setLoadingContext } = useContext(LoadingContext);
   const { user } = useContext(UserContext);
   const [cities, enterCities] = useState({
-    origin: '',
-    destination: '',
-    error: ''
+    origin: "",
+    destination: "",
+    error: ""
   });
-
 
   const {origin, destination} = cities;
   const { isLoading } = isLoadingState;
   const toggleButtonClass = !origin || !destination ? 'disabled':'enabled'
-
   const updateCities = e => {
-    enterCities({...cities, [e.target.name]:e.target.value})
-  }
+    enterCities({ ...cities, [e.target.name]: e.target.value });
+  };
 
   const assignContext = (arrays, origin, destination) => {
     const objectArrays = arrays.map(array => objectifyArray(array));
@@ -74,41 +72,44 @@ const StartForm = ({ collapseForm, openForm, defaultForm}) => {
     } catch ({ message }) {
       enterCities({ ...cities, error: message })
     }
-  }
+  };
 
-  if(openForm.StartForm) {
-    return(
-      <form className='start-form__container'>
-        <p className='start-form__header'>Start Your Journey</p>
-        <input 
-          type='text' 
-          name='origin'
+  if (openForm.StartForm) {
+    return (
+      <form className="start-form__container">
+        <p className="start-form__header">Start Your Journey</p>
+        <input
+          type="text"
+          name="origin"
           value={cities.origin}
-          placeholder='City, State'
-          onChange={ e => updateCities(e)}
+          placeholder="City, State"
+          onChange={e => updateCities(e)}
         />
-        <input 
-          type='text' 
-          name='destination'
+        <input
+          type="text"
+          name="destination"
           value={cities.destination}
-          placeholder='City, State'
-          onChange={ e => updateCities(e)}
+          placeholder="City, State"
+          onChange={e => updateCities(e)}
         />
-        <button
-          className={toggleButtonClass}
-          onClick={handleSubmit}
-        >Create Trip
+        <button className={toggleButtonClass} onClick={handleSubmit}>
+          Create Trip
         </button>
       </form>
-    )
+    );
   } else {
     return (
-      <div onClick={(e) => collapseForm({...defaultForm, StartForm: !openForm.StartForm})} className='start-form-closed__container'>
+      <div
+        onClick={e =>
+          collapseForm({ ...defaultForm, StartForm: !openForm.StartForm })
+        }
+        className="start-form-closed__container"
+      >
         <p>Chicago to Denver</p>
         <p>290.1 mi</p>
       </div>
-    )
+    );
   }
-}
+};
 
 export default StartForm;
