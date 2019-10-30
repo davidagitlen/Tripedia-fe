@@ -36,7 +36,7 @@ import { getApiKey } from '../../util/apiCalls';
       travelMode: "DRIVING"
     };
     let directionsRenderer = new maps.DirectionsRenderer({
-      path: { newStart, newEnd },
+      path: { start, end },
       draggable: true,
       suppressMarkers: true
     });
