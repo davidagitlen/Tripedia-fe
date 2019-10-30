@@ -125,9 +125,28 @@ describe('dataCleaner', () => {
 
       expect(stringToFloatsArray(mockRawString)).toEqual(expected);
     });
-
   });
 
+  describe('createStateObject', () => {
+    it('should take in an object with categories assigned to arrays and return an object with the original keys uppercased and joined together', () => {
+
+      const mockFormObject = {
+        'test one': ['test'],
+        'test two': ['test'],
+        'test three': ['test']
+      };
+
+      const expected = {
+        TestOne: false,
+        TestTwo: false,
+        TestThree: false
+      }
+
+      expect(createStateObject(mockFormObject)).toEqual(expected)
+
+    })
+
+  });
 
 
 });
