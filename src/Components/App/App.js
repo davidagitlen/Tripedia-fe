@@ -69,7 +69,7 @@ export const App = () => {
                       <FormsContainer />
                       <div className="map-container">
                         <Map
-                          center={{ lat: 39.7392, lng: -104.9903 }}
+                          // center={{ lat: 39.7392, lng: -104.9903 }}
                           zoom={11}
                         />
                       </div>
@@ -104,7 +104,7 @@ export const App = () => {
                       <FormsContainer />
                       <div className="map-container">
                         <Map
-                          center={{ lat: 39.7392, lng: -104.9903 }}
+                          // center={{ lat: 39.8285, lng: -98.579521 }}
                           zoom={11}
                         />
                       </div>
@@ -116,7 +116,7 @@ export const App = () => {
             <div className="app-is-loading">
               <div className="trivia-box__container">
                 <p className="did-you-know__text">
-                  While we prepare your trip, did you know:
+                  Did you know?
                 </p>
                 <p>{selectTriviaFact(triviaFacts)}</p>
                 <div className="animation-container">

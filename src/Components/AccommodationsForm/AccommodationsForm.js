@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./AccommodationsForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
+import accommodationSvg from "../../Images/accommodation-pin.svg";
 
 const AccommodationsForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const { formState, setFormState } = useContext(FormContext);
@@ -67,6 +68,7 @@ const AccommodationsForm = ({ collapseForm, openForm, defaultForm, formObject })
         }
         className="form-closed__container"
       >
+        <img alt="accommodations" src={accommodationSvg}></img>
         <p>- Accommodations -</p>
       </div>
     );

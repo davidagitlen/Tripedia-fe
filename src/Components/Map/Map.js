@@ -22,7 +22,6 @@ const waypoints = stops.map(stop => ({
 }));
 
 const { origin, destination } = formState;
-const { center, zoom } = props;
 let start = { lat: 39.739131, lng: -104.990085 };
 let end = { lat: 40.027750, lng: -105.270350 };
 
@@ -67,7 +66,6 @@ let end = { lat: 40.027750, lng: -105.270350 };
   };
 
   const { selectedCategories } = formState; 
-  console.log('in map selectedCategories: ', selectedCategories)
 
   const stopList = stops.map((stop, i) => createPin(stop, i));
 
@@ -75,7 +73,6 @@ let end = { lat: 40.027750, lng: -105.270350 };
 
   const pinsToRender = pinList.length ? pinList.filter(pin => !stops.find(stop => stop.name === pin.name)) : stopList; 
 
-  console.log('in map pinList: ', pinList);
   const returnApiKey = async () => {
     const apiKey = await getApiKey();
     updateKeyString(apiKey)
@@ -86,41 +83,20 @@ let end = { lat: 40.027750, lng: -105.270350 };
   });
  
   if (keyString) {
-    return ( 
-        <div 
-        style={{ height: '80vh', width: '100%' }}>
-          <GoogleMapReact
-            key={isLoading}
-            bootstrapURLKeys={{ key: keyString }}
-            defaultCenter={center}
-            defaultZoom={zoom}
-            yesIWantToUseGoogleMapApiInternals
-            onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
-          >
-            {/* <Pin
-              lat={39.773563}
-              lng={-105.039513}
-              text={'David\'s House'}
-              type='house'
-              updateStops={updateStops}
-              waypoints={waypoints}
-              stops={stops}
-            />
-            <Pin
-              lat={39.751774}
-              lng={-104.996809}
-              text={'Turing'}
-              type='school'
-              updateStops={updateStops}
-              waypoints={waypoints}
-              stops={stops}
-            />
-            {createPin()} */}
-            {pinsToRender}
-          </GoogleMapReact>
-          <button onClick={() => setLoadingContext({...isLoadingState, isLoading: !isLoading })}></button>
-        </div>
-      )
+    return (
+      <div style={{ height: "80vh", width: "100%" }}>
+        <GoogleMapReact
+          key={isLoading}
+          bootstrapURLKeys={{ key: keyString }}
+          defaultCenter={{ lat: 39.8285, lng: -98.579521 }}
+          defaultZoom={5}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
+        >
+          {pinsToRender}
+        </GoogleMapReact>
+      </div>
+    );
   } else {
     return(
       <div>

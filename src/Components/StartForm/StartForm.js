@@ -65,7 +65,6 @@ const StartForm = ({ collapseForm, openForm, defaultForm }) => {
       setLoadingContext({ isLoading: true});
       const { id } = user;
       const returnedPoints = await getStartAndEnd(originCity, destinationCity, id);
-      console.log('in StartForm returnedPoints:', returnedPoints);
       const { origin, destination } = returnedPoints.trip;
       handleData(returnedPoints, origin, destination);
       setLoadingContext({ isLoading: false});
@@ -105,8 +104,8 @@ const StartForm = ({ collapseForm, openForm, defaultForm }) => {
         }
         className="start-form-closed__container"
       >
-        <p>Chicago to Denver</p>
-        <p>290.1 mi</p>
+        <p>{`${cities.origin} to ${cities.destination}`}</p>
+        {/* <p>290.1 mi</p> */}
       </div>
     );
   }

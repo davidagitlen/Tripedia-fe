@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./SubmitTripForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
+import submitSvg from '../../Images/end.svg';
 
 const SubmitTripForm = ({ collapseForm, openForm, defaultForm }) => {
   const handleSubmit = e => {
@@ -21,6 +22,7 @@ const SubmitTripForm = ({ collapseForm, openForm, defaultForm }) => {
         }
         className="form-closed__container"
       >
+        <img alt="submit" src={submitSvg}></img>
         <p>- Complete Trip -</p>
       </div>
     );
