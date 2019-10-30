@@ -1,36 +1,41 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./AttractionsForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
-import attractionSvg from '../../Images/attractions-pin.svg';
-import { createStateObject, createCheckBoxNames } from '../../util/dataCleaner';
+import attractionSvg from "../../Images/attractions-pin.svg";
+import { createStateObject, createCheckBoxNames } from "../../util/dataCleaner";
 
-const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => {
+const AttractionsForm = ({
+  collapseForm,
+  openForm,
+  defaultForm,
+  formObject
+}) => {
   const { formState, setFormState } = useContext(FormContext);
 
+  console.log("in AttractionsForm, formObject: ", formObject);
   const stateObject = createStateObject(formObject);
+  console.log("in AttractionsForm, stateObject: ", stateObject);
   const checkboxNames = createCheckBoxNames(formObject);
-  
-  const [form, toggleClicked] = useState({...stateObject});
+  console.log("in AttractionsForm, checkboxNames: ", checkboxNames);
 
-  // const formCategories = Object.keys(formObject);
+  const [form, toggleClicked] = useState({ ...stateObject });
 
-  // const stateObject = formCategories.reduce((categoryObject, category) => {
-  //   const categoryKey = category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
-  //   categoryObject[categoryKey] = false;
-  //   return categoryObject
-  // }, {}); 
-
-  // const checkboxNames = formCategories.map(category => category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
-
-  const handleCheckBox = (e) => {
+  const handleCheckBox = e => {
     toggleClicked({ ...form, [e.target.value]: !form[e.target.value] });
     const formattedName = e.target.name.toLowerCase();
     if (e.target.checked) {
       const checkedArray = formState.attractions[formattedName];
-      setFormState({ ...formState, selectedCategories: formState.selectedCategories.concat(checkedArray)})
+      setFormState({
+        ...formState,
+        selectedCategories: formState.selectedCategories.concat(checkedArray)
+      });
     } else {
-      const filteredState = formState.selectedCategories.length ? formState.selectedCategories.filter(object => object.category !== formattedName) : [];
-      setFormState({ ...formState, selectedCategories: filteredState })
+      const filteredState = formState.selectedCategories.length
+        ? formState.selectedCategories.filter(
+            object => object.category !== formattedName
+          )
+        : [];
+      setFormState({ ...formState, selectedCategories: filteredState });
     }
   };
 
@@ -55,9 +60,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
     return (
       <div className="form__container">
         <p>- Attractions -</p>
-        <div className="checkbox__container">
-        {checkBoxes}
-        </div>
+        <div className="checkbox__container">{checkBoxes}</div>
       </div>
     );
   } else {
