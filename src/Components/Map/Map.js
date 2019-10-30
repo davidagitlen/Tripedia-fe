@@ -36,7 +36,7 @@ import { getApiKey } from '../../util/apiCalls';
       travelMode: "DRIVING"
     };
     let directionsRenderer = new maps.DirectionsRenderer({
-      path: { start, end },
+      path: { newStart, newEnd },
       draggable: true,
       suppressMarkers: true
     });
@@ -70,13 +70,11 @@ import { getApiKey } from '../../util/apiCalls';
   };
 
   const { selectedCategories } = formState; 
-  console.log('in map selectedCategories: ', selectedCategories)
 
   const stopList = stops.map((stop, i) => createPin(stop, i));
   const pinList = selectedCategories.map((obj, i) => createPin(obj, i));
   const pinsToRender = pinList.length ? pinList.filter(pin => !stops.find(stop => stop.name === pin.name)) : stopList; 
 
-  console.log('in map pinList: ', pinList);
   const returnApiKey = async () => {
     const apiKey = await getApiKey();
     updateKeyString(apiKey)

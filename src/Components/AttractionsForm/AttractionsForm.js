@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./AttractionsForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
+import attractionSvg from '../../Images/attractions-pin.svg';
 import { createStateObject, createCheckBoxNames } from '../../util/dataCleaner';
 
 const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => {
@@ -70,6 +71,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
         }
         className="form-closed__container"
       >
+        <img alt="attractions" src={attractionSvg}></img>
         <p>- Attractions -</p>
       </div>
     );

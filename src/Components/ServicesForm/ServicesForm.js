@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./ServicesForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
+import serviceSvg from '../../Images/services-pin.svg';
 
 const ServicesForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const { formState, setFormState } = useContext(FormContext);
@@ -68,6 +69,7 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
           })
         }
       >
+        <img alt="services" src={serviceSvg}></img>
         <p>- ServicesForm -</p>
       </div>
     );

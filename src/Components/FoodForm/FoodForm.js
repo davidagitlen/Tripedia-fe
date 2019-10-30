@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./FoodForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
+import foodSvg from '../../Images/food-pin.svg'
 
 const FoodForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const { formState, setFormState } = useContext(FormContext);
@@ -67,6 +68,7 @@ const FoodForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
         }
         className="form-closed__container"
       >
+        <img alt="food" src={foodSvg}></img>
         <p>- Food -</p>
       </div>
     );
