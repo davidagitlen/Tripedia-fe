@@ -54,25 +54,47 @@
     font-size: 20px;
     border: 2px solid #207178;
   }
+}
 
+@media screen and (min-width: 300px) {
+  .login-form__container {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 40px;
+
+    .login__form {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    .banner {
+      height: 200px;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .login-form__container {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 100px;
+
+    .banner {
+      height: 240px;
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .login-form__container {
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .login-form__container {
     padding-left: 400px;
     padding-right: 400px;
   }
-
-  .login-form__container input {
-    width: 50%;
-  }
-
-  .login-form__container .button__disabled {
-    width: 30%;
-  }
-
-  .login-form__container .button__enabled {
-    width: 30%;
-  }
-
-  }
+}
