@@ -60,3 +60,22 @@
     border: 2px solid #207178;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .create-account__container {
+    padding-left: 400px;
+    padding-right: 400px;
+  }
+
+  .create-account__container input,
+  .create-account__container button {
+    margin: 10px;
+  }
+
+  .create-account__container form {
+    margin-top: 10px;
+    padding-left: 350px;
+    padding-right: 350px;
+  }
+
+}

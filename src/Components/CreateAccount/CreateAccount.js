@@ -43,7 +43,6 @@ const CreateAccount = () => {
         className="banner"
       />
       <form className="create-account_form">
-        <h2 className="form_title">Create Account</h2>
         <input
           type="text"
           placeholder="name"
