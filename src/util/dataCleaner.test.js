@@ -1,6 +1,7 @@
 import {
   cleanData,
   assignObjectToArrays,
+  cleanYelpResponse,
   stringToFloatsArray,
   createStateObject,
   createCheckBoxNames
@@ -64,8 +65,58 @@ describe('dataCleaner', () => {
 
       expect(assignObjectToArrays(mockRawData)).toEqual(expected);
     });
+  });
 
-    
+  describe('cleanYelpResponse', () => {
+
+    it('should take in a yelp response object and format it to contain only specifically formatted categories', () => {
+
+      const mockYelpResponse = {
+        id: "yRl2-nI6P15QASVda1qqwA",
+        alias: "farmhouse-thai-eatery-lakewood",
+        name: "Farmhouse Thai Eatery",
+        image_url:
+          "https://s3-media2.fl.yelpcdn.com/bphoto/LptPoRUPkDFObRHm5L1xuQ/o.jpg",
+        is_closed: false,
+        url:
+          "https://www.yelp.com/biz/farmhouse-thai-eatery-lakewood?adjust_creative=pVrRdyk-0QZdpoY-HSxTFg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=pVrRdyk-0QZdpoY-HSxTFg",
+        review_count: 117,
+        categories: [{ alias: "thai", title: "Thai" }],
+        rating: 4.5,
+        coordinates: { latitude: 39.71698, longitude: -105.08001 },
+        transactions: [],
+        price: "$$",
+        location: {
+          address1: "98 Wadsworth Blvd",
+          address2: "Ste 117",
+          address3: null,
+          city: "Lakewood",
+          zip_code: "80226",
+          country: "US",
+          state: "CO",
+          display_address: ["98 Wadsworth Blvd", "Ste 117", "Lakewood, CO 80226"]
+        },
+        phone: "+13032372475",
+        display_phone: "(303) 237-2475",
+        distance: 1990.1371756025123
+      };
+
+      const expected = {
+        name: "Farmhouse Thai Eatery",
+        image: "https://s3-media2.fl.yelpcdn.com/bphoto/LptPoRUPkDFObRHm5L1xuQ/o.jpg",
+        url: "https://www.yelp.com/biz/farmhouse-thai-eatery-lakewood?adjust_creative=pVrRdyk-0QZdpoY-HSxTFg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=pVrRdyk-0QZdpoY-HSxTFg",
+        rating: 4.5,
+        latitude: 39.71698,
+        longitude: -105.08001,
+        address: ["98 Wadsworth Blvd", "Ste 117", "Lakewood, CO 80226"],
+        phone: "(303) 237-2475",
+        category: "thai"
+      };
+
+      expect(cleanYelpResponse(mockYelpResponse)).toEqual(expected);
+
+
+    });
   });
 
 });
