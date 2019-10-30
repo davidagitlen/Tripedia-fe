@@ -6,43 +6,35 @@ import { FormContext } from '../../Contexts/FormContext';
 import { LoadingContext } from "../../Contexts/LoadingContext";
 import { getApiKey } from '../../util/apiCalls';
 
-const Map = (props) => {
-const { formState, setFormState } = useContext(FormContext);
-const { isLoadingState, setLoadingContext} = useContext(LoadingContext);
-const { isLoading } = isLoadingState;
-console.log('map component isloading: ', isLoading)
-const [ keyString, updateKeyString ] = useState('')
-const [stops, updateStops] = useState([]);
-const waypoints = stops.map(stop => ({
-  location : {
-    lat: stop.latitude,
-    lng: stop.longitude
-  },
-  stopover: true
-}));
+  const Map = () => {
+  const { formState, setFormState } = useContext(FormContext);
+  const { isLoadingState, setLoadingContext} = useContext(LoadingContext);
+  const { isLoading, loadingArray } = isLoadingState;
+  console.log('map component isloading: ', isLoading)
+  const [ keyString, updateKeyString ] = useState('')
+  const [stops, updateStops] = useState([]);
+  console.log('in map stops: ', stops)
+  const waypoints = stops.map(stop => ({
+    location : {
+      lat: stop.latitude,
+      lng: stop.longitude
+    },
+    stopover: true
+  }));
 
-const { origin, destination } = formState;
-console.log('formState :', formState);
-let newDes = formState.destination.replace(/[^1-9]|.|,/g, '').split(',')
-console.log('newDes', newDes)
-let newOrigin = formState.origin.replace(/[^1-9]|.|,/g, '').split(',')
-console.log('newOrigin', newOrigin)
-let newStart = {lat: newOrigin[0], lng: newOrigin[1]}
-let newEnd = {lat: newDes[0], lng: newDes[1]}
-console.log('newStart', newStart)
-console.log('newEnd', newEnd)
-
-let start = { lat: 39.739131, lng: -104.990085 };
-let end = { lat: 40.027750, lng: -105.270350 };
+  // let start = { lat: 45.5051064, lng: -122.6750261 };
+  // let end = { lat: 47.6062095, lng: -122.3320708 };
+  let start = formState.origin;
+  let end = formState.destination;
 
   const displayRoute = (map, maps) => {
+    console.log('in displayRoute', typeof start, typeof end)
     let request = {
-      origin: newStart,
-      destination: newEnd,
+      origin: start,
+      destination: end,
       waypoints,
       travelMode: "DRIVING"
     };
-
     let directionsRenderer = new maps.DirectionsRenderer({
       path: { newStart, newEnd },
       draggable: true,
@@ -50,7 +42,9 @@ let end = { lat: 40.027750, lng: -105.270350 };
     });
     let directionsService = new maps.DirectionsService();
     directionsService.route(request, async function(result, status) {
+      console.log('in directionsService checking status', status)
       if (status === "OK") {
+        console.log('in directionsService result:', result)
         directionsRenderer.setDirections(result);
       }
     });
@@ -78,9 +72,7 @@ let end = { lat: 40.027750, lng: -105.270350 };
   const { selectedCategories } = formState; 
 
   const stopList = stops.map((stop, i) => createPin(stop, i));
-
   const pinList = selectedCategories.map((obj, i) => createPin(obj, i));
-
   const pinsToRender = pinList.length ? pinList.filter(pin => !stops.find(stop => stop.name === pin.name)) : stopList; 
 
   const returnApiKey = async () => {
@@ -93,24 +85,26 @@ let end = { lat: 40.027750, lng: -105.270350 };
   });
  
   if (keyString) {
-    return (
-      <div style={{ height: "80vh", width: "100%" }}>
-        <GoogleMapReact
-          key={waypoints}
-          bootstrapURLKeys={{ key: keyString }}
-          defaultCenter={{ lat: 39.8285, lng: -98.579521 }}
-          defaultZoom={5}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
-        >
-          {pinsToRender}
-        </GoogleMapReact>
-      </div>
-    );
+    return ( 
+        <div 
+        style={{ height: '80vh', width: '100%' }}>
+          <GoogleMapReact
+            key={loadingArray}
+            bootstrapURLKeys={{ key: keyString }}
+            defaultCenter={{ lat: 39.8285, lng: -98.5795 }}
+            defaultZoom={4.5}
+            yesIWantToUseGoogleMapApiInternals
+            onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
+          >
+            {pinsToRender}
+          </GoogleMapReact>
+          <button onClick={() => setLoadingContext({...isLoadingState, isLoading: !isLoading })}></button>
+        </div>
+      )
   } else {
     return(
       <div>
-        <p>Why the fuck</p>
+        <p></p>
       </div>
     ) 
   }

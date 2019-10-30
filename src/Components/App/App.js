@@ -18,7 +18,7 @@ import { UserContext } from "../../Contexts/UserContext";
 import { triviaFacts } from "../../util/trivia-facts";
 
 export const App = () => {
-  const [isLoadingState, setLoadingContext] = useState({ isLoading: false });
+  const [isLoadingState, setLoadingContext] = useState({ isLoading: false, loadingArray: [] });
   const loadingState = useMemo(() => ({ isLoadingState, setLoadingContext }), [
     isLoadingState,
     setLoadingContext
@@ -53,7 +53,7 @@ export const App = () => {
         <UserContext.Provider value={loggedInUser}>
           <LoadingContext.Provider value={loadingState}>
             <div>
-              <Route exact path="/login" render={() => <LoginForm />} />
+              <Route exact path="/" render={() => <LoginForm />} />
               <Route
                 exact
                 path="/create_account"
@@ -61,7 +61,7 @@ export const App = () => {
               />
               <Route
                 exact
-                path="/"
+                path="/map"
                 render={() => (
                   <div className="nav_banner">
                     <Navigation />
@@ -88,7 +88,7 @@ export const App = () => {
         <UserContext.Provider value={loggedInUser}>
           <LoadingContext.Provider value={loadingState}>
             <div>
-              <Route exact path="/login" render={() => <LoginForm />} />
+              <Route exact path="/" render={() => <LoginForm />} />
               <Route
                 exact
                 path="/create_account"
@@ -96,17 +96,14 @@ export const App = () => {
               />
               <Route
                 exact
-                path="/"
+                path="/map"
                 render={() => (
                   <div className="nav_banner">
                     <Navigation />
                     <div className="map-form__container">
                       <FormsContainer />
                       <div className="map-container">
-                        <Map
-                          // center={{ lat: 39.8285, lng: -98.579521 }}
-                          zoom={11}
-                        />
+                        <Map />
                       </div>
                     </div>
                   </div>

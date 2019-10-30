@@ -5,6 +5,7 @@ import { UserContext } from '../../Contexts/UserContext';
 import { LoadingContext } from '../../Contexts/LoadingContext';
 import { getStartAndEnd } from '../../util/apiCalls';
 import { rawData } from '../../util/jsonData';
+import { stringToFloatsArray } from '../../util/dataCleaner';
 import { cleanData, assignObjectToArrays, cleanYelpResponse } from '../../util/dataCleaner';
 
 const StartForm = ({ collapseForm, openForm, defaultForm }) => {
@@ -62,12 +63,18 @@ const StartForm = ({ collapseForm, openForm, defaultForm }) => {
     e.preventDefault();
     try {
       const { origin: originCity, destination: destinationCity } = cities;
-      setLoadingContext({ isLoading: true});
+      setLoadingContext({ isLoading: true, loadingArray: [true] });
       const { id } = user;
       const returnedPoints = await getStartAndEnd(originCity, destinationCity, id);
       const { origin, destination } = returnedPoints.trip;
-      handleData(returnedPoints, origin, destination);
-      setLoadingContext({ isLoading: false});
+      console.log('in startform origin destination: ', origin, destination)
+      const originArray = stringToFloatsArray(origin);
+      const destinationArray = stringToFloatsArray(destination);
+      console.log('in startform after formatting: ', originArray, destinationArray)
+      const formattedOrigin = { lat: originArray[0], lng: originArray[1] };
+      const formattedDestination = { lat: destinationArray[0], lng: destinationArray[1] };
+      handleData(returnedPoints, formattedOrigin, formattedDestination);
+      setLoadingContext({ isLoading: false, loadingArray: [false]});
     } catch ({ message }) {
       enterCities({ ...cities, error: message })
     }

@@ -58,7 +58,7 @@ const LoginForm = () => {
           </button>
         )}
         {isEnabled && (
-          <NavLink to="/">
+          <NavLink to="/map">
             <button 
               className="button__enabled" 
               type="submit"

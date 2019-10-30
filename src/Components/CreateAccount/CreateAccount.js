@@ -80,7 +80,7 @@ const CreateAccount = () => {
             Submit
           </button>}
         {isEnabled &&
-        <NavLink to='/'>
+        <NavLink to='/map'>
           <button 
             className='button__enabled'
             type="submit"
@@ -90,7 +90,7 @@ const CreateAccount = () => {
           </button>
         </NavLink>
         }
-        <NavLink to="/login">
+        <NavLink to="/">
           <p>Login</p>
         </NavLink>
       </form>

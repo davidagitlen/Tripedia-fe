@@ -10,7 +10,7 @@ const Navigation = () => {
           <img className="tripedia-logo__nav" src={Logo} alt="Tripedia Logo" />
         <h1 className="tripedia-text__nav">TRIPEDIA</h1>
       </div>
-      <NavLink to="/login">
+      <NavLink to="/">
         <p>LogOut</p>
       </NavLink>
     </nav>
