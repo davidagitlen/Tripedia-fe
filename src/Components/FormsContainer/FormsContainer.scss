@@ -47,6 +47,7 @@
       justify-content: center;
       flex-direction: column;
       border-top: 2px solid rgba(0, 28, 58, 0.5);
+      overflow-y: scroll;
       .submit-trip__button {
         width: 75%;
         border-radius: 40px;
