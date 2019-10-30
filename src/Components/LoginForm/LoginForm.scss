@@ -79,6 +79,11 @@
     padding-right: 100px;
     padding-top: 100px;
 
+    .login__form {
+      padding-left: 200px;
+      padding-right: 200px;
+    }
+
     .banner {
       height: 240px;
     }
@@ -89,6 +94,10 @@
   .login-form__container {
     padding-left: 300px;
     padding-right: 300px;
+
+    .banner {
+      height: 350px;
+    }
   }
 }
 
