@@ -16,16 +16,19 @@ const LoginForm = () => {
   const handleChange = e => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+
+  const handleSubmit = async () => {
     try {
-      await loginUser(email, password);
-      userLogin({email, password})
+      const userInfo = await loginUser(email, password);
+      userLogin({
+        email: userInfo.email,
+        name: userInfo.name,
+        id: userInfo.id
+      });
     } catch ({ message }) {
       return message;
     }
-  }
+  };
 
   return (
     <main className="login-form__container">
@@ -55,12 +58,15 @@ const LoginForm = () => {
           </button>
         )}
         {isEnabled && (
-          <button
-            className="button__enabled"
-            type="submit"
-            onClick={handleSubmit}>
-              <NavLink to="/">Login</NavLink>
-          </button>
+          <NavLink to="/">
+            <button
+              onClick={handleSubmit}
+              className="button__enabled"
+              type="submit"
+            >
+              Login
+            </button>
+          </NavLink>
         )}
         <NavLink to="/create_account">
           <p>Create Account</p>

@@ -3,28 +3,37 @@ import "./Pin.scss";
 import accommidationPin from "../../Images/accommidation-pin.svg";
 import foodPin from "../../Images/food-pin.svg";
 import mapPin from "../../Images/map-pin.svg";
-import drinkPin from '../../Images/drink-pin.svg';
+import drinkPin from "../../Images/drink-pin.svg";
 
-
-
-const Pin = (props) => {
-  const { name, image, rating, url, type, updateStops, lat, lng, stops, onGoogleApiLoaded} = props;
+const Pin = props => {
+  const {
+    name,
+    image,
+    rating,
+    url,
+    type,
+    updateStops,
+    lat,
+    lng,
+    stops,
+    onGoogleApiLoaded
+  } = props;
   const [isHovered, toggleHovered] = useState(false);
   const stopFound = stops.find(stop => {
-    return stop.lat === lat && stop.lng === lng
+    return stop.lat === lat && stop.lng === lng;
   });
-  const addOrRemoveText = stopFound ? 'Remove From Trip' : 'Add To Trip';
+  const addOrRemoveText = stopFound ? "Remove From Trip" : "Add To Trip";
 
   const handleMouseOver = () => {
-    toggleHovered(!isHovered)
-  }
+    toggleHovered(!isHovered);
+  };
 
   const handleUpdateStops = () => {
     if (stopFound) {
-      const filteredStops = stops.filter(stop => 
-        stop.lat !== lat && stop.lng !== lng
+      const filteredStops = stops.filter(
+        stop => stop.lat !== lat && stop.lng !== lng
       );
-      updateStops(filteredStops)
+      updateStops(filteredStops);
     } else {
       const stopToAdd = {
         name,
@@ -35,9 +44,9 @@ const Pin = (props) => {
         lat,
         lng
       };
-      updateStops([...stops, stopToAdd])
+      updateStops([...stops, stopToAdd]);
     }
-  }
+  };
 
   const switchImage = imageType => {
     switch (imageType) {
@@ -48,49 +57,34 @@ const Pin = (props) => {
       case "drink":
         return drinkPin;
       default:
-      return mapPin;
+        return mapPin;
     }
   };
-  
+
   const imagePath = switchImage(type);
 
   if (!isHovered) {
     return (
-      <div
-        className='pin'
-        onMouseEnter={handleMouseOver}
-      >
-        <img className='pin-image'
-          src={imagePath}
-          alt={type}
-        />
+      <div className="pin" onMouseEnter={handleMouseOver}>
+        <img className="pin-image" src={imagePath} alt={type} />
       </div>
     );
   } else {
     return (
-      <div className='pin-hover'
-        onMouseLeave={handleMouseOver}>
+      <div className="pin-hover" onMouseLeave={handleMouseOver}>
         <h3>{name}</h3>
-        <img 
-          style={{ width: '50px', height: '50px' }} 
-          src={image} 
-          alt={name}></img>
-        <a 
-          href={url} 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-        {rating}
+        <img
+          style={{ width: "50px", height: "50px" }}
+          src={image}
+          alt={name}
+        ></img>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {rating}
         </a>
-        <button 
-          onClick={handleUpdateStops}
-        >
-        {addOrRemoveText}
-        </button>
+        <button onClick={handleUpdateStops}>{addOrRemoveText}</button>
       </div>
     );
-
   }
-}
+};
 
 export default Pin;

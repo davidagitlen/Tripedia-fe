@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
 import "./AttractionsForm.scss";
-import { FormContext } from '../../Contexts/FormContext';
+import { FormContext } from "../../Contexts/FormContext";
 
-const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
+const AttractionsForm = ({ collapseForm, openForm, defaultForm }) => {
   const { formState, setFormState } = useContext(FormContext);
-  console.log('attractionsform', formState);
   const [form, toggleClicked] = useState({
     DinosaurBones: false,
     CandyFactory: false,
@@ -34,10 +33,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
   const checkBoxes = mockProps.map(checkBox => {
     let name = checkBox.replace(/ /gi, "");
     return (
-      <div 
-        key={name}
-        className="individual-checkbox__container"
-      >
+      <div key={name} className="individual-checkbox__container">
         <input
           className="checkbox"
           type="checkbox"
@@ -52,7 +48,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
     );
   });
 
-  if(openForm.AttractionsForm) {
+  if (openForm.AttractionsForm) {
     return (
       <div className="form__container">
         <p>- Attractions -</p>
@@ -63,7 +59,10 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm}) => {
     return (
       <div
         onClick={e =>
-          collapseForm({ ...defaultForm, AttractionsForm: !openForm.AttractionsForm })
+          collapseForm({
+            ...defaultForm,
+            AttractionsForm: !openForm.AttractionsForm
+          })
         }
         className="form-closed__container"
       >

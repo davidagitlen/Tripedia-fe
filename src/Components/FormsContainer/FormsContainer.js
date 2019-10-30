@@ -31,7 +31,6 @@ export const FormsContainer = () => {
     SubmitTripForm: false
   };
 
-
   if (collapsed) {
     return (
       <div className="collapsed-forms__button">

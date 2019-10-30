@@ -23,7 +23,6 @@ const CreateAccount = () => {
   }
 
   const handleSubmit = async e => {
-    e.preventDefault();
     try {
       const userInfo = await createAccount(name, email, password, password_confirmation);
       userLogin({ 
@@ -94,6 +93,6 @@ const CreateAccount = () => {
       </form>
     </main>
   );
-}
+};
 
 export default CreateAccount;

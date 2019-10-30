@@ -1,23 +1,22 @@
-import React from 'react';
-import './Navigation.scss';
-import Logo from '../../Images/Logo1.png';
-import { NavLink } from 'react-router-dom';
-
+import React from "react";
+import "./Navigation.scss";
+import Logo from "../../Images/Logo1.png";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
-  return(
-    <nav className='navigation__contianer'>
-      <div className='logo-title__nav'>
-        <NavLink to='/'>
-          <img className='tripedia-logo__nav' src={Logo} alt='Tripedia Logo' />
+  return (
+    <nav className="navigation__contianer">
+      <div className="logo-title__nav">
+        <NavLink to="/">
+          <img className="tripedia-logo__nav" src={Logo} alt="Tripedia Logo" />
         </NavLink>
-        <h1 className='tripedia-text__nav'>TRIPEDIA</h1>
+        <h1 className="tripedia-text__nav">TRIPEDIA</h1>
       </div>
-      <NavLink to='/login'>
+      <NavLink to="/login">
         <p>LogOut</p>
       </NavLink>
     </nav>
-  )
-}
+  );
+};
 
 export default Navigation;
