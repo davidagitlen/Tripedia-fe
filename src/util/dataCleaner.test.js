@@ -47,20 +47,62 @@ describe('dataCleaner', () => {
 
       const mockRawData = [
         { category: 'hotels' },
+        { category: 'bed & breakfast' },
+        { category: 'guest houses' },
+        { category: 'resorts' },
         { category: 'art museums' },
+        { category: 'haunted houses' },
+        { category: 'parks' },
         { category: 'gastropubs' },
+        { category: 'sandwiches' },
+        { category: 'fast food' },
+        { category: 'chocolatiers & shops' },
         { category: 'bars' },
+        { category: 'lounges' },
+        { category: 'dive bars' },
+        { category: 'distilleries' },
         { category: 'gift shops' }, 
-        { category: 'other' }
+        { category: 'gyms' },
+        { category: 'outdoor gear' },
+        { category: 'hunting & fishing supplies' },
+        { category: 'other' },
+        { category: 'random'}
       ];
 
       const expected = [
-        [{ category: 'hotels' }],
-        [{ category: 'art museums' }],
-        [{ category: 'gastropubs' }],
-        [{ category: 'bars' }],
-        [{ category: 'gift shops' }],
-        [{ category: 'other' }]
+        [ 
+          { category: 'hotels' },
+          { category: 'bed & breakfast' },
+          { category: 'guest houses' },
+          { category: 'resorts' }
+        ],
+        [
+          { category: 'art museums' },
+          { category: 'haunted houses' },
+          { category: 'parks' }
+        ],
+        [
+          { category: 'gastropubs' },
+          { category: 'sandwiches' },
+          { category: 'fast food' },
+          { category: 'chocolatiers & shops' }
+        ],
+        [
+          { category: 'bars' }, 
+          { category: 'lounges' },
+          { category: 'dive bars' },
+          { category: 'distilleries' }
+        ],
+        [
+          { category: 'gift shops' },
+          { category: 'gyms' },
+          { category: 'outdoor gear' },
+          { category: 'hunting & fishing supplies' }
+        ],
+        [
+          { category: 'other' },
+          { category: 'random'}
+        ]
       ];
 
       expect(assignObjectToArrays(mockRawData)).toEqual(expected);
