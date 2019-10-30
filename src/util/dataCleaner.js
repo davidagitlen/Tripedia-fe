@@ -1,6 +1,4 @@
 export const cleanData = (data) => {
-  data.trip.origin = data.trip.origin.replace(/:|=/gi, '').replace(/>/gi, ':').replace(/"/gi, ''); 
-  data.trip.destination = data.trip.destination.replace(/:|=/gi, '').replace(/>/gi, ':').replace(/"/gi, '');
   const filteredCategories = data.attractions.filter(attraction => attraction.length > 0);
   const purifiedCategories = filteredCategories.map(category => category.filter(subcategory => subcategory !== null));
   return purifiedCategories;
@@ -23,10 +21,16 @@ export const assignObjectToArrays = (array) => {
       case 'bed & breakfast':
         accommodations.push(obj);
         return
+      case 'guest houses':
+        accommodations.push(obj);
+        return
       case 'resorts':
         accommodations.push(obj);
         return
       case 'art museums':
+        attractions.push(obj);
+        return
+      case 'haunted houses':
         attractions.push(obj);
         return
       case 'parks' :
@@ -38,6 +42,21 @@ export const assignObjectToArrays = (array) => {
       case 'art galleries':
         attractions.push(obj);  
         return   
+      case 'walking tours':
+        attractions.push(obj);
+        return
+      case 'arts & entertainment':
+        attractions.push(obj);
+        return
+      case 'day camps':
+        attractions.push(obj);
+        return
+      case 'boat tours':
+        attractions.push(obj);
+        return
+      case 'boating' :
+        attractions.push(obj);
+        return
       case 'tours':
         attractions.push(obj);
         return
@@ -47,10 +66,40 @@ export const assignObjectToArrays = (array) => {
       case 'historical tours':
         attractions.push(obj);
         return
+      case 'art classes':
+        attractions.push(obj);
+        return
+      case 'arcades' :
+        attractions.push(obj);
+        return;
+      case 'bubble soccer':
+        attractions.push(obj);
+        return;
+      case 'gay bars':
+        attractions.push(obj);
+        return;
+      case 'jazz & blues':
+        attractions.push(obj);
+        return;
+      case 'performing arts':
+        attractions.push(obj);
+        return;
+      case 'gastropubs':
+        food.push(obj);
+        return;
+      case 'sandwiches':
+        food.push(obj);
+        return;
       case 'fast food' :
         food.push(obj);
         return
       case 'chocolatiers & shops':
+        food.push(obj);
+        return
+      case 'cantonese' :
+        food.push(obj);
+        return
+      case 'sushi bars':
         food.push(obj);
         return
       case 'asian fusion':
@@ -86,17 +135,26 @@ export const assignObjectToArrays = (array) => {
       case 'breakfast & brunch':
         food.push(obj);
         return
+      case 'japanese':
+        food.push(obj);
+        return
       case 'bars':
         drinks.push(obj);
         return
       case 'lounges':
         drinks.push(obj);
         return
+      case 'dive bars':
+        drinks.push(obj);
+        return
       case 'distilleries':
         drinks.push(obj);
         return
       case 'breweries':
-        drinks.push(obj)
+        drinks.push(obj);
+        return
+      case 'beer bars':
+        drinks.push(obj);
         return
       case 'gyms':
         services.push(obj);
@@ -139,3 +197,27 @@ export const cleanYelpResponse = yelp => {
     category: yelp.categories[0].title.toLowerCase()
   };
 };
+
+export const stringToFloatsArray = string => {
+  return string.replace(/[^0-9|.|,|-]/g, '').split(',').map(string => parseFloat(string))
+}
+
+export const createStateObject = formObject => {
+  const formCategories = Object.keys(formObject);
+
+  const stateObject = formCategories.reduce((categoryObject, category) => {
+    const categoryKey = category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+    categoryObject[categoryKey] = false;
+    return categoryObject
+  }, {});
+
+  return stateObject;
+}
+
+export const createCheckBoxNames = formObject => {
+  const formCategories = Object.keys(formObject);
+
+  const checkboxNames = formCategories.map(category => category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
+
+  return checkboxNames; 
+}

@@ -1,21 +1,25 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./AttractionsForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
+import { createStateObject, createCheckBoxNames } from '../../util/dataCleaner';
 
 const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => {
   const { formState, setFormState } = useContext(FormContext);
 
-  const formCategories = Object.keys(formObject);
-
-  const stateObject = formCategories.reduce((categoryObject, category) => {
-    const categoryKey = category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
-    categoryObject[categoryKey] = false;
-    return categoryObject
-  }, {}); 
-
+  const stateObject = createStateObject(formObject);
+  const checkboxNames = createCheckBoxNames(formObject);
+  
   const [form, toggleClicked] = useState({...stateObject});
 
-  const checkboxNames = formCategories.map(category => category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
+  // const formCategories = Object.keys(formObject);
+
+  // const stateObject = formCategories.reduce((categoryObject, category) => {
+  //   const categoryKey = category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+  //   categoryObject[categoryKey] = false;
+  //   return categoryObject
+  // }, {}); 
+
+  // const checkboxNames = formCategories.map(category => category.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
 
   const handleCheckBox = (e) => {
     toggleClicked({ ...form, [e.target.value]: !form[e.target.value] });
