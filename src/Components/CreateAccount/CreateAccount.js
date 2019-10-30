@@ -22,15 +22,13 @@ const CreateAccount = () => {
    setAccountState({...accountState, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async e => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
       const userInfo = await createAccount(name, email, password, password_confirmation);
       userLogin({ 
-        name, 
-        email, 
-        password,
-        password_confirmation
+        name: userInfo.name,
+        email: userInfo.email,
+        id: userInfo.id
       });
     } catch ({ message }) {
       return message;
@@ -52,48 +50,52 @@ const CreateAccount = () => {
           name="name"
           value={name}
           onChange={handleChange}
-        ></input>
+        />
         <input
           type="email"
           name="email"
           placeholder="email"
           value={email}
           onChange={handleChange}
-        ></input>
+        />
         <input
           type="password"
           name="password"
           placeholder="password"
           value={password}
           onChange={handleChange}
-        ></input>
+        />
         <input
           type="password"
-          name="password_confirmation"
+          name='password_confirmation'
           placeholder="confirm password"
           value={password_confirmation}
           onChange={handleChange}
-        ></input>
-        {!isEnabled && (
-          <button className="button__disabled" type="submit">
+          />
+        {!isEnabled && 
+          <button 
+            className='button__disabled'
+            type="submit"
+            >
             Submit
-          </button>
-        )}
-        {isEnabled && (
-          <button
-            className="button__enabled"
+          </button>}
+        {isEnabled &&
+        <NavLink to='/map'>
+          <button 
+            className='button__enabled'
             type="submit"
             onClick={handleSubmit}
-          >
-            <NavLink to="/map">Submit</NavLink>
+            >
+            Submit
           </button>
-        )}
+        </NavLink>
+        }
         <NavLink to="/">
           <p>Login</p>
         </NavLink>
       </form>
     </main>
   );
-}
+};
 
 export default CreateAccount;

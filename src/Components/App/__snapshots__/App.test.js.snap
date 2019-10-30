@@ -5,13 +5,15 @@ exports[`App should match the wrapper with data passed in 1`] = `
   value={
     Object {
       "formState": Object {
-        "accommodations": Array [],
-        "attractions": Array [],
+        "accommodations": Object {},
+        "attractions": Object {},
         "destination": "",
-        "drinks": Array [],
-        "food": Array [],
+        "drinks": Object {},
+        "food": Object {},
+        "miscellaneous": Object {},
         "origin": "",
-        "services": Array [],
+        "selectedCategories": Array [],
+        "services": Object {},
         "tripSubmitted": false,
       },
       "setFormState": [Function],
@@ -23,9 +25,8 @@ exports[`App should match the wrapper with data passed in 1`] = `
       Object {
         "user": Object {
           "email": "",
+          "id": "",
           "name": "",
-          "password": "",
-          "password_confirmation": "",
         },
         "userLogin": [Function],
       }
@@ -35,7 +36,6 @@ exports[`App should match the wrapper with data passed in 1`] = `
       value={
         Object {
           "isLoadingState": Object {
-            "categories": "Blah blah blah",
             "isLoading": false,
           },
           "setLoadingContext": [Function],
