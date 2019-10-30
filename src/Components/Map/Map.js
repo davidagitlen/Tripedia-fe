@@ -6,7 +6,7 @@ import { FormContext } from '../../Contexts/FormContext';
 import { LoadingContext } from "../../Contexts/LoadingContext";
 import { getApiKey } from '../../util/apiCalls';
 
-const Map = (props) => {
+const Map = () => {
 const { formState, setFormState } = useContext(FormContext);
 const { isLoadingState, setLoadingContext} = useContext(LoadingContext);
 const { isLoading } = isLoadingState;
@@ -22,9 +22,6 @@ const waypoints = stops.map(stop => ({
 }));
 
 const { origin, destination } = formState;
-const { center, zoom } = props;
-let start = { lat: 39.739131, lng: -104.990085 };
-let end = { lat: 40.027750, lng: -105.270350 };
 
   const displayRoute = (map, maps) => {
     let request = {
@@ -35,7 +32,7 @@ let end = { lat: 40.027750, lng: -105.270350 };
     };
 
     let directionsRenderer = new maps.DirectionsRenderer({
-      path: { start, end },
+      path: { origin, destination },
       draggable: true,
       suppressMarkers: true
     });
@@ -90,10 +87,9 @@ let end = { lat: 40.027750, lng: -105.270350 };
         <div 
         style={{ height: '80vh', width: '100%' }}>
           <GoogleMapReact
-            key={isLoading}
             bootstrapURLKeys={{ key: keyString }}
-            defaultCenter={center}
-            defaultZoom={zoom}
+            defaultCenter={{ lat: 39.8285, lng: -98.5795 }}
+            defaultZoom={4.5}
             yesIWantToUseGoogleMapApiInternals
             onGoogleApiLoaded={({ map, maps }) => displayRoute(map, maps)}
           >
@@ -124,7 +120,7 @@ let end = { lat: 40.027750, lng: -105.270350 };
   } else {
     return(
       <div>
-        <p>Why the fuck</p>
+        <p></p>
       </div>
     ) 
   }

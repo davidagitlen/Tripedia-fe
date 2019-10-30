@@ -103,10 +103,7 @@ export const App = () => {
                     <div className="map-form__container">
                       <FormsContainer />
                       <div className="map-container">
-                        <Map
-                          center={{ lat: 39.7392, lng: -104.9903 }}
-                          zoom={11}
-                        />
+                        <Map />
                       </div>
                     </div>
                   </div>

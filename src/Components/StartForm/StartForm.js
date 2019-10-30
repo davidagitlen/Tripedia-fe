@@ -67,7 +67,10 @@ const StartForm = ({ collapseForm, openForm, defaultForm }) => {
       const returnedPoints = await getStartAndEnd(originCity, destinationCity, id);
       console.log('in StartForm returnedPoints:', returnedPoints);
       const { origin, destination } = returnedPoints.trip;
-      handleData(returnedPoints, origin, destination);
+      console.log('in startform origin destination: ', origin, destination)
+      const newOrigin = origin.replace(/"/g, '');
+      const newDestination = destination.replace(/"/g, '')
+      handleData(returnedPoints, newOrigin, newDestination);
       setLoadingContext({ isLoading: false});
     } catch ({ message }) {
       enterCities({ ...cities, error: message })

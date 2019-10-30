@@ -23,10 +23,16 @@ export const assignObjectToArrays = (array) => {
       case 'bed & breakfast':
         accommodations.push(obj);
         return
+      case 'guest houses':
+        accommodations.push(obj);
+        return
       case 'resorts':
         accommodations.push(obj);
         return
       case 'art museums':
+        attractions.push(obj);
+        return
+      case 'haunted houses':
         attractions.push(obj);
         return
       case 'parks' :
@@ -38,6 +44,21 @@ export const assignObjectToArrays = (array) => {
       case 'art galleries':
         attractions.push(obj);  
         return   
+      case 'walking tours':
+        attractions.push(obj);
+        return
+      case 'arts & entertainment':
+        attractions.push(obj);
+        return
+      case 'day camps':
+        attractions.push(obj);
+        return
+      case 'boat tours':
+        attractions.push(obj);
+        return
+      case 'boating' :
+        attractions.push(obj);
+        return
       case 'tours':
         attractions.push(obj);
         return
@@ -47,10 +68,19 @@ export const assignObjectToArrays = (array) => {
       case 'historical tours':
         attractions.push(obj);
         return
+      case 'art classes':
+        attractions.push(obj);
+        return
       case 'fast food' :
         food.push(obj);
         return
       case 'chocolatiers & shops':
+        food.push(obj);
+        return
+      case 'cantonese' :
+        food.push(obj);
+        return
+      case 'sushi bars':
         food.push(obj);
         return
       case 'asian fusion':
@@ -86,17 +116,26 @@ export const assignObjectToArrays = (array) => {
       case 'breakfast & brunch':
         food.push(obj);
         return
+      case 'japanese':
+        food.push(obj);
+        return
       case 'bars':
         drinks.push(obj);
         return
       case 'lounges':
         drinks.push(obj);
         return
+      case 'dive bars':
+        drinks.push(obj);
+        return
       case 'distilleries':
         drinks.push(obj);
         return
       case 'breweries':
-        drinks.push(obj)
+        drinks.push(obj);
+        return
+      case 'beer bars':
+        drinks.push(obj);
         return
       case 'gyms':
         services.push(obj);
