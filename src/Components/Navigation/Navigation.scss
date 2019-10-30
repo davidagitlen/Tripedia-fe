@@ -4,20 +4,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 125px;
+  padding-left: 149.5px;
   padding-right: 50px;
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-bottom: 130px;
+  }
+}
+
   .logo-title__nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 43%;
     .tripedia-text__nav {
-      font-size: 80px;
+      font-size: 168px;
+      margin-left: 137.5px;
+      color: #001C3A;
     }
     .tripedia-logo__nav {
       height: 19vh;
       width: 19vh;
-      border-radius: 50%;
+      // border: 2px solid #001C3A;
     }
   }
-}
+

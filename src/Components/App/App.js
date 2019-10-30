@@ -18,7 +18,7 @@ import { UserContext } from "../../Contexts/UserContext";
 import { triviaFacts } from "../../util/trivia-facts";
 
 export const App = () => {
-  const [isLoadingState, setLoadingContext] = useState({ isLoading: false });
+  const [isLoadingState, setLoadingContext] = useState({ isLoading: false, loadingArray: [] });
   const loadingState = useMemo(() => ({ isLoadingState, setLoadingContext }), [
     isLoadingState,
     setLoadingContext
@@ -69,7 +69,7 @@ export const App = () => {
                       <FormsContainer />
                       <div className="map-container">
                         <Map
-                          center={{ lat: 39.7392, lng: -104.9903 }}
+                          // center={{ lat: 39.7392, lng: -104.9903 }}
                           zoom={11}
                         />
                       </div>
@@ -103,10 +103,7 @@ export const App = () => {
                     <div className="map-form__container">
                       <FormsContainer />
                       <div className="map-container">
-                        <Map
-                          center={{ lat: 39.7392, lng: -104.9903 }}
-                          zoom={11}
-                        />
+                        <Map />
                       </div>
                     </div>
                   </div>
@@ -116,7 +113,7 @@ export const App = () => {
             <div className="app-is-loading">
               <div className="trivia-box__container">
                 <p className="did-you-know__text">
-                  While we prepare your trip, did you know:
+                  Did you know?
                 </p>
                 <p>{selectTriviaFact(triviaFacts)}</p>
                 <div className="animation-container">

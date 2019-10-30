@@ -47,6 +47,7 @@
       justify-content: center;
       flex-direction: column;
       border-top: 2px solid rgba(0, 28, 58, 0.5);
+      overflow-y: scroll;
       .submit-trip__button {
         width: 75%;
         border-radius: 40px;
@@ -90,16 +91,25 @@
       height: 8vh;
       background-color: whitesmoke;
       border-top: 2px solid rgba(0, 28, 58, 0.5);
-      // border-bottom: 2px solid rgba(0, 28, 58, 0.5);
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: space-between;
 
+      img {
+        height: 70px;
+        width: 70px;
+        margin-top: 10px;
+      }
       p {
         font-size: 1.3em;
         font-weight: bold;
         color: rgb(0, 28, 58);
+        display: flex;
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #001c3a;
+        justify-content: center;
+        width: 100%;
       }
     }
   }
