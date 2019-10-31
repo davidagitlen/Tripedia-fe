@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServicesForm should mock formContext and match a snapshot 1`] = `
+<ServicesForm
+  collapseForm={[MockFunction]}
+  defaultForm={
+    Object {
+      "AccommodationsForm": false,
+      "AttractionsForm": false,
+      "DrinksForm": false,
+      "FoodForm": false,
+      "ServicesForm": false,
+      "StartForm": false,
+      "SubmitTripForm": false,
+    }
+  }
+  formObject={
+    Object {
+      "ArtGalleries": Array [],
+      "DayCamps": Array [],
+      "WalkingTours": Array [],
+    }
+  }
+  openForm={[MockFunction]}
+>
+  <div
+    className="form-closed__container"
+    onClick={[Function]}
+  >
+    <img
+      alt="services"
+      src="services-pin.svg"
+    />
+    <p>
+      - ServicesForm -
+    </p>
+  </div>
+</ServicesForm>
+`;
