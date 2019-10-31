@@ -83,3 +83,35 @@ describe('createAccount', () => {
 })
 
 describe('Login User', () => {
+  let mockResponse, mockData;
+  beforeEach(()=>{
+    mockData = {email: "paul@gmail.com", password: "123"};
+    mockResponse = {id: 1, name: "paul", email: "paul@gmail.com", logged_in: true};
+    const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/user_login`;
+
+     window.fetch = jest.fn().mockImplementation(() => {
+       return Promise.resolve({
+         ok: true,
+         json: () => Promise.resolve(mockResponse)
+       })
+     })
+   })
+
+   it.only("should be called to correct URL", () => {
+     const {email, password} = mockData
+     const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/user_login`;
+     const options = {
+       method: "POST",
+       body: JSON.stringify({
+         email: email,
+         password: password
+       }),
+       headers: {
+         "Content-Type": "application/json",
+         "Access-Control-Allow-Origin": "*"
+       }
+     };
+     loginUser(email, password);
+     expect(window.fetch).toHaveBeenCalledWith(url, options)
+   })
+})
