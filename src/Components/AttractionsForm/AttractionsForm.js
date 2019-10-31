@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./AttractionsForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
 import attractionSvg from "../../Images/attractions-pin.svg";
@@ -12,12 +12,8 @@ const AttractionsForm = ({
 }) => {
   const { formState, setFormState } = useContext(FormContext);
 
-  console.log("in AttractionsForm, formObject: ", formObject);
   const stateObject = createStateObject(formObject);
-  console.log("in AttractionsForm, stateObject: ", stateObject);
   const checkboxNames = createCheckBoxNames(formObject);
-  console.log("in AttractionsForm, checkboxNames: ", checkboxNames);
-
   const [form, toggleClicked] = useState({ ...stateObject });
 
   const handleCheckBox = e => {

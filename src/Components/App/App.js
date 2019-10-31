@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useContext } from "react";
+import React, { useMemo, useState } from "react";
 import { Route } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import FormsContainer from "../FormsContainer/FormsContainer";
@@ -25,7 +25,9 @@ export const App = () => {
   ]);
   const [formState, setFormState] = useState({
     origin: "",
+    originCity: "",
     destination: "",
+    destinationCity: "",
     tripSubmitted: false,
     attractions: {},
     accommodations: {},
@@ -33,7 +35,9 @@ export const App = () => {
     drinks: {},
     services: {},
     miscellaneous: {},
-    selectedCategories: []
+    selectedCategories: [],
+    trip_id: "",
+    waypoints: []
   });
 
   const currentForm = useMemo(() => ({ formState, setFormState }), [formState, setFormState]);
@@ -43,7 +47,7 @@ export const App = () => {
 
   const selectTriviaFact = triviaArray => {
     let index = Math.floor(Math.random() * triviaArray.length);
-    return triviaArray[index];
+    return triviaArray[7];
   };
   
 

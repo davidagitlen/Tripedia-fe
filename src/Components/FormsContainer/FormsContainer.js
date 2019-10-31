@@ -10,7 +10,7 @@ import SubmitTripForm from "../SubmitTripForm/SubmitTripForm";
 import { FormContext } from '../../Contexts/FormContext';
 
 export const FormsContainer = () => {
-  const { formState, setFormState } = useContext(FormContext);
+  const { formState } = useContext(FormContext);
   const [collapsed, collapseFormContainer] = useState(false);
 
   const [openForm, collapseForm] = useState({
@@ -33,7 +33,7 @@ export const FormsContainer = () => {
     SubmitTripForm: false
   };
 
-  const { accommodations, attractions, food, drinks, services, miscellaneous } = formState; 
+  const { accommodations, attractions, food, drinks, services} = formState; 
 
   if (collapsed) {
     return (

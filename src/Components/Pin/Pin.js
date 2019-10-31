@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Pin.scss";
 import accommidationPin from "../../Images/accommodation-pin.svg";
 import foodPin from "../../Images/food-pin.svg";
@@ -6,10 +6,12 @@ import mapPin from "../../Images/map-pin.svg";
 import drinkPin from "../../Images/drink-pin.svg";
 import attractionPin from "../../Images/attractions-pin.svg";
 import servicePin from "../../Images/services-pin.svg";
+import { FormContext } from "../../Contexts/FormContext";
 
 const Pin = (props) => {
   const { name, image, rating, url, type, updateStops, lat, lng, stops } = props;
   const [isHovered, toggleHovered] = useState(false);
+  const { formState, setFormState } = useContext(FormContext);
   const stopFound = stops.find(stop => {
     return stop.name === name
   });
@@ -22,9 +24,10 @@ const Pin = (props) => {
   const handleUpdateStops = () => {
     if (stopFound) {
       const filteredStops = stops.filter(
-        stop => stop.lat !== lat && stop.lng !== lng
+        stop => stop.name !== name
       );
       updateStops(filteredStops);
+      setFormState({...formState, waypoints: filteredStops })
     } else {
       const stopToAdd = {
         name,
@@ -37,6 +40,7 @@ const Pin = (props) => {
         updateStops
       };
       updateStops([...stops, stopToAdd]);
+      setFormState({...formState, waypoints: [...formState.waypoints, stopToAdd]});
     }
   };
 

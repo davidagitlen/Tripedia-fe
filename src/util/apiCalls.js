@@ -62,3 +62,20 @@ export const getApiKey = async () => {
   const mapsApiKey = await response.json();
   return mapsApiKey
 }
+
+export const submitTrip = async (user_id, trip_id, origin, destination, waypoints) => {
+  const url = process.env.REACT_APP_BACKEND_URL + `/users/${user_id}/trips/${trip_id}`;
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      origin,
+      destination,
+      waypoints
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  const response = await fetch(url, options);
+  return response;
+}
