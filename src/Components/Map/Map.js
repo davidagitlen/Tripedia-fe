@@ -7,13 +7,11 @@ import { LoadingContext } from "../../Contexts/LoadingContext";
 import { getApiKey } from '../../util/apiCalls';
 
   const Map = () => {
-  const { formState, setFormState } = useContext(FormContext);
-  const { isLoadingState, setLoadingContext} = useContext(LoadingContext);
+  const { formState } = useContext(FormContext);
+  const { isLoadingState } = useContext(LoadingContext);
   const { isLoading, loadingArray } = isLoadingState;
-  console.log('map component isloading: ', isLoading)
   const [ keyString, updateKeyString ] = useState('')
   const [stops, updateStops] = useState([]);
-  console.log('in map stops: ', stops)
   const waypoints = stops.map(stop => ({
     location : {
       lat: stop.latitude,
@@ -22,13 +20,10 @@ import { getApiKey } from '../../util/apiCalls';
     stopover: true
   }));
 
-  // let start = { lat: 45.5051064, lng: -122.6750261 };
-  // let end = { lat: 47.6062095, lng: -122.3320708 };
   let start = formState.origin;
   let end = formState.destination;
 
   const displayRoute = (map, maps) => {
-    console.log('in displayRoute', typeof start, typeof end)
     let request = {
       origin: start,
       destination: end,
@@ -42,9 +37,7 @@ import { getApiKey } from '../../util/apiCalls';
     });
     let directionsService = new maps.DirectionsService();
     directionsService.route(request, async function(result, status) {
-      console.log('in directionsService checking status', status)
       if (status === "OK") {
-        console.log('in directionsService result:', result)
         directionsRenderer.setDirections(result);
       }
     });
@@ -65,6 +58,7 @@ import { getApiKey } from '../../util/apiCalls';
         updateStops={updateStops}
         waypoints={waypoints}
         stops={stops}
+        svg={yelp.svg}
       />
     );
   };
@@ -98,7 +92,6 @@ import { getApiKey } from '../../util/apiCalls';
           >
             {pinsToRender}
           </GoogleMapReact>
-          <button onClick={() => setLoadingContext({...isLoadingState, isLoading: !isLoading })}></button>
         </div>
       )
   } else {
