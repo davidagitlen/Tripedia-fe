@@ -1,11 +1,7 @@
 import {createAccount, loginUser, getStartAndEnd, getApiKey} from '../util/apiCalls.js';
 
 describe('get API key', ()=> {
-  // let mockResponse, mockData;
   beforeEach(()=>{
-    //  mockData = {name: "paul", email: "paul@gmail.com", password: "123",
-    // password_confirmation: "123"};
-    //  mockResponse = {id: 1, name: "paul", email: "paul@gmail.com", password: "123", account_created: true};
      window.fetch = jest.fn().mockImplementation(() => {
        return Promise.resolve({
          ok: true,
@@ -18,6 +14,7 @@ describe('get API key', ()=> {
     expect(key).toEqual("string")
   })
 })
+
 describe('createAccount', () => {
   let mockResponse, mockData;
   beforeEach(()=>{
@@ -74,4 +71,15 @@ describe('createAccount', () => {
     createAccount(name, email, password, password_confirmation);
     expect(await createAccount(url, options)).toEqual(mockResponse)
   })
+
+  it("Should return an object with user info", async () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        message: "Incorrect"
+      })
+    })
+    expect(createAccount()).rejects.toEqual(Error("Incorrect"))
+  })
 })
+
+describe('Login User', () => {
