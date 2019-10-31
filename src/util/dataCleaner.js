@@ -16,202 +16,202 @@ export const assignObjectToArrays = (array) => {
     const type = obj.category;
     switch (type) {
       case 'hotels':
-        accommodations.push(obj);
+        accommodations.push({...obj, svg: 'accommodations' });
         return
       case 'hotels & travel':
-        accommodations.push(obj)
+        accommodations.push({ ...obj, svg: 'accommodations' })
         return
       case 'bed & breakfast':
-        accommodations.push(obj);
+        accommodations.push({ ...obj, svg: 'accommodations' });
         return
       case 'guest houses':
-        accommodations.push(obj);
+        accommodations.push({ ...obj, svg: 'accommodations' });
         return
       case 'resorts':
-        accommodations.push(obj);
+        accommodations.push({ ...obj, svg: 'accommodations' });
         return
       case 'rv parks':
-        accommodations.push(obj);
+        accommodations.push({ ...obj, svg: 'accommodations' });
         return
       case 'art museums':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'hiking':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'day spas':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'escape games':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'haunted houses':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'parks' :
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'landmarks & historical buildings':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'art galleries':
-        attractions.push(obj);  
+        attractions.push({ ...obj, svg: 'attractions' });  
         return   
       case 'walking tours':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'arts & entertainment':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'day camps':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'boat tours':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'boating' :
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'tours':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'bowling':
-        attractions.push(obj)
+        attractions.push({ ...obj, svg: 'attractions' })
         return
       case 'climbing':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'historical tours':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'art classes':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'arcades' :
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'bubble soccer':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'gay bars':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'jazz & blues':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'performing arts':
-        attractions.push(obj);
+        attractions.push({ ...obj, svg: 'attractions' });
         return
       case 'gastropubs':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'sandwiches':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'steakhouses':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'fast food' :
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'chocolatiers & shops':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'cantonese' :
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'sushi bars':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'asian fusion':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'diners':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'american (traditional)':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'american (new)':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'chinese' :
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'mexican':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'pizza':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'burgers':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'coffee & tea':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'bakeries':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'breakfast & brunch':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'japanese':
-        food.push(obj);
+        food.push({ ...obj, svg: 'food' });
         return
       case 'bars':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'wine bars':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'wine tasting room':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'beer, wine & spirits':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'lounges':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'dive bars':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'distilleries':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'breweries':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'beer bars':
-        drinks.push(obj);
+        drinks.push({ ...obj, svg: 'drinks' });
         return
       case 'gyms':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       case 'outdoor gear':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       case 'gift shops':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       case 'hunting & fishing supplies':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       case 'body shops':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       case 'medical centers':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       case 'veterinarians':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       case 'waxing':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       case 'grocery':
-        services.push(obj);
+        services.push({ ...obj, svg: 'services' });
         return
       default:
         miscellaneous.push(obj);

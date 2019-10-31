@@ -58,6 +58,7 @@ import { getApiKey } from '../../util/apiCalls';
         updateStops={updateStops}
         waypoints={waypoints}
         stops={stops}
+        svg={yelp.svg}
       />
     );
   };
