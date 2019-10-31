@@ -2,7 +2,8 @@ import {
   createAccount,
   loginUser,
   getStartAndEnd,
-  getApiKey
+  getApiKey,
+  submitTrip
 } from "../util/apiCalls.js";
 
 describe("get API key", () => {
@@ -174,7 +175,7 @@ describe("getStartAndEnd", () => {
     getStartAndEnd(origin, destination, user_id);
     expect(window.fetch).toHaveBeenCalledWith(url, options);
   });
-  it("Should return an object with user info", async () => {
+  it("Should return an object lat and lng for destination and origin", async () => {
     const { origin, destination, user_id } = mockData;
 
     getStartAndEnd(origin, destination);
@@ -188,5 +189,65 @@ describe("getStartAndEnd", () => {
       });
     });
     expect(getStartAndEnd()).rejects.toEqual(Error("Incorrect"));
+  });
+});
+
+describe("submitTrip", () => {
+  let mockResponse, mockData, url, options;
+  beforeEach(() => {
+    mockData = {
+      user_id: 1,
+      origin: "Denver",
+      destination: "Taos",
+      trip_id: 1,
+      waypoints: []
+    };
+    mockResponse = {
+      origin: { lat: 2, lng: -3 },
+      destination: { lat: 4, lng: -5 },
+      user_id: 1,
+      trip_id: 1,
+      waypoints: []
+    };
+    const { origin, destination, user_id, trip_id, waypoints } = mockData;
+    url =
+      process.env.REACT_APP_BACKEND_URL + `/users/${user_id}/trips/${trip_id}`;
+    options = {
+      method: "POST",
+      body: JSON.stringify({
+        origin,
+        destination,
+        waypoints
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+  it("should be called to correct URL", () => {
+    const { origin, destination, user_id, trip_id, waypoints } = mockData;
+
+    submitTrip(user_id, trip_id, origin, destination, waypoints);
+    expect(window.fetch).toHaveBeenCalledWith(url, options);
+  });
+  // it("return an objects with", async () => {
+  //    const { origin, destination, user_id, trip_id, waypoints } = mockData;
+
+  //   let response = await submitTrip(user_id, trip_id, origin, destination, waypoints);
+  //   expect(response).toEqual(mockResponse);
+  // });
+  it("Should return an object with user info", async () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        message: "Incorrect"
+      });
+    });
+    expect(submitTrip()).rejects.toEqual(Error("Incorrect"));
   });
 });
