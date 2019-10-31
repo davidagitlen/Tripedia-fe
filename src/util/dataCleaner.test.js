@@ -71,33 +71,33 @@ describe('dataCleaner', () => {
 
       const expected = [
         [ 
-          { category: 'hotels' },
-          { category: 'bed & breakfast' },
-          { category: 'guest houses' },
-          { category: 'resorts' }
+          { category: 'hotels', svg: 'accommodations' },
+          { category: 'bed & breakfast', svg: 'accommodations' },
+          { category: 'guest houses', svg: 'accommodations' },
+          { category: 'resorts', svg: 'accommodations' }
         ],
         [
-          { category: 'art museums' },
-          { category: 'haunted houses' },
-          { category: 'parks' }
+          { category: 'art museums', svg: 'attractions' },
+          { category: 'haunted houses', svg: 'attractions' },
+          { category: 'parks', svg: 'attractions' }
         ],
         [
-          { category: 'gastropubs' },
-          { category: 'sandwiches' },
-          { category: 'fast food' },
-          { category: 'chocolatiers & shops' }
+          { category: 'gastropubs', svg: 'food' },
+          { category: 'sandwiches', svg: 'food' },
+          { category: 'fast food', svg: 'food' },
+          { category: 'chocolatiers & shops', svg: 'food' }
         ],
         [
-          { category: 'bars' }, 
-          { category: 'lounges' },
-          { category: 'dive bars' },
-          { category: 'distilleries' }
+          { category: 'bars', svg: 'drinks' },
+          { category: 'lounges', svg: 'drinks' },
+          { category: 'dive bars', svg: 'drinks' },
+          { category: 'distilleries', svg: 'drinks' }
         ],
         [
-          { category: 'gift shops' },
-          { category: 'gyms' },
-          { category: 'outdoor gear' },
-          { category: 'hunting & fishing supplies' }
+          { category: 'gift shops', svg: 'services' },
+          { category: 'gyms', svg: 'services' },
+          { category: 'outdoor gear', svg: 'services' },
+          { category: 'hunting & fishing supplies', svg: 'services' }
         ],
         [
           { category: 'other' },

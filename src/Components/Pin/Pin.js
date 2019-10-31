@@ -9,7 +9,7 @@ import servicePin from "../../Images/services-pin.svg";
 import { FormContext } from "../../Contexts/FormContext";
 
 const Pin = (props) => {
-  const { name, image, rating, url, type, updateStops, lat, lng, stops } = props;
+  const { name, image, rating, url, type, updateStops, lat, lng, stops, svg } = props;
   const [isHovered, toggleHovered] = useState(false);
   const { formState, setFormState } = useContext(FormContext);
   const stopFound = stops.find(stop => {
@@ -37,7 +37,8 @@ const Pin = (props) => {
         type,
         latitude: lat,
         longitude: lng,
-        updateStops
+        updateStops,
+        svg
       };
       updateStops([...stops, stopToAdd]);
       setFormState({...formState, waypoints: [...formState.waypoints, stopToAdd]});
@@ -46,11 +47,11 @@ const Pin = (props) => {
 
   const switchImage = imageType => {
     switch (imageType) {
-      case "accommidation":
+      case "accommodations":
         return accommidationPin;
       case "food":
         return foodPin;
-      case "drink":
+      case "drinks":
         return drinkPin;
       case "attractions": 
         return attractionPin;
@@ -61,7 +62,7 @@ const Pin = (props) => {
     }
   };
 
-  const imagePath = switchImage(type);
+  const imagePath = switchImage(svg);
 
   if (!isHovered) {
     return (
