@@ -4,7 +4,7 @@ import { FormContext } from '../../Contexts/FormContext';
 import { UserContext } from '../../Contexts/UserContext';
 import { LoadingContext } from '../../Contexts/LoadingContext';
 import { getStartAndEnd } from '../../util/apiCalls';
-import { rawData } from '../../util/jsonData';
+import { rawDataTwo } from '../../util/jsonData';
 import { stringToFloatsArray } from '../../util/dataCleaner';
 import { cleanData, assignObjectToArrays, cleanYelpResponse } from '../../util/dataCleaner';
 
@@ -23,9 +23,10 @@ const StartForm = ({ collapseForm, openForm, defaultForm }) => {
   const toggleButtonClass = !origin || !destination ? 'disabled':'enabled'
   const updateCities = e => {
     enterCities({ ...cities, [e.target.name]: e.target.value });
+    setFormState({...formState, [e.target.name + 'City']: e.target.value})
   };
 
-  const assignContext = (arrays, origin, destination) => {
+  const assignContext = (arrays, origin, destination, id) => {
     const objectArrays = arrays.map(array => objectifyArray(array));
     localStorage.setItem('response', JSON.stringify(objectArrays));
     setFormState({ 
@@ -37,7 +38,8 @@ const StartForm = ({ collapseForm, openForm, defaultForm }) => {
       food: objectArrays[2],
       drinks: objectArrays[3],
       services: objectArrays[4],
-      miscellaneous: objectArrays[5]
+      miscellaneous: objectArrays[5],
+      trip_id: id
     });
   }
 
@@ -52,11 +54,11 @@ const StartForm = ({ collapseForm, openForm, defaultForm }) => {
     return finalObject;
   }
 
-  const handleData = (data, origin, destination) => {
+  const handleData = (data, origin, destination, id) => {
     const preliminaryData = cleanData(data).flat();
     const cleanPreliminaryData = preliminaryData.map(datum => cleanYelpResponse(datum));
     const sortedArrays = assignObjectToArrays(cleanPreliminaryData);
-    assignContext(sortedArrays, origin, destination);
+    assignContext(sortedArrays, origin, destination, id);
   }
 
   const handleSubmit = async e => {
@@ -64,17 +66,18 @@ const StartForm = ({ collapseForm, openForm, defaultForm }) => {
     try {
       const { origin: originCity, destination: destinationCity } = cities;
       setLoadingContext({ isLoading: true, loadingArray: [true] });
-      const { id } = user;
-      const returnedPoints = await getStartAndEnd(originCity, destinationCity, id);
-      const { origin, destination } = returnedPoints.trip;
-      console.log('in startform origin destination: ', origin, destination)
+      const { id: user_id } = user;
+      const returnedPoints = await getStartAndEnd(originCity, destinationCity, user_id);
+      const { origin, destination, id } = returnedPoints.trip;
       const originArray = stringToFloatsArray(origin);
       const destinationArray = stringToFloatsArray(destination);
-      console.log('in startform after formatting: ', originArray, destinationArray)
       const formattedOrigin = { lat: originArray[0], lng: originArray[1] };
       const formattedDestination = { lat: destinationArray[0], lng: destinationArray[1] };
-      handleData(returnedPoints, formattedOrigin, formattedDestination);
-      setLoadingContext({ isLoading: false, loadingArray: [false]});
+      handleData(rawDataTwo, formattedOrigin, formattedDestination, id);
+      let timeout = setTimeout(() => {
+        setLoadingContext({ isLoading: false, loadingArray: [false] });
+        clearTimeout(timeout);
+      }, 12500);
     } catch ({ message }) {
       enterCities({ ...cities, error: message })
     }

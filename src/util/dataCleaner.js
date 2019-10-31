@@ -17,7 +17,10 @@ export const assignObjectToArrays = (array) => {
     switch (type) {
       case 'hotels':
         accommodations.push(obj);
-        return;
+        return
+      case 'hotels & travel':
+        accommodations.push(obj)
+        return
       case 'bed & breakfast':
         accommodations.push(obj);
         return
@@ -27,7 +30,19 @@ export const assignObjectToArrays = (array) => {
       case 'resorts':
         accommodations.push(obj);
         return
+      case 'rv parks':
+        accommodations.push(obj);
+        return
       case 'art museums':
+        attractions.push(obj);
+        return
+      case 'hiking':
+        attractions.push(obj);
+        return
+      case 'day spas':
+        attractions.push(obj);
+        return
+      case 'escape games':
         attractions.push(obj);
         return
       case 'haunted houses':
@@ -60,6 +75,9 @@ export const assignObjectToArrays = (array) => {
       case 'tours':
         attractions.push(obj);
         return
+      case 'bowling':
+        attractions.push(obj)
+        return
       case 'climbing':
         attractions.push(obj);
         return
@@ -71,25 +89,28 @@ export const assignObjectToArrays = (array) => {
         return
       case 'arcades' :
         attractions.push(obj);
-        return;
+        return
       case 'bubble soccer':
         attractions.push(obj);
-        return;
+        return
       case 'gay bars':
         attractions.push(obj);
-        return;
+        return
       case 'jazz & blues':
         attractions.push(obj);
-        return;
+        return
       case 'performing arts':
         attractions.push(obj);
-        return;
+        return
       case 'gastropubs':
         food.push(obj);
-        return;
+        return
       case 'sandwiches':
         food.push(obj);
-        return;
+        return
+      case 'steakhouses':
+        food.push(obj);
+        return
       case 'fast food' :
         food.push(obj);
         return
@@ -141,6 +162,15 @@ export const assignObjectToArrays = (array) => {
       case 'bars':
         drinks.push(obj);
         return
+      case 'wine bars':
+        drinks.push(obj);
+        return
+      case 'wine tasting room':
+        drinks.push(obj);
+        return
+      case 'beer, wine & spirits':
+        drinks.push(obj);
+        return
       case 'lounges':
         drinks.push(obj);
         return
@@ -169,7 +199,16 @@ export const assignObjectToArrays = (array) => {
         services.push(obj);
         return
       case 'body shops':
-        services.push(obj)
+        services.push(obj);
+        return
+      case 'medical centers':
+        services.push(obj);
+        return
+      case 'veterinarians':
+        services.push(obj);
+        return
+      case 'waxing':
+        services.push(obj);
         return
       case 'grocery':
         services.push(obj);
