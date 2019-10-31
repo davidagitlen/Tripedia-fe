@@ -6,6 +6,7 @@
   justify-content: space-between;
   padding-left: 149.5px;
   padding-right: 50px;
+
   a {
     text-decoration: none;
     font-size: 20px;
@@ -13,20 +14,24 @@
   }
 }
 
-  .logo-title__nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 43%;
-    .tripedia-text__nav {
-      font-size: 168px;
-      margin-left: 137.5px;
-      color: #001C3A;
-    }
-    .tripedia-logo__nav {
-      height: 19vh;
-      width: 19vh;
-      // border: 2px solid #001C3A;
-    }
+.logo-title__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 43%;
+
+  .tripedia-text__nav {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 168px;
+    margin-left: 137.5px;
+    color: #001C3A;
   }
 
+  .tripedia-logo__nav {
+    height: 19vh;
+    width: 19vh;
+    // border: 2px solid #001C3A;
+  }
+}
