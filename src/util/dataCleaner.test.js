@@ -4,7 +4,8 @@ import {
   cleanYelpResponse,
   stringToFloatsArray,
   createStateObject,
-  createCheckBoxNames
+  createCheckBoxNames,
+  objectifyArray
 } from './dataCleaner';
 
 describe('dataCleaner', () => {
@@ -203,6 +204,39 @@ describe('dataCleaner', () => {
       ];
 
       expect(createCheckBoxNames(mockFormObject)).toEqual(expected);
+    });
+  });
+
+  describe('objectifyArray', () => {
+    it('should take in an array of objects and return an object with keys matching each unique object category assigned to arrays of those objects', () => {
+
+      const mockArray = [
+        { id: 1, category: "One"  },
+        { id: 2, category: "One" },
+        { id: 3, category: "Two" },
+        { id: 4, category: "Two" },
+        { id: 5, category: "Three" },
+        { id: 6, category: "Three" },
+        { id: 7, category: "Four" },
+        { id: 8, category: "Four" },
+        { id: 9, category: "Five" }, 
+        { id: 10, category: "Five" } 
+      ];
+
+      const expected = {
+        One: [{ id: 1, category: "One" },
+          { id: 2, category: "One" }],
+        Two: [{ id: 3, category: "Two" },
+        { id: 4, category: "Two" }],
+        Three: [{ id: 5, category: "Three" },
+          { id: 6, category: "Three" }],
+        Four: [{ id: 7, category: "Four" },
+          { id: 8, category: "Four" }],
+        Five: [{ id: 9, category: "Five" },
+          { id: 10, category: "Five" }]
+      };
+
+      expect(objectifyArray(mockArray)).toEqual(expected);
     });
   });
 

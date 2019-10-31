@@ -9,7 +9,7 @@ import { getApiKey } from '../../util/apiCalls';
   const Map = () => {
   const { formState } = useContext(FormContext);
   const { isLoadingState } = useContext(LoadingContext);
-  const { isLoading, loadingArray } = isLoadingState;
+  const { loadingArray } = isLoadingState;
   const [ keyString, updateKeyString ] = useState('')
   const [stops, updateStops] = useState([]);
   const waypoints = stops.map(stop => ({

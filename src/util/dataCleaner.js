@@ -260,3 +260,14 @@ export const createCheckBoxNames = formObject => {
 
   return checkboxNames; 
 }
+
+export const objectifyArray = array => {
+  const finalObject = array.reduce((finalObject, obj) => {
+    if (!finalObject[obj.category]) {
+      finalObject[obj.category] = [];
+    }
+    finalObject[obj.category].push(obj);
+    return finalObject;
+  }, {});
+  return finalObject;
+}
