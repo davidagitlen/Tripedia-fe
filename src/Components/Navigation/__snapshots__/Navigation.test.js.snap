@@ -7,15 +7,11 @@ exports[`Navigation should match the wrapper with data passed in 1`] = `
   <div
     className="logo-title__nav"
   >
-    <NavLink
-      to="/"
-    >
-      <img
-        alt="Tripedia Logo"
-        className="tripedia-logo__nav"
-        src="Logo1.png"
-      />
-    </NavLink>
+    <img
+      alt="Tripedia Logo"
+      className="tripedia-logo__nav"
+      src="Logo1.png"
+    />
     <h1
       className="tripedia-text__nav"
     >
@@ -23,7 +19,7 @@ exports[`Navigation should match the wrapper with data passed in 1`] = `
     </h1>
   </div>
   <NavLink
-    to="/login"
+    to="/"
   >
     <p>
       LogOut

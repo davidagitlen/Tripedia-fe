@@ -37,6 +37,7 @@ exports[`App should match the wrapper with data passed in 1`] = `
         Object {
           "isLoadingState": Object {
             "isLoading": false,
+            "loadingArray": Array [],
           },
           "setLoadingContext": [Function],
         }
@@ -45,7 +46,7 @@ exports[`App should match the wrapper with data passed in 1`] = `
       <div>
         <Route
           exact={true}
-          path="/login"
+          path="/"
           render={[Function]}
         />
         <Route
@@ -55,7 +56,7 @@ exports[`App should match the wrapper with data passed in 1`] = `
         />
         <Route
           exact={true}
-          path="/"
+          path="/map"
           render={[Function]}
         />
       </div>

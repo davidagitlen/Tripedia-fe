@@ -12,11 +12,6 @@ exports[`CreateAccount should match the wrapper with data passed in 1`] = `
   <form
     className="create-account_form"
   >
-    <h2
-      className="form_title"
-    >
-      Create Account
-    </h2>
     <input
       name="name"
       onChange={[Function]}
@@ -52,7 +47,7 @@ exports[`CreateAccount should match the wrapper with data passed in 1`] = `
       Submit
     </button>
     <NavLink
-      to="/login"
+      to="/"
     >
       <p>
         Login
