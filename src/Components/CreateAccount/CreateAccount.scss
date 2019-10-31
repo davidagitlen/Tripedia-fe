@@ -91,7 +91,7 @@
     padding-top: 100px;
 
     .banner {
-      height: 350px;
+      height: 300px;
     }
   }
 
@@ -107,6 +107,10 @@
   .create-account__container {
     padding-left: 300px;
     padding-right: 300px;
+
+    .banner {
+      height: 350px;
+    }
   }
 
   .create-account__container form {

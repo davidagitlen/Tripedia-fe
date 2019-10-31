@@ -68,32 +68,47 @@
     }
 
     .banner {
-      height: 200px;
+      height: 240px;
     }
   }
 }
 
 @media screen and (min-width: 800px) {
   .login-form__container {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 100px;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-top: 80px;
+
+    .button__disabled {
+      width: 80%;
+    }
+
+    .button__enabled {
+      width: 80%;
+    }
 
     .login__form {
-      padding-left: 350px;
-      padding-right: 350px;
+      padding-left: 300px;
+      padding-right: 300px;
+    }
+    input {
+      width: 280px;
     }
 
     .banner {
-      height: 240px;
+      height: 300px;
     }
   }
 }
 
 @media screen and (min-width: 1200px) {
   .login-form__container {
-    padding-left: 300px;
-    padding-right: 300px;
+    padding-top: 100px;
+
+    .login__form {
+      padding-left: 350px;
+      padding-right: 350px;
+    }
 
     .banner {
       height: 350px;
