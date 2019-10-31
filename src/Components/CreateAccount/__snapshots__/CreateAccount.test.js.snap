@@ -52,7 +52,7 @@ exports[`CreateAccount should match the wrapper with data passed in 1`] = `
       Submit
     </button>
     <NavLink
-      to="/login"
+      to="/"
     >
       <p>
         Login
