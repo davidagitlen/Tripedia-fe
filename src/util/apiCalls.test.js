@@ -97,7 +97,7 @@ describe('Login User', () => {
      })
    })
 
-   it.only("should be called to correct URL", () => {
+   it("should be called to correct URL", () => {
      const {email, password} = mockData
      const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/user_login`;
      const options = {
