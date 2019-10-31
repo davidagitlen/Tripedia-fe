@@ -31,6 +31,7 @@ describe('createAccount', () => {
        })
      })
   })
+
   it("Should be called with correct URL", async () => {
     const {name, email, password, password_confirmation} = mockData
     const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/users?name=${name}&email=${email}&password=${password}&password_confirmation=${password_confirmation}`;
@@ -49,5 +50,28 @@ describe('createAccount', () => {
       };
     createAccount(name, email, password, password_confirmation);
     expect(window.fetch).toHaveBeenCalledWith(url, options)
+  })
+
+  it("Should return an object with user info", async () => {
+    const {name, email, password, password_confirmation} = mockData
+    mockData = {name: "paul", email: "paul@gmail.com", password: "123",
+    password_confirmation: "123"};
+    mockResponse = {id: 1, name: "paul", email: "paul@gmail.com", password: "123", account_created: true};
+    const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/users?name=${name}&email=${email}&password=${password}&password_confirmation=${password_confirmation}`;
+    const options = {
+        method: "POST",
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+          password_confirmation: password_confirmation
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }
+      };
+    createAccount(name, email, password, password_confirmation);
+    expect(await createAccount(url, options)).toEqual(mockResponse)
   })
 })
