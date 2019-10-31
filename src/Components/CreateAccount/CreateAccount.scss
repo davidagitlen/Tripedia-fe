@@ -30,7 +30,6 @@
   }
 
   form {
-
     text-align: center;
   }
 
@@ -59,4 +58,78 @@
     font-size: 20px;
     border: 2px solid #207178;
   }
+}
+
+@media screen and (min-width: 300px) {
+
+  .create-account__container {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 35px;
+
+    .banner {
+      height: 200px;
+    }
+  }
+
+  .create-account__container input,
+  .create-account__container button {
+    margin: 10px;
+  }
+
+  .create-account__container form {
+    margin-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .create-account__container {
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 60px;
+
+    .banner {
+      height: 300px;
+    }
+  }
+
+  .create-account__container form {
+    margin-top: 10px;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .create-account__container {
+    padding-left: 300px;
+    padding-right: 300px;
+
+    .banner {
+      height: 350px;
+    }
+  }
+
+  .create-account__container form {
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+
+}
+
+@media screen and (min-width: 1800px) {
+  .create-account__container {
+    padding-left: 400px;
+    padding-right: 400px;
+  }
+
+  .create-account__container form {
+    margin-top: 10px;
+    padding-left: 350px;
+    padding-right: 350px;
+  }
+
 }
