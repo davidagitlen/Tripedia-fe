@@ -13,7 +13,6 @@ export const triviaFacts = [
          "Leila’s Hair Museum in Independence, Missouri, is the world’s only hair museum to feature over 600 different wreaths and more than 2,000 pieces of jewelry made from human hair.",
          "You can pet flamingos without the fishy smell, or the worry of getting pecked, at the plastic flamingo petting zoo in Cedar Point, North Carolina!",
          "Baker, California boasts a 134-foot functioning thermometer built to commemorate 1913’s record-breaking 134 degree Fahrenheit day in Death Valley.",
-         "New Haven, Connecticut is home to a collection of diseased brains donated to Yale’s medical school in 1939 by Dr. Harvey Cushing.",
-         "The Tripedia code base contains the worlds largest switch statement, spanning over 200 lines, the chunk of code is notoriously indecipherable. Just kidding it's a wonderful function written by wonderful people."
+         "New Haven, Connecticut is home to a collection of diseased brains donated to Yale’s medical school in 1939 by Dr. Harvey Cushing."
        ];
 
