@@ -45,11 +45,11 @@ export const App = () => {
   const loggedInUser = useMemo(() => ({ user, userLogin }), [ user, userLogin ]);
   const {isLoading} = isLoadingState;
 
+  
   const selectTriviaFact = triviaArray => {
     let index = Math.floor(Math.random() * triviaArray.length);
-    return triviaArray[7];
+    return triviaArray[index];
   };
-  
 
   if (!isLoading) {
     return (
@@ -73,8 +73,6 @@ export const App = () => {
                       <FormsContainer />
                       <div className="map-container">
                         <Map
-                          // center={{ lat: 39.7392, lng: -104.9903 }}
-                          zoom={11}
                         />
                       </div>
                     </div>
