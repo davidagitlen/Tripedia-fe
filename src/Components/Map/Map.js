@@ -32,7 +32,7 @@ import { getApiKey } from '../../util/apiCalls';
     };
     let directionsRenderer = new maps.DirectionsRenderer({
       path: { start, end },
-      draggable: true,
+      draggable: false,
       suppressMarkers: true
     });
     let directionsService = new maps.DirectionsService();
