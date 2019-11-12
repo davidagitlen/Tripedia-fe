@@ -6,10 +6,8 @@ import { createStateObject, createCheckBoxNames } from "../../util/dataCleaner";
 
 const ServicesForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const { formState, setFormState } = useContext(FormContext);
-
   const stateObject = createStateObject(formObject);
   const checkboxNames = createCheckBoxNames(formObject);
-
   const [form, toggleClicked] = useState({ ...stateObject });
 
   const handleCheckBox = e => {
@@ -67,7 +65,7 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
         }
       >
         <img alt="services" src={serviceSvg}></img>
-        <p>- ServicesForm -</p>
+        <p>- Services -</p>
       </div>
     );
   }

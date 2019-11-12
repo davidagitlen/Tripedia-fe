@@ -3,20 +3,18 @@ import GoogleMapReact from 'google-map-react';
 import Pin from '../Pin/Pin';
 import './Map.scss'; 
 import { FormContext } from '../../Contexts/FormContext';
-import { LoadingContext } from "../../Contexts/LoadingContext";
 import { getApiKey } from '../../util/apiCalls';
 
   const Map = () => {
   const { formState } = useContext(FormContext);
-  const { isLoadingState } = useContext(LoadingContext);
-  const { loadingArray } = isLoadingState;
+  const { selectedCategories, loadingArray } = formState;
   const [ keyString, updateKeyString ] = useState('')
   const [stops, updateStops] = useState([]);
   const waypoints = stops.map(stop => ({
     location : {
       lat: stop.latitude,
       lng: stop.longitude
-    },
+      },
     stopover: true
   }));
 
@@ -62,8 +60,6 @@ import { getApiKey } from '../../util/apiCalls';
       />
     );
   };
-
-  const { selectedCategories } = formState; 
 
   const stopList = stops.map((stop, i) => createPin(stop, i));
   const pinList = selectedCategories.map((obj, i) => createPin(obj, i));

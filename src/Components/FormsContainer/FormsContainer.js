@@ -12,7 +12,6 @@ import { FormContext } from '../../Contexts/FormContext';
 export const FormsContainer = () => {
   const { formState } = useContext(FormContext);
   const [collapsed, collapseFormContainer] = useState(false);
-
   const [openForm, collapseForm] = useState({
     StartForm: true,
     AttractionsForm: false,
@@ -22,7 +21,6 @@ export const FormsContainer = () => {
     ServicesForm: false,
     SubmitTripForm: false
   });
-
   const defaultOpenForm = {
     StartForm: false,
     AttractionsForm: false,
@@ -32,7 +30,6 @@ export const FormsContainer = () => {
     ServicesForm: false,
     SubmitTripForm: false
   };
-
   const { accommodations, attractions, food, drinks, services} = formState; 
 
   if (collapsed) {

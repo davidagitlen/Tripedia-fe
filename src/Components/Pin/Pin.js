@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Pin.scss";
-import accommidationPin from "../../Images/accommodation-pin.svg";
+import accommodationPin from "../../Images/accommodation-pin.svg";
 import foodPin from "../../Images/food-pin.svg";
 import mapPin from "../../Images/map-pin.svg";
 import drinkPin from "../../Images/drink-pin.svg";
@@ -48,7 +48,7 @@ const Pin = (props) => {
   const switchImage = imageType => {
     switch (imageType) {
       case "accommodations":
-        return accommidationPin;
+        return accommodationPin;
       case "food":
         return foodPin;
       case "drinks":

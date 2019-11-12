@@ -12,22 +12,15 @@ import trees from "../../Images/trees.svg";
 import house from "../../Images/house.svg";
 import hotel from "../../Images/hotel.svg";
 import city from "../../Images/city.svg";
-import { LoadingContext } from "../../Contexts/LoadingContext";
 import { FormContext } from "../../Contexts/FormContext";
-import { UserContext } from "../../Contexts/UserContext";
 import { triviaFacts } from "../../util/trivia-facts";
 
 export const App = () => {
-  const [isLoadingState, setLoadingContext] = useState({ isLoading: false, loadingArray: [] });
-  const loadingState = useMemo(() => ({ isLoadingState, setLoadingContext }), [
-    isLoadingState,
-    setLoadingContext
-  ]);
   const [formState, setFormState] = useState({
-    origin: "",
-    originCity: "",
-    destination: "",
-    destinationCity: "",
+    origin: '',
+    originCity: '',
+    destination: '',
+    destinationCity: '',
     tripSubmitted: false,
     attractions: {},
     accommodations: {},
@@ -36,16 +29,18 @@ export const App = () => {
     services: {},
     miscellaneous: {},
     selectedCategories: [],
-    trip_id: "",
-    waypoints: []
+    trip_id: '',
+    waypoints: [],
+    isLoading: false,
+    loadingArray: [],
+    email: '',
+    name: '',
+    id: '',
+    distance: ''
   });
-
   const currentForm = useMemo(() => ({ formState, setFormState }), [formState, setFormState]);
-  const [user, userLogin] = useState({ email: '', name: '', id: ''});
-  const loggedInUser = useMemo(() => ({ user, userLogin }), [ user, userLogin ]);
-  const {isLoading} = isLoadingState;
+  const { isLoading } = formState;
 
-  
   const selectTriviaFact = triviaArray => {
     let index = Math.floor(Math.random() * triviaArray.length);
     return triviaArray[index];
@@ -54,94 +49,86 @@ export const App = () => {
   if (!isLoading) {
     return (
       <FormContext.Provider value={currentForm}>
-        <UserContext.Provider value={loggedInUser}>
-          <LoadingContext.Provider value={loadingState}>
-            <div>
-              <Route exact path="/" render={() => <LoginForm />} />
-              <Route
-                exact
-                path="/create_account"
-                render={() => <CreateAccount />}
-              />
-              <Route
-                exact
-                path="/map"
-                render={() => (
-                  <div className="nav_banner">
-                    <Navigation />
-                    <div className="map-form__container">
-                      <FormsContainer />
-                      <div className="map-container">
-                        <Map
-                        />
-                      </div>
-                    </div>
+        <div>
+          <Route exact path="/" render={() => <LoginForm />} />
+          <Route
+            exact
+            path="/create_account"
+            render={() => <CreateAccount />}
+          />
+          <Route
+            exact
+            path="/map"
+            render={() => (
+              <div className="nav_banner">
+                <Navigation />
+                <div className="map-form__container">
+                  <FormsContainer />
+                  <div className="map-container">
+                    <Map
+                    />
                   </div>
-                )}
-              />
-            </div>
-          </LoadingContext.Provider>
-        </UserContext.Provider>
+                </div>
+              </div>
+            )}
+          />
+        </div>
       </FormContext.Provider>
     );
   } else {
     return (
       <FormContext.Provider value={currentForm}>
-        <UserContext.Provider value={loggedInUser}>
-          <LoadingContext.Provider value={loadingState}>
-            <div>
-              <Route exact path="/" render={() => <LoginForm />} />
-              <Route
-                exact
-                path="/create_account"
-                render={() => <CreateAccount />}
-              />
-              <Route
-                exact
-                path="/map"
-                render={() => (
-                  <div className="nav_banner">
-                    <Navigation />
-                    <div className="map-form__container">
-                      <FormsContainer />
-                      <div className="map-container">
-                        <Map />
-                      </div>
-                    </div>
+        <div>
+          <Route exact path="/" render={() => <LoginForm />} />
+          <Route
+            exact
+            path="/create_account"
+            render={() => <CreateAccount />}
+          />
+          <Route
+            exact
+            path="/map"
+            render={() => (
+              <div className="nav_banner">
+                <Navigation />
+                <div className="map-form__container">
+                  <FormsContainer />
+                  <div className="map-container">
+                    <Map />
                   </div>
-                )}
-              />
-            </div>
-            <div className="app-is-loading">
-              <div className="trivia-box__container">
-                <p className="did-you-know__text">
-                  Did you know?
-                </p>
-                <p>{selectTriviaFact(triviaFacts)}</p>
-                <div className="animation-container">
-                  <img
-                    className="loading__icon"
-                    alt="loading"
-                    src={LoadingIcon}
-                  ></img>
-                  <img className="stop-sign" alt="loading" src={stopSign}></img>
-                  <img className="house" alt="loading" src={house}></img>
-                  <img className="trees" alt="loading" src={trees}></img>
-                  <img className="trees" alt="loading" src={trees}></img>
-                  <img className="trees" alt="loading" src={trees}></img>
-                  <img className="trees" alt="loading" src={trees}></img>
-                  <img className="trees" alt="loading" src={trees}></img>
-                  <img className="city" alt="loading" src={city}></img>
-                  <img className="city" alt="loading" src={city}></img>
-                  <img className="city2" alt="loading" src={city}></img>
-                  <img className="city2" alt="loading" src={city}></img>
-                  <img className="hotel" alt="loading" src={hotel}></img>
-                  <div className="road"></div>
                 </div>
               </div>
+            )}
+          />
+        </div>
+        <div className="app-is-loading">
+          <div className="trivia-box__container">
+            <p className="did-you-know__text">
+              Did you know?
+            </p>
+            <p>{selectTriviaFact(triviaFacts)}</p>
+            <div className="animation-container">
+              <img
+                className="loading__icon"
+                alt="loading"
+                src={LoadingIcon}
+              ></img>
+              <img className="stop-sign" alt="loading" src={stopSign}></img>
+              <img className="house" alt="loading" src={house}></img>
+              <img className="trees" alt="loading" src={trees}></img>
+              <img className="trees" alt="loading" src={trees}></img>
+              <img className="trees" alt="loading" src={trees}></img>
+              <img className="trees" alt="loading" src={trees}></img>
+              <img className="trees" alt="loading" src={trees}></img>
+              <img className="city" alt="loading" src={city}></img>
+              <img className="city" alt="loading" src={city}></img>
+              <img className="city2" alt="loading" src={city}></img>
+              <img className="city2" alt="loading" src={city}></img>
+              <img className="hotel" alt="loading" src={hotel}></img>
+              <div className="road"></div>
             </div>
-          </LoadingContext.Provider>
-        </UserContext.Provider>
+          </div>
+        </div>
       </FormContext.Provider>
     );
   }
