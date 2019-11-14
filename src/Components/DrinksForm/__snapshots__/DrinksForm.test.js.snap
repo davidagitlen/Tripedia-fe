@@ -32,7 +32,7 @@ exports[`DrinksForm should mock formContext and match a snapshot 1`] = `
       src="drink-pin.svg"
     />
     <p>
-      - DrinkForm -
+      - Drinks -
     </p>
   </div>
 </DrinksForm>

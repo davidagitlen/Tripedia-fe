@@ -4,16 +4,10 @@ import { FormContext } from "../../Contexts/FormContext";
 import accommodationSvg from "../../Images/accommodation-pin.svg";
 import { createStateObject, createCheckBoxNames } from "../../util/dataCleaner";
 
-const AccommodationsForm = ({
-  collapseForm,
-  openForm,
-  defaultForm,
-  formObject
-}) => {
+const AccommodationsForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const { formState, setFormState } = useContext(FormContext);
   const stateObject = createStateObject(formObject);
   const checkboxNames = createCheckBoxNames(formObject);
-
   const [form, toggleClicked] = useState({ ...stateObject });
 
   const handleCheckBox = e => {
@@ -26,8 +20,8 @@ const AccommodationsForm = ({
         selectedCategories: formState.selectedCategories.concat(checkedArray)
       });
     } else {
-      const filteredState = formState.selectedCategories.length
-        ? formState.selectedCategories.filter(
+      const filteredState = formState.selectedCategories.length?
+        formState.selectedCategories.filter(
             object => object.category !== formattedName
           )
         : [];

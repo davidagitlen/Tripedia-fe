@@ -4,14 +4,8 @@ import { FormContext } from "../../Contexts/FormContext";
 import attractionSvg from "../../Images/attractions-pin.svg";
 import { createStateObject, createCheckBoxNames } from "../../util/dataCleaner";
 
-const AttractionsForm = ({
-  collapseForm,
-  openForm,
-  defaultForm,
-  formObject
-}) => {
+const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => {
   const { formState, setFormState } = useContext(FormContext);
-
   const stateObject = createStateObject(formObject);
   const checkboxNames = createCheckBoxNames(formObject);
   const [form, toggleClicked] = useState({ ...stateObject });

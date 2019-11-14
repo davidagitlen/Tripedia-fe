@@ -2,17 +2,18 @@ import React, { useState, useContext } from "react";
 import "./LoginForm.scss";
 import { NavLink } from "react-router-dom";
 import banner from "../../Images/banner.png";
-import { UserContext } from '../../Contexts/UserContext';
+import { FormContext } from '../../Contexts/FormContext';
 import { loginUser } from '../../util/apiCalls';
 
 const LoginForm = () => {
-  const { userLogin } = useContext(UserContext);
+  const { formState, setFormState } = useContext(FormContext);
   const [loginState, handleForm] = useState({
     email: "",
     password: ""
   });
   const { email, password } = loginState;
   const isEnabled = email && password;
+  
   const handleChange = e => {
     handleForm({ ...loginState, [e.target.name]: e.target.value });
   };
@@ -20,7 +21,8 @@ const LoginForm = () => {
   const handleSubmit = async () => {
     try {
       const userInfo = await loginUser(email, password);
-      userLogin({
+      setFormState({
+        ...formState,
         email: userInfo.email,
         name: userInfo.name,
         id: userInfo.id

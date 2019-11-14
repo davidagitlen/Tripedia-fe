@@ -2,30 +2,29 @@ import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import './CreateAccount.scss';
 import banner from '../../Images/banner.png';
-import { UserContext } from '../../Contexts/UserContext';
+import { FormContext } from '../../Contexts/FormContext';
 import { createAccount } from '../../util/apiCalls';
 
 const CreateAccount = () => {
-  const { userLogin } = useContext(UserContext);
-  
+  const { formState, setFormState } = useContext(FormContext);
   const [accountState, setAccountState] = useState({
     name: '',
     email: '',
     password: '',
     password_confirmation: '',
   })
-
   const {name, email, password, password_confirmation} = accountState
   const isEnabled = email && password && name && password && password_confirmation;
   
- const handleChange = (e) => {
+  const handleChange = (e) => {
    setAccountState({...accountState, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async () => {
     try {
       const userInfo = await createAccount(name, email, password, password_confirmation);
-      userLogin({ 
+      setFormState({
+        ...formState,
         name: userInfo.name,
         email: userInfo.email,
         id: userInfo.id

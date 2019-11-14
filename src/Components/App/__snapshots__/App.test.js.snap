@@ -9,9 +9,15 @@ exports[`App should match the wrapper with data passed in 1`] = `
         "attractions": Object {},
         "destination": "",
         "destinationCity": "",
+        "distance": "",
         "drinks": Object {},
+        "email": "",
         "food": Object {},
+        "id": "",
+        "isLoading": false,
+        "loadingArray": Array [],
         "miscellaneous": Object {},
+        "name": "",
         "origin": "",
         "originCity": "",
         "selectedCategories": Array [],
@@ -24,47 +30,22 @@ exports[`App should match the wrapper with data passed in 1`] = `
     }
   }
 >
-  <ContextProvider
-    value={
-      Object {
-        "user": Object {
-          "email": "",
-          "id": "",
-          "name": "",
-        },
-        "userLogin": [Function],
-      }
-    }
-  >
-    <ContextProvider
-      value={
-        Object {
-          "isLoadingState": Object {
-            "isLoading": false,
-            "loadingArray": Array [],
-          },
-          "setLoadingContext": [Function],
-        }
-      }
-    >
-      <div>
-        <Route
-          exact={true}
-          path="/"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/create_account"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/map"
-          render={[Function]}
-        />
-      </div>
-    </ContextProvider>
-  </ContextProvider>
+  <div>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/create_account"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/map"
+      render={[Function]}
+    />
+  </div>
 </ContextProvider>
 `;
