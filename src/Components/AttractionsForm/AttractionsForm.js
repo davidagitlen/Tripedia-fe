@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./AttractionsForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
 import attractionSvg from "../../Images/attractions-pin.svg";
@@ -9,6 +9,9 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
   const stateObject = createStateObject(formObject);
   const checkboxNames = createCheckBoxNames(formObject);
   const [form, toggleClicked] = useState({ ...stateObject });
+  useEffect(() => {
+    toggleClicked({ ...stateObject });
+  }, [Object.keys(formObject).length > 0])
 
   const handleCheckBox = e => {
     toggleClicked({ ...form, [e.target.value]: !form[e.target.value] });
@@ -31,6 +34,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
 
   const checkBoxes = checkboxNames.map(checkBox => {
     let name = checkBox.replace(/ /gi, "");
+
     return (
       <div key={name} className="individual-checkbox__container">
         <input
