@@ -15,6 +15,10 @@
   background-color: rgba(245, 245, 245, 0.8);
   border: solid lightgrey 1px;
   border-left: none;
+  position: absolute;
+  // justify-content: flex-end;
+  // align-items: flex-end;
+  z-index: 1000;
 }
 .collapse_button:hover {
   height: 350px;
@@ -115,21 +119,29 @@
   }
 }
 
-// .collapsed-form__container {
-//   position: absolute;
-//   visibility: hidden;
+.collapsed-forms__container {
+  // width: 0px;
+  // display: none;
+  position: absolute;
+  visibility: hidden;
 
-//   .form-closed__container {
-//     position: absolute;
-//     visibility: hidden;
+  .form-closed__container {
+    // width: 0px;
+    // display: none;
+    position: absolute;
+    visibility: hidden;
 
-//     img {
-//       position: absolute;
-//       visibility: hidden;
-//     }
-//     p {
-//       position: absolute;
-//       visibility: hidden;
-//     }
-//   }
-// }
+  img {
+    // width: 0px;
+    // display: none;
+    position: absolute;
+    visibility: hidden;
+  }
+  p {
+    // display: none;
+    // width: 0px;
+    position: absolute;
+    visibility: hidden;
+    }
+  } 
+}
