@@ -31,6 +31,7 @@ export const FormsContainer = () => {
     SubmitTripForm: false
   };
   const { accommodations, attractions, food, drinks, services} = formState; 
+  const collapsedClass = collapsed ? 'collapsed-forms__container' : 'forms-container__container';
 
   if (collapsed) {
     return (
@@ -48,7 +49,8 @@ export const FormsContainer = () => {
   } else {
     return (
       <div className="not-collapsed-forms__button">
-        <div className="forms-container__container">
+        <div className='forms-container__container'>
+        {/* <div className={collapsedClass}> */}
           <StartForm
             collapseForm={collapseForm}
             openForm={openForm}
