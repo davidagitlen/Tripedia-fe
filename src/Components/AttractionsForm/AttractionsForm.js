@@ -34,7 +34,6 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
 
   const checkBoxes = checkboxNames.map(checkBox => {
     let name = checkBox.replace(/ /gi, "");
-
     return (
       <div key={name} className="individual-checkbox__container">
         <input
