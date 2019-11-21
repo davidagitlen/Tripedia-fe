@@ -31,24 +31,27 @@ export const FormsContainer = () => {
     SubmitTripForm: false
   };
   const { accommodations, attractions, food, drinks, services} = formState; 
+  const collapsedClass = collapsed ? 'collapsed-forms__container' : 'forms-container__container';
 
-  if (collapsed) {
+  // if (collapsed) {
+  //   return (
+  //     <div className="collapsed-forms__button">
+  //       <button
+  //         className="collapse_button"
+  //         onClick={() => {
+  //           collapseFormContainer(!collapsed);
+  //         }}
+  //       >
+  //         {"||"}
+  //       </button>
+  //     </div>
+  //   );
+  // } else {
     return (
-      <div className="collapsed-forms__button">
-        <button
-          className="collapse_button"
-          onClick={() => {
-            collapseFormContainer(!collapsed);
-          }}
-        >
-          {"||"}
-        </button>
-      </div>
-    );
-  } else {
-    return (
+      <>
       <div className="not-collapsed-forms__button">
-        <div className="forms-container__container">
+        {/* <div className='forms-container__container'> */}
+        <div className={collapsedClass}>
           <StartForm
             collapseForm={collapseForm}
             openForm={openForm}
@@ -90,6 +93,7 @@ export const FormsContainer = () => {
             defaultForm={defaultOpenForm}
           />
         </div>
+      </div>
         <button
           className="collapse_button"
           onClick={e => {
@@ -98,9 +102,9 @@ export const FormsContainer = () => {
         >
           {"||"}
         </button>
-      </div>
+      </>
     );
   }
-};
+// };
 
 export default FormsContainer;

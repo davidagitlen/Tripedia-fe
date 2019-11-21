@@ -15,8 +15,11 @@
   background-color: rgba(245, 245, 245, 0.8);
   border: solid lightgrey 1px;
   border-left: none;
+  position: absolute;
+  // justify-content: flex-end;
+  // align-items: flex-end;
+  z-index: 1000;
 }
-
 .collapse_button:hover {
   height: 350px;
   width: 20px;
@@ -25,6 +28,7 @@
   border: solid black 1px;
   border-left: none;
 }
+
 .not-collapsed-forms__button {
   display: flex;
   justify-content: flex-end;
@@ -113,4 +117,31 @@
       }
     }
   }
+}
+
+.collapsed-forms__container {
+  // width: 0px;
+  // display: none;
+  position: absolute;
+  visibility: hidden;
+
+  .form-closed__container {
+    // width: 0px;
+    // display: none;
+    position: absolute;
+    visibility: hidden;
+
+  img {
+    // width: 0px;
+    // display: none;
+    position: absolute;
+    visibility: hidden;
+  }
+  p {
+    // display: none;
+    // width: 0px;
+    position: absolute;
+    visibility: hidden;
+    }
+  } 
 }

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./ServicesForm.scss";
 import { FormContext } from "../../Contexts/FormContext";
 import serviceSvg from "../../Images/services-pin.svg";
@@ -9,6 +9,9 @@ const ServicesForm = ({ collapseForm, openForm, defaultForm, formObject }) => {
   const stateObject = createStateObject(formObject);
   const checkboxNames = createCheckBoxNames(formObject);
   const [form, toggleClicked] = useState({ ...stateObject });
+  useEffect(() => {
+    toggleClicked({ ...stateObject });
+  }, [Object.keys(formObject).length > 0])
 
   const handleCheckBox = e => {
     toggleClicked({ ...form, [e.target.value]: !form[e.target.value] });
