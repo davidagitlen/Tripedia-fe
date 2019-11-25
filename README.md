@@ -21,7 +21,6 @@ https://damp-refuge-09649.herokuapp.com
 * Yelp API
 * ReactJS with hooks
 * SCSS
-* Javascript
 * Travis CI
 * Heroku
 
