@@ -8,8 +8,8 @@ import { loginUser } from '../../util/apiCalls';
 const LoginForm = () => {
   const { formState, setFormState } = useContext(FormContext);
   const [loginState, handleForm] = useState({
-    email: "",
-    password: ""
+    email: "g@g.com",
+    password: "pass"
   });
   const { email, password } = loginState;
   const isEnabled = email && password;
