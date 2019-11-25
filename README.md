@@ -1,7 +1,7 @@
 
 # Tripedia [![Build Status](https://travis-ci.org/davidagitlen/Tripedia-fe.svg?branch=master)](https://travis-ci.org/davidagitlen/Tripedia-fe)
 <em>Your Road Trip Encyclopedia</em><br>
-Tripedia is a road trip planning application. Drop in you're starting point and your final destination. Tripedia will find fun and quirky spots to stop along the way. From menus on the left, you can decide what types of stops you want to show up along your route. Click on a pin along the route and information for that stop pops up. You have the option to add that stop to your route or remove it if you change your mind. Once you submit your final route, Tripedia will send you an email with your travel plans. Start planning your road trip today, and let Tripedia help you find your way!
+Tripedia is a road trip planning application. Select your starting point and your final destination, and Tripedia will find fun and quirky spots to stop along the way! From menus on the left, you can decide what types of stops you want to show up along your route. Click on a pin along the route and information for that stop pops up. You have the option to add that stop to your route or remove it if you change your mind. Once you submit your final route, Tripedia will send you an email with your travel plans. Start planning your road trip today, and let Tripedia help you find your way!
 
 ### Check it out:
 https://tripedia-fe.herokuapp.com/<br>
