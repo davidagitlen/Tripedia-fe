@@ -29,7 +29,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Setup
 
-If you'd like to run the app locally, you can clone down this repo and run 
+If you'd like to run the app locally, you can clone down this repo, run 
 `npm start` and open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### ScreenShots
