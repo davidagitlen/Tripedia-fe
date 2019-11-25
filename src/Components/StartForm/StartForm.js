@@ -9,8 +9,8 @@ import { cleanData, assignObjectToArrays, cleanYelpResponse, objectifyArray } fr
 const StartForm = ({ collapseForm, openForm, defaultForm }) => {
   const { formState, setFormState } = useContext(FormContext);
   const [cities, enterCities] = useState({
-    origin: "",
-    destination: "",
+    origin: "Seattle, WA",
+    destination: "Minneapolis, MN",
     error: ""
   });
   const { distance } = formState;
