@@ -1,12 +1,18 @@
+.wrapper-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .collapsed-forms__button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: 80vh;
   background-color: rgba(228, 226, 226, 0);
-  z-index: 3;
   position: absolute;
 }
+
 .collapse_button {
   height: 350px;
   width: 20px;
@@ -15,11 +21,10 @@
   background-color: rgba(245, 245, 245, 0.8);
   border: solid lightgrey 1px;
   border-left: none;
-  position: absolute;
-  // justify-content: flex-end;
-  // align-items: flex-end;
-  z-index: 1000;
+  position: relative;
+  z-index: 3;
 }
+
 .collapse_button:hover {
   height: 350px;
   width: 20px;
@@ -124,24 +129,31 @@
   // display: none;
   position: absolute;
   visibility: hidden;
+  z-index: -1;
 
   .form-closed__container {
     // width: 0px;
     // display: none;
     position: absolute;
     visibility: hidden;
+    z-index: -1;
+
 
   img {
     // width: 0px;
     // display: none;
     position: absolute;
     visibility: hidden;
+    z-index: -1;
+
   }
   p {
     // display: none;
     // width: 0px;
     position: absolute;
     visibility: hidden;
+    z-index: -1;
+
     }
   } 
 }

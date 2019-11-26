@@ -17,22 +17,26 @@ exports[`LoginForm should match the wrapper with data passed in 1`] = `
       onChange={[Function]}
       placeholder="example@email.com"
       type="email"
-      value=""
+      value="g@g.com"
     />
     <input
       name="password"
       onChange={[Function]}
       placeholder="enter password"
       type="password"
-      value=""
+      value="pass"
     />
-    <button
-      className="button__disabled"
-      disabled={true}
-      type="submit"
+    <NavLink
+      to="/map"
     >
-      Login
-    </button>
+      <button
+        className="button__enabled"
+        onClick={[Function]}
+        type="submit"
+      >
+        Login
+      </button>
+    </NavLink>
     <NavLink
       to="/create_account"
     >

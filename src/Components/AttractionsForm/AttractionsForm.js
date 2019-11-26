@@ -12,7 +12,7 @@ const AttractionsForm = ({ collapseForm, openForm, defaultForm, formObject}) => 
   useEffect(() => {
     toggleClicked({ ...stateObject });
   }, [Object.keys(formObject).length > 0])
-
+ 
   const handleCheckBox = e => {
     toggleClicked({ ...form, [e.target.value]: !form[e.target.value] });
     const formattedName = e.target.name.toLowerCase();
