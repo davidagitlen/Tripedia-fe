@@ -79,10 +79,16 @@ const Pin = (props) => {
           src={image}
           alt={name}
         ></img>
-        <a href={url} target="_blank" rel="noopener noreferrer">
+        <a 
+          href={url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
           {rating}
         </a>
-        <button onClick={handleUpdateStops}>{addOrRemoveText}</button>
+        <button onClick={handleUpdateStops}>
+          {addOrRemoveText}
+        </button>
       </div>
     );
   }

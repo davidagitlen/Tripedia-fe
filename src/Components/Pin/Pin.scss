@@ -23,23 +23,40 @@
     left: -2px;
   }
 }
-  .pin-hover {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    left: -20px;
-    top: -20px;
-    border: 2.5px solid rgb(0, 0, 0);
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.95);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    color: rgb(63, 81, 181);
-    font-size: 16px;
+
+.pin-hover {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: -20px;
+  top: -20px;
+  border: 2.5px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: rgb(63, 81, 181);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px;
+  z-index: 999;
+
+  & button {
+    width: 75%;
+    border-radius: 40px;
+    height: 40px;
     font-weight: bold;
-    padding: 4px;
-    z-index: 999;
+    font-size: 16px;
+    border: 2px solid #001c3a;
+
+    &:hover {
+      background-color: #001c3a;
+      color: whitesmoke;
+    }
+
   }
+  
+}
 
